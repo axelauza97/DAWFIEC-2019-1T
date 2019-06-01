@@ -36,6 +36,7 @@ cursor: pointer;
 
 .card-header h3{
 color: white;
+font-size: 40px;
 }
 
 .social_icon{
@@ -46,7 +47,7 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #FFC312;
+background-color: #BA1010;
 color: black;
 border:0 !important;
 }
@@ -56,7 +57,11 @@ outline: 0 0 0 0  !important;
 box-shadow: 0 0 0 0 !important;
 
 }
-
+#imgencabezado{
+ 	float:left;
+ 	margin: 5px;
+}
+/*
 .remember{
 color: white;
 }
@@ -67,23 +72,30 @@ width: 20px;
 height: 20px;
 margin-left: 15px;
 margin-right: 5px;
-}
+}*/
 
 .login_btn{
-color: black;
-background-color: #FFC312;
+color: white;
+background-color: #BA1010;
 width: 100px;
+
 }
 
 .login_btn:hover{
-color: black;
-background-color: white;
+color: white;
+background-color: #EC4646;
+font-weight: bold;
 }
 
 .links{
 color: white;
+
 }
 
 .links a{
 margin-left: 4px;
+
+}
+h3{
+	font-weight: bold;
 }
