@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+nav {
+	font-size: 20px;
+	position: sticky;
+	top: 0;
+	z-index: 99;
+	margin-bottom: 5px;
+}
+nav ul li{
+	padding: 0%;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+}
+nav ul li:nth-child(4) button{
+	float: right;
+}
