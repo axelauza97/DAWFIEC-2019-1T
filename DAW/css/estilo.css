@@ -1,14 +1,14 @@
-*{
+/**{
 	font-family: "georgia";
 
 
-}
+}*/
 
 body{
 	background-image: url("https://lh4.googleusercontent.com/proxy/G80PtBHjn0mlvbk82NXv1otFRhRLkymhCFZNI7-sFENHB_0S9iI3cvTgDGkMO7Jyg3AnvFZf9r1EmZ6leSAPom809iBucD-QthrTs4A=s0-d");
 
 
-}
+}/*
 #cuadrosesion{
 	border: 5px solid #ccc;
 
@@ -38,4 +38,4 @@ body{
 	padding: 2% 0% 2% 0%; 
 	font-size:	30px;	
 
-}
+}*/
