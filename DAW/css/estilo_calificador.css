@@ -21,7 +21,13 @@ nav ul li{
 	padding-left: 5%;
 	padding-right: 5%;
 }
-.ml-auto .dropdown-menu {
+.ml-auto{
       left: auto !important;
       right: 0px;
     }
+.dropdown ul a:hover{
+	font-weight: bold; 
+}
+.dropdown-toggle::after {
+    display:none;
+}
