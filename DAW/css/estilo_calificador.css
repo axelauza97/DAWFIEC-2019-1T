@@ -13,15 +13,43 @@ nav {
 	z-index: 99;
 	margin-bottom: 5px;
 }
+
 nav ul li{
 	padding: 0%;
 	text-align: center;
 	display: flex;
 	justify-content: space-evenly;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-left:  15%;
+
 }
+/*
 .ml-auto .dropdown-menu {
       left: auto !important;
       right: 0px;
-    }
+}
+*/
+#logout{
+	background:  #BA1010;
+	border-color: white;
+}
+
+#logout:hover{
+	color: white;
+	background-color: #D3D2D2;
+	font-weight: bold;
+}
+#nav{
+	background: #990909;
+}
+#submenus{
+	background: #990909;
+}
+#submenus>a{
+	color:white;
+}
+#submenus>a:hover{
+	color: white;
+	background-color: #D3D2D2;
+	font-weight: bold;
+}
+
