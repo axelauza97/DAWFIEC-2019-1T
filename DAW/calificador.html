@@ -11,21 +11,51 @@
   	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   	<script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-  	<!--Fontawesome CDN-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="./css/estilo_calificador.css">
+	<link rel="stylesheet" type="text/css" href="./css/estilo.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark rounded">
-		    <ul class="navbar-nav ">
-		      <li class="nav-item "><a class="nav-link" href="#">Inicio</a></li>
-		      <li class="nav-item"><a class="nav-link" href="#">Proceso</a></li>
-		      <li class="nav-item"><a class="nav-link" href="#">Consulta</a></li>
-		    </ul>
-		    <ul class="navbar-nav ml-auto">
-		    	<li class="nav-item"><button class="btn btn-success" type="submit">Logout</button></li>
-	    	</ul>
-	</nav>
+	<nav id ="nav" class="navbar navbar-expand-lg navbar-dark secundary-color">
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+ 	 </button>
+  	<div class="collapse navbar-collapse" id="basicExampleNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio
+        </a>
+      </li>
+      <li  class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Procesos</a>
+        <div id ="submenus" class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Ingresar Auditores</a>
+          <a class="dropdown-item" href="#">Ingresar Certificado</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Consultas</a>
+        <div id ="submenus" class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Consultas Auditores</a>
+          <a class="dropdown-item" href="#">Consultas Certificado</a>
+        </div>
+      </li>
+
+    </ul>
+    <!-- Links -->
+
+    <form class="form-inline">
+      <div class="md-form my-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Búsqueda" aria-label="Search">
+        <button id="logout" class="btn btn-success" type="submit">Cerrar Sesión</button>
+      </div>
+    </form>
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+
 </body>
 </html>
