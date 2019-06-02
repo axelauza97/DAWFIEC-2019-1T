@@ -18,7 +18,10 @@ nav ul li{
 	text-align: center;
 	display: flex;
 	justify-content: space-evenly;
+	padding-left: 5%;
+	padding-right: 5%;
 }
-nav ul li:nth-child(4) button{
-	float: right;
-}
+.ml-auto .dropdown-menu {
+      left: auto !important;
+      right: 0px;
+    }
