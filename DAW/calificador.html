@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calificador</title>
+	<title>Principal</title>
   	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -23,8 +23,14 @@
  	 </button>
   	<div class="collapse navbar-collapse" id="basicExampleNav">
 	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Inicio</a>
+	      <li  class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+		          aria-haspopup="true" aria-expanded="false">Inicio</a>
+		        <div id ="submenus" class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="dropdown-item" href="#">Cambiar Clave</a>
+			          <a class="dropdown-item" href="./creadores.html">Información Autores</a>
+
+		        </div>
 	      </li>
 	      <li  class="nav-item dropdown">
 		        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
