@@ -5,20 +5,29 @@ body {
 
 .form {
     width: 90%;
-    height: 80%;
     background: rgba(255,0,0,30%);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
-    margin: calc(50vh - 220px) auto;
-    padding: 20px 30px;
-    max-width: calc(100vw - 40px);
+    padding: 5%;
+    margin: 5%;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    position: relative;
+    display: block;
+}
+
+.left{
+    display: inline-block;
+    width: 45%;
+    padding: 0% 9% 0% 0%;
+}
+
+.right{
+    display: inline-block;
+    width: 45%;
 }
 
 h2 {
-    margin: 10px 0;
+    text-align: center;
     padding-bottom: 10px;
     width: 180px;
     color: #fff;
@@ -36,6 +45,7 @@ input {
     font-family: 'Montserrat', sans-serif;
     transition: all .3s;
     border-bottom: 2px solid #bebed2;
+    justify-content: center
 }
 
 input:focus {
@@ -51,22 +61,18 @@ p:before {
 }
 
 button {
-    float: right;
     padding: 8px 12px;
-    margin: 8px 0 0;
+    margin: 4% 0% 0% 45%;
     font-family: 'Montserrat', sans-serif;
     border: 2px solid #78788c;
     background: 0;
     color: #fff;
     cursor: pointer;
-    transition: all .3s
+    transition: all .3s;
+    font-size: 16px;
 }
 
 button:hover {
     background: #78788c;
     color: #fff
-}
-
-span {
-    margin: 0 5px 0 15px
 }
