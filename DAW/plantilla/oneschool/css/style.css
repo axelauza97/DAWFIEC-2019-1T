@@ -771,10 +771,12 @@ td, th {
   background: #EA7171;
   border-color: #BA1313;
 }
-#ingresar :hover  {
+#ingresar:hover  {
   background: #BA1313;
   color: #fff; }
-
+#btnIngresar:hover  {
+  background: #BA1313;
+  color: #fff; }
 
 .cta a.active {
   border-bottom: none; }
@@ -1074,7 +1076,7 @@ td, th {
 
 .courses-title {
   padding-bottom: 13rem;
-  background: #7971ea; }
+  background: #990909; }
   .courses-title .section-title {
     color: #fff; }
 
