@@ -62,6 +62,31 @@ h1, h2, h3, h4, h5,
   .offcanvas-menu .site-wrap:before {
     opacity: 1;
     visibility: visible; }
+#titulod{
+  color:white;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: justify;
+  padding: 8px;
+}
+
+#d1 {
+  list-style: none;
+}
+#slogan{
+  font-size: 40px;
+  color:white;
+  font-weight: bold;
+}
+#descripcion{
+  text-align: justify;
+}
 
 .btn {
   text-transform: uppercase;
@@ -685,8 +710,14 @@ h1, h2, h3, h4, h5,
   border-radius: 7px; }
 #btnIngresar{
   width: 150px;
-  
+  background: #EA7171;
+  border-color: #BA1313; 
 }
+
+#ingresar :hover  {
+  background: #BA1313;
+}
+
 #izq {
   padding-left: 25%
 }
@@ -706,6 +737,10 @@ h1, h2, h3, h4, h5,
   width: 800px;
 }
 
+#recuperarcontra{
+  color:black;
+  text-decoration: underline;
+}
 
 .site-section {
   padding: 4em 0;
@@ -715,10 +750,10 @@ h1, h2, h3, h4, h5,
       padding: 4em 0; } }
 
 .cta a span {
-  border-color: #7971ea;
+  border-color: #BA1313;
   padding: 14px 20px;
   color: #fff;
-  background: #7971ea;
+  background: #EA7171;
   border-radius: 30px;
   font-size: .7rem;
   font-weight: 900;
@@ -730,8 +765,16 @@ h1, h2, h3, h4, h5,
     color: #fff; }
 
 .cta a:hover span {
-  background: #4f45e3;
+  background: #BA1313;
   color: #fff; }
+#ingresar {
+  background: #EA7171;
+  border-color: #BA1313;
+}
+#ingresar :hover  {
+  background: #BA1313;
+  color: #fff; }
+
 
 .cta a.active {
   border-bottom: none; }

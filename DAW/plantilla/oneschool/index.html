@@ -44,7 +44,7 @@
       
       <div class="container-fluid">
         <div class="d-flex align-items-center">
-          <div class="site-logo mr-auto w-25"><a href="index.html">Bureau Veritas</a></div>
+          <div class="site-logo mr-auto w-25"><img id="imgencabezado" type="img/png" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70">  <a href="index.html">Bureau Veritas</a></div>
 
           <div class="mx-auto text-center">
             <nav class="site-navigation position-relative text-right" role="navigation">
@@ -70,7 +70,7 @@
 
     <div class="intro-section" id="home-section">
       
-      <div class="slide-1" style="background-image: url('images/hero_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-12">
@@ -90,9 +90,9 @@
                       <input type="password" class="form-control" placeholder="Contraseña">
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-pill"  value="Ingresar">
+                      <a href="./page_home.html" class="nav-link"><input type="link" id="ingresar" class="btn btn-primary btn-pill"  value="Ingresar"></a>
                     <div class="d-flex justify-content-center">
-                      <a href="#">Olvidó su Contraseña?</a>
+                      <a id="recuperarcontra" href="#">Olvidó su Contraseña?</a>
                     </div>
                     </div>
                   </form>
@@ -111,6 +111,8 @@
         <div class="row mb-5 justify-content-center">
           <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
             <h2 class="section-title">Desarrolladores</h2>
+            <p class="mb-5" id="titulod">Estudiantes de la Escuela Superior Politécnica del Litoral. Dedicados al desarrollo de aplicaciones web.</p>
+            <p id="slogan">"Building Ideas"</p>
           </div>
         </div>
       </div>
@@ -123,7 +125,7 @@
 
             <div class="course bg-white h-100 align-self-stretch">
               <figure class="m-0">
-                <a href="course-single.html"><img src="./axel.jpg" alt="Image" class="img-fluid"></a>
+                <a href="course-single.html"><img src="./images/icon.svg"  alt="Image" class="img-fluid"></a>
               </figure>
               <div class="course-inner-text py-4 px-4">
                  <div class="meta"><span class="icon-user"> Desarrollador</span></div>
@@ -134,7 +136,7 @@
 
             <div class="course bg-white h-100 align-self-stretch">
               <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
+                <a href="course-single.html"><img src="./images/icon.svg"  alt="Image" class="img-fluid"></a>
               </figure>
               <div class="course-inner-text py-4 px-4">
                  <div class="meta"><span class="icon-user"> Desarrollador</span></div>
@@ -145,7 +147,7 @@
 
             <div class="course bg-white h-100 align-self-stretch">
               <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
+                <a href="course-single.html"><img src="images/icon.svg" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="course-inner-text py-4 px-4">
                  <div class="meta"><span class="icon-user"> Desarrollador</span></div>
@@ -155,11 +157,11 @@
             </div>
             <div class="course bg-white h-100 align-self-stretch">
               <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
+                <a href="course-single.html"><img src="images/icon.svg" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="course-inner-text py-4 px-4">
                 <div class="meta"><span class="icon-user"> </span> Desarrollador</div>
-                <h3><a href="#">Patricio Tovar</a></h3>
+                <h3><a href="#">Patricio Javier Tovar Vera</a></h3>
                 <p>Ing. Computación</p>
               </div>
             </div>
@@ -173,6 +175,42 @@
         </div>
       </div>
     </div>
+    <div class="site-section" id="contact-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center"  data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">¿Quiénes Somos?</h2>
+            <p id="descripcion">Creada en 1828, Bureau Veritas es líder mundial en ensayos, inspección y certificación (TIC), facilita servicios de alta calidad para ayudar a los clientes a cumplir los crecientes desafíos de la calidad, seguridad, protección del medio ambiente y la responsabilidad social.
+            Como un socio de confianza, Bureau Veritas ofrece soluciones innovadoras que van más allá del simple cumplimiento de las regulaciones y normas, reducir el riesgo, mejorar el rendimiento y la promoción del desarrollo sostenible.Como valores fundamentales de Bureau Veritas, están la integridad y la ética, el consejo y la validación imparcial, la orientación al cliente y la seguridad en el trabajo.</p>
+          </div>
+        </div>
+        <div class="row mb-5 align-items-center">
+          <div class="col-lg-8 mb-5" data-aos="fade-up" data-aos-delay="100">
+            <table id="contactos">
+              <tr>
+                <th>Ciudad</th>
+                <th>Contacto</th>
+                <th>División</th>
+              </tr>
+              <tr>
+                <td>Quito</td>
+                <td>Pedro Ponce Carrasco E8-06 y Av. Diego de Almagro, Ed. Almagro Plaza, Of. 1010-1012</td>
+                <td><li  id="d1" >Certification</li> <li id="d1">Marine & Offshore</li></td>
+              </tr>
+              <tr>
+                <td>Guayaquil</td>
+                <td>Kennedy Norte, Av. Miguel H. Alcivar y Eleodoro Arboleda Edificio Plaza Center Piso 3, Oficina 303 P.O. Box 09-06-6040</td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-black mb-4">Oficinas en Ecuador</h2>
+            <li>Quito</li>
+            <li>Guayaquil</li>
+            <li>Cuenca</li>
+          </div>
+        </div>
     <footer class="footer-section bg-gray">
       <div class="container">
             <p id="">
