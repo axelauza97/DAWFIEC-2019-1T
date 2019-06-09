@@ -710,8 +710,7 @@ td, th {
   border-radius: 7px; }
 #btnIngresar{
   width: 150px;
-  background: #EA7171;
-  border-color: #BA1313; 
+  background: #BA1313;
 }
 
 #ingresar :hover  {
@@ -753,7 +752,7 @@ td, th {
   border-color: #BA1313;
   padding: 14px 20px;
   color: #fff;
-  background: #EA7171;
+  background: #BA1313;
   border-radius: 30px;
   font-size: .7rem;
   font-weight: 900;
@@ -765,17 +764,16 @@ td, th {
     color: #fff; }
 
 .cta a:hover span {
-  background: #BA1313;
+  background: #EA7171;
   color: #fff; }
 #ingresar {
-  background: #EA7171;
-  border-color: #BA1313;
+  background: #BA1313;
 }
 #ingresar:hover  {
-  background: #BA1313;
+  background: #EA7171;
   color: #fff; }
 #btnIngresar:hover  {
-  background: #BA1313;
+  background: #EA7171;
   color: #fff; }
 
 .cta a.active {
@@ -951,7 +949,8 @@ td, th {
 .footer-section {
   padding: 1em 0;
   background-color: #fafafa;
-  text-align: center; }
+  text-align: center; 
+  margin-bottom:0;}
   .footer-section p {
     font-size: 1rem; }
   .footer-section h3 {
@@ -1208,3 +1207,11 @@ td, th {
         .comment-list li .comment-body .reply:hover {
           color: #000;
           background: #e3e3e3; }
+
+
+.card-st{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    align-content: center;
+}
