@@ -1732,4 +1732,8 @@ th {
     font-weight: 700;
     color: #fff;
     align-content: center;
+    height: 25vh;
+}
+.card-st:hover {
+    height: 26vh;
 }
