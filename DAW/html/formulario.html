@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>I_Certificado</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="img/png" href="./img/logo.png">
+    <meta name="author" content="Auza,Jacome, Rios, Tovar">
+    
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/estilo_calificador.css">
+    <link rel="stylesheet" type="text/css" href="./css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="./css/estilosForm.css">
+</head>
+<body>
+
+<nav id ="nav" class="navbar navbar-expand-lg navbar-dark secundary-color">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+     </button>
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+        <ul class="navbar-nav mr-auto">
+          <li  class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Inicio</a>
+                <div id ="submenus" class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Cambiar Clave</a>
+                      <a class="dropdown-item" href="./creadores.html">Información Autores</a>
+
+                </div>
+          </li>
+          <li  class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Procesos</a>
+                <div id ="submenus" class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Ingresar Auditores</a>
+                      <a class="dropdown-item" href="./formulario.html">Ingresar Certificado</a>
+                </div>
+          </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Consultas</a>
+                <div id ="submenus" class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Consultas Auditores</a>
+                      <a class="dropdown-item" href="./creadores.html">Consultas Certificado</a>
+                </div>
+          </li>
+
+        </ul>
+    <!-- Links -->
+
+        <form class="form-inline">
+              <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Búsqueda" aria-label="Search">
+                <button id="logout" class="btn btn-success" type="submit">Cerrar Sesión</button>
+              </div>
+        </form>
+    </div>
+  <!-- Collapsible content -->
+
+</nav>
+<section class="formulario">
+    <form class="form">
+        <h2 id="icertificado">Ingreso Certificado</h2>
+        <div class="left">
+            <p type="No. Cliente:"><input placeholder="00001"></input></p>
+            <p type="Cliente:"><input placeholder="Ingrese el nombre del cliente."></input></p>
+            <p type="Tipo de Trabajo:"><input placeholder=""></input></p>
+            <p type="Valor:"><input placeholder="$"></input></p>   
+        </div>
+        <div class="right">
+            <p type="No. de Cotización:"><input placeholder="------"></input></p>
+            <p type="Fecha de Cotización:"><input placeholder="__/__/____"></input></p>
+            <p type="Fecha de Inspeccion:"><input placeholder="__/__/____"></input></p>  
+            <p type="Auditor:"><input placeholder=""></input></p>
+        </div>
+        <p class="top" type="Descripción:"><input placeholder="Opcional"></input></p>
+        <button id="proceso" class="btn btn-success" type="submit">Registrar</button>
+    </form> 
+</section>
+
+</body>
+</html>

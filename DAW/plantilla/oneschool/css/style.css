@@ -59,6 +59,8 @@ h5,
     color: rgba(255, 255, 255, 0.5);
 }
 
+
+
 .site-wrap:before {
     display: none;
     -webkit-transition: .3s all ease-in-out;
@@ -1208,6 +1210,11 @@ th {
     }
 }
 
+#ax{
+    width: 500px;
+    height: 300px;
+}
+
 .image-absolute-box .box .icon-wrap {
     color: #fff;
     margin-bottom: 1.5rem;
@@ -1732,8 +1739,16 @@ th {
     font-weight: 700;
     color: #fff;
     align-content: center;
-    height: 25vh;
+    height: 45vh;
 }
 .card-st:hover {
-    height: 26vh;
+    height: 48vh;
+    color: black;
+
+}
+#linkc{
+    color: white;
+}
+#parrafo{
+    text-align: justify;
 }
