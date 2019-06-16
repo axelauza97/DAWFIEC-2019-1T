@@ -1736,15 +1736,17 @@ th {
 
 .card-st {
     font-size: 1.5rem;
-    font-weight: 700;
     color: #fff;
-    align-content: center;
     height: 45vh;
+    text-align: center;  
 }
 .card-st:hover {
     height: 48vh;
-    color: black;
 
+}
+.card-st li{
+    list-style: none;
+      
 }
 #linkc{
     color: white;

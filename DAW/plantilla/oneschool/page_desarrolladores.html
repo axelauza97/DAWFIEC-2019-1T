@@ -20,10 +20,19 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
     @media screen and (max-width: 700px) {
-        .intro-section h1{
-            margin-top: 150px;
+        .courses-title h2{
+            margin-top: 20px;
         }
     }
+    .row > .col-12 > .course > figure{
+      display: flex;
+      flex-direction: column;
+      height:45vh; 
+    }
+    .courses-entry-wrap{
+        margin-top: -400px;
+    }
+
     </style>
 </head>
 
@@ -65,7 +74,7 @@
         <div class="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
             <div class="container">
                 <div class="row">
-                    <div class="owl-carousel col-12 nonloop-block-14">
+                    <div class="owl-carousel col-12 nonloop-block-14 ">
                         <div class="course bg-white h-100 align-self-stretch">
                             <figure class="m-0">
                                 <a id="ax" href="course-single.html"><img src="./images/axel.jpg" alt="Image" class="img-fluid"></a>
