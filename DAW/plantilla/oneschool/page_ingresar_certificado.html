@@ -39,20 +39,23 @@
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                                 <li class="nav-link dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Inicio</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" href="#">Inicio</a>
                                     <div class="dropdown-menu dropdown-primary">
                                         <a class="dropdown-item" href="#">Cambiar Clave</a>
                                     </div>
                                 </li>
                                 <li class="nav-link dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Procesos</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" href="#">Procesos</a>
                                     <div class="dropdown-menu dropdown-primary">
                                         <a class="dropdown-item" href="#">Ingresar Auditores</a>
                                         <a class="dropdown-item" href="./page_home.html">Ingresar Certificado</a>
                                     </div>
                                 </li>
                                 <li class="nav-link  dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Consultas</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" href="#">Consultas</a>
                                     <div class="dropdown-menu dropdown-primary">
                                         <a class="dropdown-item" href="#">Consultas Auditores</a>
                                         <a class="dropdown-item" href="#">Consultas Certificado</a>
@@ -65,53 +68,100 @@
             </div>
         </header>
         <div class="intro-sectionf" id="home-section">
-            <div class="slide-1" style="background-image: url('images/hero_1.jpg');" data-stellar-background-ratio="0.5">
+            <div class="slide-1" style="background-image: url('images/hero_1.jpg');"
+                data-stellar-background-ratio="0.5">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-sm-12">
                             <form method="post" class="form-box">
                                 <h3 id="titulo" class="h4 text-black mb-4">Certificado</h3>
-                                <div class="form-group">
-                                    <div class="form-group">
-                                        <label>No. Cliente<input type="text" value=""></label>
-                                        <label id="izq">Cliente<input value=""></label>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="nempresa">Nombre de la Empresa</label>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Tipo de Trabajo<input value=""></label>
-                                        <label id="izq1">Valor<input type="number" value=""></label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>No. de Cotización<input value=""></label>
-                                        <label id="izq2">Fecha de Cotización<input type="date" value=""></label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Fecha de Inspeccion<input type="date" value=""></label>
-                                        <label id="izq3">Auditor<input value=""></label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Descripción<br><br><textarea id="textarea" placeholder="Detalles"></textarea></label>
+                                    <div class="col-75">
+                                        <input type="text" id="nempresa" name="empresa"
+                                            placeholder="Nombre de la empresa...">
                                     </div>
                                 </div>
-                                <div class="form-group" id="fboton">
-                                    <input id="btnIngresar" type="submit" class="btn btn-danger btn-pill" value="Ingresar">
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="frepresentante">Representante</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" id="frepresentante" name="representante"
+                                            placeholder="Representante...">
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="tipo">Tipo de Trabajo</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <select id="ttrabajo" name="trabajo">
+                                            <option value="tipo1">Tipo 1</option>
+                                            <option value="tipo2">Tipo 2</option>
+                                            <option value="tipo3">Tipo 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="fcotizacion">Fecha de Cotización</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="fcotizacion" name="cotizacion"
+                                            placeholder="Fecha de Cotización...">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="valorc">Valor</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="number" id="valorc" name="valor" placeholder="valor...">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="descripcion">Descripción</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <textarea id="descripcion" name="descripcion" placeholder="Descripción"
+                                            style="height:200px"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="b1" id="fboton1">
+                                        <input id="btnIngresar" type="submit" class="btn btn-danger btn-pill"
+                                            value="Cancelar">
+                                    </div>
+                                    <div class="b2" id="fboton2">
+                                        <input id="btnIngresar" type="submit" class="btn btn-danger btn-pill"
+                                            value="Siguiente">
+                                    </div>
+                            </form>
                             </form>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-        <footer class="footer-section bg-gray">
-            <div class="container">
-                <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
+    </div>
+    <footer class="footer-section bg-gray">
+        <div class="container">
+            <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>
                     document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                </p>
-            </div>
-        </footer>
+                </script> All rights reserved | This template is made with <i class="icon-heart"
+                    aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+    </footer>
     </div> <!-- .site-wrap -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
