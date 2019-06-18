@@ -40,65 +40,43 @@
                         <div class="col-sm-12">
                             <form method="post" class="form-box">
                                 <div class="w3-progress-container">
-                                    <div id="myBar" class="w3-progressbar w3-gray" style="width:33%">
-                                        <div id="demo" class="w3-center w3-text-white">Paso 1</div>
+                                    <div id="myBar" class="w3-progressbar w3-gray" style="width:66%">
+                                        <div id="demo" class="w3-center w3-text-white">Paso 2</div>
                                     </div>
                                 </div>
-                                <h3 id="titulo" class="h4 text-black mb-4">Proforma</h3>
+                                <h3 id="titulo" class="h4 text-black mb-4">Cotización</h3>
                                 <div class="row">
                                     <div class="col-25">
-                                        <label for="nempresa">Nombre de la Empresa</label>
+                                        <label for="ncotizacion">Codigo de Cotización</label>
                                     </div>
                                     <div class="col-75">
-                                        <input type="text" id="nempresa" name="empresa"
-                                            placeholder="Nombre de la empresa...">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label for="frepresentante">Representante</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <input type="text" id="frepresentante" name="representante"
-                                            placeholder="Representante...">
+                                        <input type="text" id="ncotizacion" name="Cotización" placeholder="N°1675"
+                                            readonly="readonly">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-25">
-                                        <label for="tipo">Tipo de Trabajo</label>
+                                        <label for="nauditor">Nombre del Auditor</label>
                                     </div>
                                     <div class="col-75">
-                                        <select id="ttrabajo" name="trabajo">
-                                            <option value="tipo1">Tipo 1</option>
-                                            <option value="tipo2">Tipo 2</option>
-                                            <option value="tipo3">Tipo 3</option>
-                                        </select>
+                                        <input type="text" id="nauditor" name="auditor"
+                                            placeholder="Ingrese el nombre del Auditor...">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-25">
-                                        <label for="fcotizacion">Fecha de Cotización</label>
+                                        <label for="finicial">Fecha Inicial de Auditoria</label>
                                     </div>
                                     <div class="col-75">
-                                        <input type="date" id="fcotizacion" name="cotizacion"
-                                            placeholder="Fecha de Cotización...">
+                                        <input type="date" id="finicial" name="fechaInicial">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-25">
-                                        <label for="valorc">Valor</label>
+                                        <label for="ffinal">Fecha Final de Auditoria</label>
                                     </div>
                                     <div class="col-75">
-                                        <input type="number" id="valorc" name="valor" placeholder="valor...">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label for="descripcion">Descripción</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <textarea id="descripcion" name="descripcion" placeholder="Descripción"
-                                            style="height:200px"></textarea>
+                                        <input type="date" id="ffinal" name="fechaFinal">
                                     </div>
                                 </div>
                                 <div class="row">
