@@ -23,10 +23,6 @@
     float: right;
   }
   
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
   .col-25 {
     float: left;
     width: 25%;
@@ -53,4 +49,11 @@
   
   .container{
       padding: 3%;
+  }
+
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
   }
