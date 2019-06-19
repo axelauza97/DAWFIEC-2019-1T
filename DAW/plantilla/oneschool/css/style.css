@@ -1754,3 +1754,34 @@ th {
 #parrafo{
     text-align: justify;
 }
+
+.dot {
+  height: 25%;
+  width: 25%;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.owl-carousel .owl-stage {
+    display: flex;
+}
+
+
+
+.owl-carousel .owl-item img {
+    width: auto;
+    height: 30vh;
+    object-fit: fill;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 1.5em;
+  color: #fff;
+  line-height: 100px;
+  text-align: center;
+  background: #000;
+  margin:2px;
+}
