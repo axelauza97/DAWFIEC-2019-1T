@@ -1800,3 +1800,75 @@ th {
     color: #FFF;
     cursor: pointer;
 }
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+  box-sizing: border-box;
+  text-align: justify;  
+}
+#proforma{
+    color:black;
+    font-size: 25px;
+    text-align: center; 
+
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
+}
+input.invalid {
+  background-color: #ffdddd;
+}
+.tab {
+  display: none;
+  padding: 15px;
+  color:#aaaaaa;
+}
+ #ttrabajo{
+  color:#aaaaaa;
+ }
+button {
+  background-color: #BA1313;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #BA1313;
+}
+.step {
+  height: 25px;
+  width: 25px;
+  margin: 0 2px;
+  background-color: #BA1313;
+  color: white;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #BA1313;
+}
