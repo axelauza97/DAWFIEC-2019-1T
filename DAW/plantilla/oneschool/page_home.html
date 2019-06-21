@@ -19,22 +19,51 @@
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+    .card-st{
+        height: 35vh !important;
+        width: auto !important;
+    }
+    .card-st:hover {
+        height: 40vh !important;
+    }
     @media screen and (max-width: 991px) {
-        .intro-section .col-12{
+        .intro-section .col-12 {
             margin-top: 150px;
         }
+
         .card-st {
             height: 25vh;
             font-size: 1rem;
         }
     }
+
     .card-st li:hover {
         font-weight: bold;
         text-shadow: 3px 2px black;
 
     }
-    .card-st ul{
+
+    .card-st ul {
         padding: 0px;
+    }
+
+     @media screen and (max-width: 470px) {
+        .card-st {
+            height: 25vh;
+            font-size: 1rem;
+        }
+        .card-st:hover {
+            height: 28vh;
+
+        }
+        .card-st .card-body,.card-st ul {
+            margin:0%;
+            padding: 0%;
+        }
+        .card-st .card-header{
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
     }
     </style>
 </head>
@@ -63,7 +92,7 @@
                     <div class="ml-auto w-25">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                <li class="cta"><a href="./index.html"><span class="icon-user"> Salir</span></a></li>
+                                <li class="cta"><a href="#contact-section"><span class="icon-user"> Salir</span></a></li>
                             </ul>
                         </nav>
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
@@ -77,19 +106,47 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="row align-items-center">
-                                <div class="col-lg-4 mb-4">
+                                <div class="col-lg-6 mb-6 mr-6">
                                     <div class="card card-st bg-danger" data-aos="fade-up" data-aos-delay="100">
                                         <a href="#">
                                             <div class="text-center">
                                                 <h1 class="card-header" data-aos="fade-up" data-aos-delay="150">CERTIFICADO</h1>
                                                 <div class="card-body" data-aos="fade-up" data-aos-delay="150">
-                                                  <ul>
-                                                    <li ><a id ="linkc" href="./page_ingresar_certificado.html">Ingresar Certificado</a></li>
-                                                    <li ><a id ="linkc" href="#">Consultas Certificado</a></li>
-                                                  </ul>
-                                                  <p id ="parrafo">Sección para el ingreso y consulta de certificados.</p></div>
+                                                    <ul>
+                                                        <li><a id="linkc" href="./page_ingresar_certificado.html">Ingresar Certificado</a></li>
+                                                        <li><a id="linkc" href="./page_consultar_certificado.html">Consultas Certificado</a></li>
+                                                    </ul>
+                                                    <p id="parrafo">Sección para el ingreso y consulta de certificados.</p>
+                                                </div>
                                             </div>
                                         </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-6">
+                                    <div class="d-flex align-items-center">
+                                        <ul class="list-unstyled ui-steps">
+                                            <li class="media">
+                                                <div class="circle-icon mr-4">1</div>
+                                                <div class="media-body">
+                                                    <h1>Paso 1</h1>
+                                                    <p>Explicacion </p>
+                                                </div>
+                                            </li>
+                                            <li class="media my-4">
+                                                <div class="circle-icon mr-4">2</div>
+                                                <div class="media-body">
+                                                    <h1>Paso 2</h1>
+                                                    <p>Explicacion</p>
+                                                </div>
+                                            </li>
+                                            <li class="media">
+                                                <div class="circle-icon mr-4">3</div>
+                                                <div class="media-body">
+                                                    <h1>Paso 3</h1>
+                                                    <p>Explicacion</p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +161,8 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                     document.write(new Date().getFullYear());
-                    </script> Desarrollo de Aplicaciones Web <i class="icon-heart" aria-hidden="true"></i> realizado por <a href="https://colorlib.com" target="_blank">Promind</a>
+                    </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
         </footer>
