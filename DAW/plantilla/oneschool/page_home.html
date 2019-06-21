@@ -19,52 +19,58 @@
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-    .card-st{
-        height: 35vh !important;
-        width: auto !important;
-    }
-    .card-st:hover {
-        height: 40vh !important;
-    }
-    @media screen and (max-width: 991px) {
-        .intro-section .col-12 {
-            margin-top: 150px;
-        }
-
         .card-st {
-            height: 25vh;
-            font-size: 1rem;
+            height: 35vh !important;
+            width: auto !important;
         }
-    }
 
-    .card-st li:hover {
-        font-weight: bold;
-        text-shadow: 3px 2px black;
-
-    }
-
-    .card-st ul {
-        padding: 0px;
-    }
-
-     @media screen and (max-width: 470px) {
-        .card-st {
-            height: 25vh;
-            font-size: 1rem;
-        }
         .card-st:hover {
-            height: 28vh;
+            height: 40vh !important;
+        }
+
+        @media screen and (max-width: 991px) {
+            .intro-section .col-12 {
+                margin-top: 150px;
+            }
+
+            .card-st {
+                height: 25vh;
+                font-size: 1rem;
+            }
+        }
+
+        .card-st li:hover {
+            font-weight: bold;
+            text-shadow: 3px 2px black;
 
         }
-        .card-st .card-body,.card-st ul {
-            margin:0%;
-            padding: 0%;
+
+        .card-st ul {
+            padding: 0px;
         }
-        .card-st .card-header{
-            margin-bottom: 0%;
-            padding-bottom: 0%;
+
+        @media screen and (max-width: 470px) {
+            .card-st {
+                height: 25vh;
+                font-size: 1rem;
+            }
+
+            .card-st:hover {
+                height: 28vh;
+
+            }
+
+            .card-st .card-body,
+            .card-st ul {
+                margin: 0%;
+                padding: 0%;
+            }
+
+            .card-st .card-header {
+                margin-bottom: 0%;
+                padding-bottom: 0%;
+            }
         }
-    }
     </style>
 </head>
 
@@ -81,7 +87,8 @@
         <header class="site-navbar py-4 js-sticky-header site-navbar-target">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png"
+                            alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
                     <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
@@ -91,17 +98,22 @@
                     </div>
                     <div class="ml-auto w-25">
                         <nav class="site-navigation position-relative text-right">
-                            <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                <li class="cta"><a href="#contact-section"><span class="icon-user"> Salir</span></a></li>
+                            <ul
+                                class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                                <li class="cta"><a href="#contact-section"><span class="icon-user"> Salir</span></a>
+                                </li>
                             </ul>
                         </nav>
-                        <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
+                        <a href="#"
+                            class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
                     </div>
                 </div>
             </div>
         </header>
         <div class="intro-section" id="home-section">
-            <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
+            <div class="slide-1" style="background-image: url('images/fondo1.jpg');"
+                data-stellar-background-ratio="0.5">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">
@@ -110,13 +122,19 @@
                                     <div class="card card-st bg-danger" data-aos="fade-up" data-aos-delay="100">
                                         <a href="#">
                                             <div class="text-center">
-                                                <h1 class="card-header" data-aos="fade-up" data-aos-delay="150">CERTIFICADO</h1>
+                                                <h1 class="card-header" data-aos="fade-up" data-aos-delay="150">
+                                                    CERTIFICADO</h1>
                                                 <div class="card-body" data-aos="fade-up" data-aos-delay="150">
                                                     <ul>
-                                                        <li><a id="linkc" href="./page_ingresar_certificado.html">Ingresar Certificado</a></li>
-                                                        <li><a id="linkc" href="./page_consultar_certificado.html">Consultas Certificado</a></li>
+                                                        <li><a id="linkc"
+                                                                href="./page_ingresar_certificado.html">Ingresar
+                                                                Certificado</a></li>
+                                                        <li><a id="linkc"
+                                                                href="./page_consultar_certificado.html">Consultas
+                                                                Certificado</a></li>
                                                     </ul>
-                                                    <p id="parrafo">Sección para el ingreso y consulta de certificados.</p>
+                                                    <p id="parrafo">Sección para el ingreso y consulta de certificados.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </a>
@@ -149,6 +167,9 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <div id="canvas-container" style="width:50%;">
+                                    <canvas id="chart" width="250" height="120"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,9 +180,11 @@
             <div class="container">
                 <p>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
-                    document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved | This template is made with <i class="icon-heart"
+                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
@@ -181,6 +204,9 @@
     <script src="js/jquery.fancybox.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="dist/Chart.bundle.min.js"></script>
+    <script  src="grafico_estadistico.js"></script>
 </body>
 
 </html>
