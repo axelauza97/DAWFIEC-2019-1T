@@ -1735,13 +1735,15 @@ th {
 
 
 .card-st {
+
     font-size: 1.5rem;
     color: #fff;
-    height: 35vh;
-    text-align: center;  
+    height: 44vh;
+    text-align: center;
+    width:  70vh;  
 }
 .card-st:hover {
-    height: 40vh;
+    height: 48vh;
 
 }
 .card-st li{
@@ -1850,6 +1852,14 @@ button:hover {
 
 #prevBtn {
   background-color: #BA1313;
+}
+#modAuditor{
+    color: black;
+    text-align: center;
+}
+#auditor{
+    color: black;
+    text-align: center;
 }
 .step {
   height: 25px;

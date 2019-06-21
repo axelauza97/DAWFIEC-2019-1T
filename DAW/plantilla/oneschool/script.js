@@ -72,3 +72,13 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
+function showAuditor(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("audi");
+if (n == (x.length - 1)) {
+    document.getElementById("consulBtn").innerHTML = "Modificar";
+  } else {
+    document.getElementById("consulBtn").innerHTML = "Ingresar";
+  }
+}

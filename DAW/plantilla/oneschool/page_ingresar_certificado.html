@@ -36,6 +36,13 @@
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                   <div class="mx-auto text-center">
+                        <nav class="site-navigation position-relative text-right">
+                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                                <li><a href="#"><span class="icon-exclamation"> </span> En esta área podrá ingresar la información correspondiente a la proforma. <span class="icon-exclamation"> </span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
     </header>
@@ -75,6 +82,7 @@
   								</div>
   								<div style="overflow:auto;">
    									<div style="float:right;">
+                                        <button type="button" id="salirBtn" >Salir</button>
       									<button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
       									<button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
     								</div>
