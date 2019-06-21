@@ -1,4 +1,8 @@
 /* Base */
+
+#mapid {
+    height: 400px;
+  }
 body {
     line-height: 1.7;
     color: gray;
