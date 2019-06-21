@@ -76,9 +76,15 @@ function fixStepIndicator(n) {
 function showAuditor(n) {
   // This function will display the specified tab of the form...
   var x = document.getElementsByClassName("audi");
-if (n == (x.length - 1)) {
-    document.getElementById("consulBtn").innerHTML = "Modificar";
+    x[n].style.display = "block";
+  if (n == 0) {
+    document.getElementById("eliBtn").style.display = "none";
   } else {
+    document.getElementById("eliBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
     document.getElementById("consulBtn").innerHTML = "Ingresar";
+  } else {
+    document.getElementById("consulBtn").innerHTML = "Siguiente";
   }
 }
