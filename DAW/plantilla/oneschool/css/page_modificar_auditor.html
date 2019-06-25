@@ -48,7 +48,7 @@
                         <nav class="site-navigation position-relative text-right">
                             <ul
                                 class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                <li class="cta"><a href="./page_administrador.html"><span class="icon-user">Volver</span></a>
+                                <li class="cta"><a href="./page_administrador.html"><span class="icon-return">Volver</span></a>
                                 </li>
                             </ul>
                         </nav>
@@ -67,23 +67,25 @@
                         <div class="col-12">
                             <form action="/action_page.php">
                                 <div class="form-group">
-                                    <label class="col-2" for="text">Cédula/RUC</label>
-                                    <input class="col-2" type="text" placeholder="Ingrese" name="fecha">
-                                    <label class="col-2" for="pwd">Tipo Trabajo:</label>
+                                    <label class="col-2" for="text">Tipo Trabajo</label>
+                                    <input class="col-2" type="date" placeholder="Inserte Fecha" name="fecha">
+                                    <label class="col-2" for="pwd">Estado:</label>
                                     <select class="col-2" name="trabajo">
                                         <option value="" disabled selected>Seleccionar</option>
-                                        <option value="tipo1">Independiente</option>
-                                        <option value="tipo2">Asociado a Buffet</option>                                               
+                                        <option value="tipo1">Estado 1</option>
+                                        <option value="tipo2">EStado 2</option>
+                                        <option value="tipo3">Estado 3</option>
+                                       
                                     </select>
-                                    <label class="col-2" for="text">Nombres:</label>
-                                    <input class="col-1" type="text" placeholder="Ingrese" name="codigo">
+                                    <label class="col-2" for="text">Código:</label>
+                                    <input class="col-1" type="text" placeholder="Inserte Código" name="codigo">
                                     <button class="col-1" type="submit">Consultar</button>
                                 </div>
                             </form>
                             <table class=" table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Nombres</th>
+                                                <th>Nombsres</th>
                                                 <th>Apellidos</th>
                                                 <th>RUC/Cédula</th>
                                                 <th>Tipo de Trabajo</th>

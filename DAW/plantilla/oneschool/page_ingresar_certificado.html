@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Ingreso Certificados</title>
+    <title>Ingreso Proforma</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
@@ -35,15 +35,26 @@
     <header class="site-navbar py-4 js-sticky-header site-navbar-target">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                   <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
-                   <div class="mx-auto text-center">
+                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png"
+                            alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="./page_consultar_certificado.html" class="nav-link">Consultar Certificado</a></li>
-                                <li><a href="#home-section" class="nav-link">Ingresar Certificado</a></li>
-                                <li><a href="#"><span class="icon-exclamation"> </span> En esta área podrá ingresar la información correspondiente a la proforma. <span class="icon-exclamation"> </span></a></li>
+                                <li><a href="#"><span class="icon-user"> BIENVENIDA CARMEN </span></a></li>
                             </ul>
                         </nav>
+                    </div>
+                    <div class="ml-auto w-25">
+                        <nav class="site-navigation position-relative text-right">
+                            <ul
+                                class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                                <li class="cta"><a href="./page_home.html"><span class="icon-user">Volver</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a href="#"
+                            class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
                     </div>
                 </div>
             </div>
@@ -55,6 +66,7 @@
                         <div class="col-12">
                             <form id="regForm" action="/action_page.php">
   								<h1 id="proforma">PROFORMA</h1>
+                                <h2 id ="detalle">Debe llenar todos los campos para continuar al siguiente paso.</h2>
   								<div class="tab">Datos Generales:
     								<p><input placeholder="Nombre de la empresa" oninput="this.className = ''" name="nempresa"></p>
     								<p><input placeholder="Representante" onblur="(this.type='text')"oninput="this.className = ''" name="rpres"></p>
@@ -79,15 +91,13 @@
   								</div>
   								<div class="tab">Finalización:
     								<p><input placeholder="Nombre de la empresa" oninput="this.className = ''" name="nem"></p>
-    								<p><input placeholder="TC..." oninput="this.className = ''" name="tc"></p>
+    								<p><input placeholder="Tipo de Certificado" oninput="this.className = ''" name="tc"></p>
     								<p><input placeholder="Descripción" oninput="this.className = ''" name="descf"></p>
   								</div>
   								<div style="overflow:auto;">
-                                    <button type="button" id="salirBtn"><a href="./page_home.html"><span class="icon-user"> Salir </span></button>
-   									<div style="float:right;">
-                                        
-      									<button type="button" id="prevBtn" onclick="nextPrev(-1)"><a href="#">Anterior</button>
-      									<button type="button" id="nextBtn" onclick="nextPrev(1)"><a href="#">Siguiente</button>
+   									<div style="float:right;">                                      
+      									<button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+      									<button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
     								</div>
   								</div>
   								<div style="text-align:center;margin-top:40px;">

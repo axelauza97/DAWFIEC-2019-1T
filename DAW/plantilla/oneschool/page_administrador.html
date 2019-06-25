@@ -17,33 +17,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-    .card-st{
-        height: 35vh !important;
-        width: auto !important;
-    }
-    .card-st:hover {
-        height: 40vh !important;
-    }
-    @media screen and (max-width: 991px) {
-        .intro-section .col-12{
-            margin-top: 150px;
-        }
-        .card-st {
-            height: 25vh;
-            font-size: 1rem;
-        }
-    }
-    .card-st li:hover {
-        font-weight: bold;
-        text-shadow: 3px 2px black;
-
-    }
-    .card-st ul{
-        padding: 0px;
-    }
-    </style>
+    <link rel="stylesheet" href="css/style_ad.css">
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -91,9 +65,9 @@
                                                 <h1 class="card-header" data-aos="fade-up" data-aos-delay="150">CERTIFICADO</h1>
                                                 <div class="card-body" data-aos="fade-up" data-aos-delay="150">
                                                   <ul>
-                                                    <li ><a id ="linkc" href="page_modificar_certificado.html">Modificar Certificado</a></li>                                               
+                                                    <li ><a id ="linkc" href="page_modificar_certificado.html">Modificar Certificado</a></li>            
                                                   </ul>
-                                                  <p id ="parrafo">Usted tiene privilegios de administrador, puede modificar la información.</p></div>
+                                                 </div>
                                             </div>
                                         </a>
                                     </div>
@@ -108,7 +82,6 @@
                                                     <li><a id ="linkc" href="./page_ingresar_auditor.html">Ingresar Auditor</a></li>
                                                     <li><a id ="linkc" href="./page_modificar_auditor.html">Modificar Auditor</a></li>
                                                   </ul>
-                                                  <p id ="parrafo">Usted tiene privilegios de administrador, puede modificar o ingresar un nuevo auditor.</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -116,6 +89,18 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-section" id="graph-section">
+            <div class="container">
+                <div class="row mb-5 justify-content-center">
+                    <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+                        <h2 class="section-title">Gráficos Estadísticos</h2>
+                    </div>
+                    <div id="canvas-container" style="width:50%;">
+                        <canvas id="chart" width="500" height="320"></canvas>
                     </div>
                 </div>
             </div>
@@ -146,6 +131,10 @@
     <script src="js/jquery.fancybox.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="dist/Chart.bundle.min.js"></script>
+    <script src="grafico_estadistico.js"></script>
+    <script src="grafico_estadistico2.js"></script>
 </body>
 
 </html>
