@@ -1,15 +1,14 @@
-.form-group {
-	margin: 0%;
-	padding: 0%;
-    margin-bottom: 2%;
-}
+
 .row .col-12 {
 	margin-top: 2%;
 	padding-top: 2%;
     background-color: #ffffff;
 }
 label,input,select{
-	display: inline-block;
-    padding: 0% !important;
     border-radius: 0;
+}
+.form-group button{
+	width: 50%;
+	margin-top: 5%;
+	margin-bottom: 5%; 
 }

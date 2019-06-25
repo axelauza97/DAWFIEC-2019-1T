@@ -1899,9 +1899,7 @@ button:hover {
         height: 35vh !important;
         width: auto !important;
     }
-    .card-st:hover {
-        height: 40vh !important;
-    }
+    
     @media screen and (max-width: 991px) {
         .intro-section .col-12 {
             margin-top: 150px;
