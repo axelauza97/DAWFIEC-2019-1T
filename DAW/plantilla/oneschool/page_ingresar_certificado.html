@@ -24,7 +24,7 @@
 
 <body>
     <div class="site-wrap">
-    	<div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
                 <div class="site-mobile-menu-close mt-3">
                     <span class="icon-close2 js-menu-toggle"></span>
@@ -32,94 +32,88 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target">
+        <header class="site-navbar py-4 js-sticky-header site-navbar-target">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png"
-                            alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
                     <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="#"><span class="icon-user"> BIENVENIDA CARMEN </span></a></li>
+                                <li><a href="./page_home.html" class="nav-link">Inicio</a></li>
+                                <li><a href="#home-section" class="nav-link">Ingresar Certificado</a></li>
+                                <li><a href="./page_consultar_certificado.html" class="nav-link">Consultar Certificado</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="ml-auto w-25">
                         <nav class="site-navigation position-relative text-right">
-                            <ul
-                                class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                            <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
                                 <li class="cta"><a href="./page_home.html"><span class="icon-user">Volver</span></a>
                                 </li>
                             </ul>
                         </nav>
-                        <a href="#"
-                            class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
-                                class="icon-menu h3"></span></a>
+                        <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                 </div>
             </div>
-    </header>
-	<div class="intro-section" id="home-section">
-        <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
-        <div class="container">
+        </header>
+        <div class="intro-section" id="home-section">
+            <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
+                <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">
                             <form id="regForm" action="/action_page.php">
-  								<h1 id="proforma">PROFORMA</h1>
-                                <h2 id ="detalle">Debe llenar todos los campos para continuar al siguiente paso.</h2>
-  								<div class="tab">Datos Generales:
-    								<p><input placeholder="Nombre de la empresa" oninput="this.className = ''" name="nempresa"></p>
-    								<p><input placeholder="Representante" onblur="(this.type='text')"oninput="this.className = ''" name="rpres"></p>
-    								<p><select  id="ttrabajo" name="trabajo">
+                                <h1 id="proforma">PROFORMA</h1>
+                                <h2 id="detalle">Debe llenar todos los campos para continuar al siguiente paso.</h2>
+                                <div class="tab">Datos Generales:
+                                    <p><input placeholder="Nombre de la empresa" oninput="this.className = ''" name="nempresa"></p>
+                                    <p><input placeholder="Representante" onblur="(this.type='text')" oninput="this.className = ''" name="rpres"></p>
+                                    <p><select id="ttrabajo" name="trabajo">
                                             <option value="" disabled selected>Tipo de Trabajo</option>
                                             <option value="tipo1">Tipo 1</option>
                                             <option value="tipo2">Tipo 2</option>
                                             <option value="tipo3">Tipo 3</option>
                                             <option value="tipo4">Tipo 4</option>
                                         </select>
-    								<p><input placeholder="Fecha" class="textbox-n" type="text" onfocus="(this.type='date')" 
-    									onblur="(this.type='text')" name="fcot"></p>
-    								<p><input type="number" placeholder="Valor" oninput="this.className = ''" name="val"></p>
-    								<p><textarea style="height:150px"  placeholder="Descripción..." oninput="this.className = ''" name="desc" ></textarea></p>
-  								</div>
-  								<div class="tab">Asignación del Auditor:
-    								<p><input placeholder="Nombre del Auditor" oninput="this.className = ''" name="naud"></p>
-    								<p><input placeholder="Fecha Inicio Auditoría" class="textbox-n" type="text" onfocus="(this.type='date')" 
-    									onblur="(this.type='text')" name="fiaud"></p>
-    								<p><input placeholder="Fecha Fin  Auditoría" class="textbox-n" type="text" onfocus="(this.type='date')" 
-    									onblur="(this.type='text')" name="ffaud"></p>
-  								</div>
-  								<div class="tab">Finalización:
-    								<p><input placeholder="Nombre de la empresa" oninput="this.className = ''" name="nem"></p>
-    								<p><input placeholder="Tipo de Certificado" oninput="this.className = ''" name="tc"></p>
-    								<p><input placeholder="Descripción" oninput="this.className = ''" name="descf"></p>
-  								</div>
-  								<div style="overflow:auto;">
-   									<div style="float:right;">                                      
-      									<button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-      									<button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
-    								</div>
-  								</div>
-  								<div style="text-align:center;margin-top:40px;">
-    								<span class="step">1</span>
-    								<span class="step">2</span>
-    								<span class="step">3</span>
-
-  								</div>
-  							</form>
+                                        <p><input placeholder="Fecha" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="fcot"></p>
+                                        <p><input type="number" placeholder="Valor" oninput="this.className = ''" name="val"></p>
+                                        <p><textarea style="height:150px" placeholder="Descripción..." oninput="this.className = ''" name="desc"></textarea></p>
+                                </div>
+                                <div class="tab">Asignación del Auditor:
+                                    <p><input placeholder="Nombre del Auditor" oninput="this.className = ''" name="naud"></p>
+                                    <p><input placeholder="Fecha Inicio Auditoría" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="fiaud"></p>
+                                    <p><input placeholder="Fecha Fin  Auditoría" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="ffaud"></p>
+                                </div>
+                                <div class="tab">Finalización:
+                                    <p><input placeholder="Nombre de la empresa" oninput="this.className = ''" name="nem"></p>
+                                    <p><input placeholder="Tipo de Certificado" oninput="this.className = ''" name="tc"></p>
+                                    <p><input placeholder="Descripción" oninput="this.className = ''" name="descf"></p>
+                                </div>
+                                <div style="overflow:auto;">
+                                    <div style="float:right;">
+                                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+                                    </div>
+                                </div>
+                                <div style="text-align:center;margin-top:40px;">
+                                    <span class="step">1</span>
+                                    <span class="step">2</span>
+                                    <span class="step">3</span>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>	
-    </div>	
+        </div>
+    </div>
     <footer class="footer-section bg-gray">
         <div class="container">
             <p>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;
                 <script>
-                    document.write(new Date().getFullYear());
+                document.write(new Date().getFullYear());
                 </script> Desarrollo de Aplicaciones Web <i class="icon-heart" aria-hidden="true"></i> realizado por <a href="https://colorlib.com" target="_blank">Promind</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
@@ -140,8 +134,7 @@
     <script src="js/jquery.fancybox.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
-    <script src="./script.js" ></script>
-
+    <script src="./script.js"></script>
 </body>
 
 </html>
