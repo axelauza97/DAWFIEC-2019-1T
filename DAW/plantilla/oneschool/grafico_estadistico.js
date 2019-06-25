@@ -19,11 +19,11 @@ $(document).ready(function () {
                 ],
             }],
             labels: [
-                "Datos 1",
-                "Datos 2",
-                "Datos 3",
-                "Datos 4",
-                "Datos 5",
+                "Certificados ingresados",
+                "Certificados pendientes",
+                "Certificados caducados",
+                "Certificados en proceso",
+                "Certificados finalizados",
             ]
         },
         options: {
