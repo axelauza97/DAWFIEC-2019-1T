@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Pagina de Modificar Certificado</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+    <link rel="icon" type="img/png" href="./images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleConsultarCertificado.css">
+    <style>
+        div.table-container {
+            overflow-x: scroll;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="site-wrap">
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-4 js-sticky-header site-navbar-target">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center">
+                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png"
+                            alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="mx-auto text-center">
+                        <nav class="site-navigation position-relative text-right">
+                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                                <li><a href="./page_administrador.html" class="nav-link">Inicio</a></li>
+                                <li><a href="#home-section" class="nav-link">Modificar Certificado</a></li>
+                                <li><a href="./page_ingresar_auditor.html" class="nav-link">Ingresar Auditor</a></li>
+                                <li><a href="./page_modificar_auditor.html" class="nav-link">Modificar Auditor</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="ml-auto w-25">
+                        <nav class="site-navigation position-relative text-right">
+                            <ul
+                                class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                                <li class="cta"><a href="./page_administrador.html"><span>Volver</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a href="#"
+                            class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </header>
+    <div class="intro-section" id="home-section">
+        <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <form action="/action_page.php">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="date">Fecha</label>
+                                    <input class="form-control" type="date" placeholder="Inserte Fecha" name="fecha">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pwd">Estado:</label>
+                                    <select class="form-control" name="trabajo">
+                                        <option value="" disabled selected>Seleccionar</option>
+                                        <option value="tipo1">Estado 1</option>
+                                        <option value="tipo2">Estado 2</option>
+                                        <option value="tipo3">Estado 3</option>
+                                        <option value="tipo4">Estado 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="text">Código:</label>
+                                    <input class="form-control" type="text" placeholder="Inserte Código" name="codigo">
+                                </div>
+                                <div class="form-group col-md-6 d-flex justify-content-center">
+                                    <button type="submit">Consultar</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                        <div class="table-container">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre de la Empresa</th>
+                                        <th>Representante</th>
+                                        <th>Tipo de trabajo</th>
+                                        <th>Auditor Asignado</th>
+                                        <th>Descripcion</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Espol</td>
+                                        <td>Espol</td>
+                                        <td>Certificado</td>
+                                        <td>Jose</td>
+                                        <td>certificacion iso</td>
+                                        <td>1000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TransEspol</td>
+                                        <td>TransEspol</td>
+                                        <td>Auditoria</td>
+                                        <td>John</td>
+                                        <td>ISO </td>
+                                        <td>2000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TransEspol</td>
+                                        <td>TransEspol</td>
+                                        <td>Auditoria</td>
+                                        <td>John</td>
+                                        <td>ISO </td>
+                                        <td>2000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TransEspol</td>
+                                        <td>TransEspol</td>
+                                        <td>Auditoria</td>
+                                        <td>John</td>
+                                        <td>ISO </td>
+                                        <td>2000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section bg-gray">
+        <div class="container">
+            <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>
+                    document.write(new Date().getFullYear());
+                </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i>
+                by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+    </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.bootcss.com/stellar.js/0.6.2/jquery.stellar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
