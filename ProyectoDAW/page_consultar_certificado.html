@@ -39,24 +39,29 @@
         <header class="site-navbar py-4 js-sticky-header site-navbar-target">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png"
+                            alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
                     <div class="mx-auto text-center">
-                       <nav class="site-navigation position-relative text-right">
+                        <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="./page_home.html" class="nav-link">Inicio</a></li>
-                                <li><a href="./page_ingresar_certificado.html" class="nav-link">Ingresar Certificado</a></li>
-                                <li><a href="#home-section" class="nav-link">Consultar Certificado</a></li>
+                                <li><a href="./page_administrador.html" class="nav-link">Inicio</a></li>
+                                <li><a href="#home-section" class="nav-link">Modificar Certificado</a></li>
+                                <li><a href="./page_ingresar_auditor.html" class="nav-link">Ingresar Auditor</a></li>
+                                <li><a href="./page_modificar_auditor.html" class="nav-link">Modificar Auditor</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="ml-auto w-25">
                         <nav class="site-navigation position-relative text-right">
-                            <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                <li class="cta"><a href="./page_home.html"><span> Volver</span></a>
+                            <ul
+                                class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                                <li class="cta"><a href="./page_administrador.html"><span >Volver</span></a>
                                 </li>
                             </ul>
                         </nav>
-                        <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
+                        <a href="#"
+                            class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
                     </div>
                 </div>
             </div>
@@ -69,76 +74,85 @@
                             <form action="/action_page.php">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="date">Fecha Final:</label>
-                                        <input id="date" class="form-control" type="text" placeholder="Inserte Fecha" name="fecha">
+                                        <label for="date">Fecha</label>
+                                        <input class="form-control" type="date" placeholder="Inserte Fecha" name="fecha">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="pwd">Tipo Trabajo:</label>
-                                        <select id="pwd" class="form-control" name="trabajo">
+                                        <label for="pwd">Estado:</label>
+                                        <select class="form-control" name="trabajo">
                                             <option value="" disabled selected>Seleccionar</option>
-                                            <option value="tipo1">Tipo 1</option>
-                                            <option value="tipo2">Tipo 2</option>
-                                            <option value="tipo3">Tipo 3</option>
-                                            <option value="tipo4">Tipo 4</option>
+                                            <option value="tipo1">Estado 1</option>
+                                            <option value="tipo2">Estado 2</option>
+                                            <option value="tipo3">Estado 3</option>
+                                            <option value="tipo4">Estado 4</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="text">Código:</label>
-                                        <input id="text" class="form-control" type="text" placeholder="Inserte Código" name="codigo">
+                                        <input class="form-control" type="text" placeholder="Inserte Código" name="codigo">
                                     </div>
                                     <div class="form-group col-md-6 d-flex justify-content-center">
-                                        <button type="submit">Buscar</button>
+                                        <button type="submit">Consultar</button>
                                     </div>
-                                </div>
+                                </div>                                
                             </form>
-                            <table class=" table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>Tipo Trabajo</th>
-                                        <th>Codigo</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mary</td>
-                                        <td>Moe</td>
-                                        <td>mary@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>July</td>
-                                        <td>Dooley</td>
-                                        <td>july@example.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+
+                            <div class="table-container">
+                            <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre de la Empresa</th>
+                                                <th>Representante</th>
+                                                <th>Tipo de trabajo</th>
+                                                <th>Auditor Asignado</th>
+                                                <th>Descripcion</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Espol</td>
+                                                <td>Espol</td>
+                                                <td>Certificado</td>
+                                                <td>Jose</td>
+                                                <td>certificacion iso</td>
+                                                <td>1000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>TransEspol</td>
+                                                <td>TransEspol</td>
+                                                <td>Auditoria</td>
+                                                <td>John</td>
+                                                <td>ISO </td>
+                                                <td>2000</td>
+                                            </tr>
+                                                                                                                                 <tr>
+                                                <td>TransEspol</td>
+                                                <td>TransEspol</td>
+                                                <td>Auditoria</td>
+                                                <td>John</td>
+                                                <td>ISO </td>
+                                                <td>2000</td>
+                                            </tr>
+                                                                                                                                  <tr>
+                                                <td>TransEspol</td>
+                                                <td>TransEspol</td>
+                                                <td>Auditoria</td>
+                                                <td>John</td>
+                                                <td>ISO </td>
+                                                <td>2000</td>
+                                            </tr>
+                                        </tbody>
+                                </table>
+                            </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
-        </div>
         <footer class="footer-section bg-gray">
             <div class="container">
                 <p>
