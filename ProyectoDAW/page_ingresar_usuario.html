@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Ingreso Auditor</title>
+    <title>Ingreso Usuario</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
@@ -75,12 +75,18 @@
                                 <h2 id="detalle">Debe llenar todos los campos para continuar al siguiente paso.</h2>
                                 <div class="infoa">Información General:
                                     <p><input placeholder="Nombres" oninput="this.className = ''" name="nombresUser"></p>
-                                    <p><input placeholder="ApellidosUser" onblur="(this.type='text')"
+                                    <p><input placeholder="Apellidos" onblur="(this.type='text')"
                                             oninput="this.className = ''" name="apellidos"></p>
                                     <p><input placeholder="Nombre de Usuario" onblur="(this.type='text')"
-                                            oninput="this.className = ''" name="username"></p>
+                                            oninput="this.className = ''" name="nicknameUser"></p>
                                     <p><input type="email" placeholder="E-Mail" oninput="this.className = ''" name="mailUser"></p>
                                     <p><input type="password" placeholder="Contraseña" oninput="this.className = ''" name="passUser"></p>
+                                    <p><select class="browser-default custom-select">
+  										<option selected>Rol</option>
+  										<option value="1">Administrador</option>
+  										<option value="2">Auditor</option>
+  										<option value="3">Digitador</option>
+									</select></p>
                                 </div>
                                 <div style="overflow:auto;">
                                     <div style="float:right;">
