@@ -1900,41 +1900,7 @@ button:hover {
         width: auto !important;
     }
     
-    @media screen and (max-width: 991px) {
-        .intro-section .col-12 {
-            margin-top: 150px;
-        }
-
-        .card-st {
-            height: 25vh;
-        }
-    }
-
-    .card-st li:hover {
-        font-weight: bold;
-        text-shadow: 3px 2px black;
-
-    }
-
-    .card-st ul {
-        padding: 0px;
-    }
     
-
-     @media screen and (max-width: 470px) {
-        .card-st {
-            height: 25vh;
-             overflow: scroll;
-        }
-        .card-st:hover {
-            height: 28vh;
-
-        }
-        .card-st .card-header{
-            margin-bottom: 0%;
-            padding-bottom: 0%;
-        }
-    }
 
 #detalle{
     font-size: 15px;
