@@ -17,6 +17,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleConsultarCertificado.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <style>
+        div.table-container{overflow-x: scroll;}
+    </style>
+    <script type="text/javascript">
+    var URL = "http://127.0.0.1:8000/api/";
+    $(document).ready(function() {
+
+        $.ajax({
+            type: 'GET',
+            url: URL + "auditor/",
+            crossDomain: true,
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            data: { get_param: 'value' },
+            dataType: "json",
+
+            success: function(respuesta) {
+                $(respuesta).each(function() {
+                    var nombre = $('<td></td>');
+                    nombre.text(this.nombres_auditor);
+                    var apellido = $('<td></td>');
+                    apellido.text(this.apellidos_auditor);
+                    var cedula = $('<td></td>');
+                    cedula.text(this.cedula_auditor);
+                    var ttelefono = $('<td></td>');
+                    ttelefono.text(this.telefono);
+                    var ddirección = $('<td></td>');
+                    ddirección.text(this.direccion);
+
+
+                    var tr = $('<tr></tr>');
+                    tr.append(nombre);
+                    tr.append(apellido);
+                    tr.append(cedula);
+                    tr.append(ttelefono);
+                    tr.append(ddirección);
+                    $('tbody').append(tr);
+                });
+            }
+        });
+
+
+
+
+    });
+    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -104,42 +150,21 @@
                                 </div>
                             </div>
                         </form>
-                        <table class=" table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Nombres</th>
-                                    <th>Apellidos</th>
-                                    <th>RUC/Cédula</th>
-                                    <th>Tipo de Trabajo</th>
-                                    <th>Nombre del Buffet</th>
-                                    <th>Dirección del Buffet</th>
-                                    <th>Teléfono</th>
-                                    <th>Domicilio Auditor</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ricardo Emanuel</td>
-                                    <td>Archuleta Pogo</td>
-                                    <td>0855745658</td>
-                                    <td>Asociado a Buffet</td>
-                                    <td>Consultorías Prech</td>
-                                    <td>Alborada 4 etapa</td>
-                                    <th>2543689</th>
-                                    <th>Martha de Roldos</th>
-                                </tr>
-                                <tr>
-                                    <td>William Javier</td>
-                                    <td>Jacome Tovar</td>
-                                    <td>0855732658</td>
-                                    <td>Asociado a Buffet</td>
-                                    <td>Consultorías Kavre</td>
-                                    <td>Metropolis</td>
-                                    <th>2534689</th>
-                                    <th>Alborada 6 etapa</th>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-container">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>RUC/Cédula</th>
+                                        <th>Teléfono</th>
+                                        <th>Domicilio Auditor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

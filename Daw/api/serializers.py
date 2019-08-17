@@ -66,9 +66,10 @@ class CertificadoSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('cod_certificado','cod_norma','tipo_certificado','cod_Auditor','nombre_empresa','representante','fecha_inicio','dias_certificacion','fecha_fin','costo','estado_certificado','observaciones','cod_usuario')
 
 class AuditorSerializer(serializers.HyperlinkedModelSerializer):
+    tipo = serializers.CharField(source="tipo_auditor.tipo_auditor", read_only=True)
     class Meta:
         model = Auditor
-        fields = ('cod_auditor','cedula_auditor','nombres_auditor','apellidos_auditor','telefono','correo','tipo_auditor','direccion','estado_auditor')
+        fields = ('cod_auditor','cedula_auditor','nombres_auditor','apellidos_auditor','telefono','correo','tipo','direccion')
 
 class NormaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
