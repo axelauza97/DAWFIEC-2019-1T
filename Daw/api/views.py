@@ -15,7 +15,7 @@ class CreateUser(generics.CreateAPIView):
 
 
 class UsuarioList(generics.ListAPIView):
-    queryset = Usuario.objects.all()
+    queryset = Usuario.objects.filter(is_superuser=False)
     serializer_class = UsuarioSerializer
 
     def get_object(self):
@@ -229,7 +229,6 @@ class Tipo_AuditorList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
-
     def post(self, request, format=None):
         serializer = Tipo_AuditorSerializer(data=request.data)
         if serializer.is_valid():
