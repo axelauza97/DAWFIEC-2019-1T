@@ -13,7 +13,7 @@ class CreateUser(generics.CreateAPIView):
 
 
 class UsuarioList(generics.ListAPIView):
-    queryset = Usuario.objects.all()
+    queryset = Usuario.objects.filter(is_superuser=False)
     serializer_class = UsuarioSerializer
 
     def get_object(self):
