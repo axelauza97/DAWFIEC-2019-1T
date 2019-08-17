@@ -1,3 +1,5 @@
+from tkinter.tix import _dummyExFileSelectBox
+
 from .models import *
 
 
@@ -40,19 +42,28 @@ class UsuarioSerializer(serializers.ModelSerializer):
         model = Usuario
 
 class ClienteSerializer(serializers.HyperlinkedModelSerializer):
+    cod_usuario= serializers.StringRelatedField()
     class Meta:
         model = Cliente
-        fields = ('cod_cliente','ruc','nombre_cliente','representante','correo','telefono','direccion','cod_usuario','estado_Cliente')
+        fields = ('cod_cliente','ruc','nombre_cliente','representante','correo','telefono','direccion','cod_usuario')
 
-class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Usuario
-        fields =('cod_usuario','nick_name','nombre_usuario','apellido_usuario','contraseña','rol_us','correo','estado_us')
+#class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
+#    class Meta:
+#        model = Usuario
+#        fields =('cod_usuario','nick_name','nombre_usuario','apellido_usuario','contraseña','rol_us','correo','estado_us')
 
 class CertificadoSerializer(serializers.HyperlinkedModelSerializer):
+    cod_norma = serializers.StringRelatedField()
+    tipo_certificado = serializers.StringRelatedField()
+    cod_Auditor = serializers.StringRelatedField()
+    #cod_cliente = serializers.StringRelatedField()
+    estado_certificado = serializers.StringRelatedField()
+    cod_usuario = serializers.StringRelatedField()
+    nombre_empresa = serializers.CharField(source="cod_cliente.nombre_cliente",read_only=True)
+    representante = serializers.CharField(source="cod_cliente.representante", read_only=True)
     class Meta:
         model = Certificado
-        fields = ('cod_certificado','cod_norma','tipo_certificado','cod_Auditor','cod_cliente','fecha_inicio','dias_certificacion','fecha_fin','costo','estado_certificado','observaciones','cod_usuario')
+        fields = ('cod_certificado','cod_norma','tipo_certificado','cod_Auditor','nombre_empresa','representante','fecha_inicio','dias_certificacion','fecha_fin','costo','estado_certificado','observaciones','cod_usuario')
 
 class AuditorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

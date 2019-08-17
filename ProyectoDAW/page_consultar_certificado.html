@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleConsultarCertificado.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <style>
         @media screen and (max-width: 700px) {
             .container .col-12 {
@@ -24,6 +25,77 @@
             }
         }
     </style>
+    <script type="text/javascript">
+    var URL = "http://127.0.0.1:8000/api/";
+    $(document).ready(function() {
+
+        $.ajax({
+            type: 'GET',
+            url: URL+"estado_certificado/",
+            crossDomain: true,
+            headers : { 'Authorization' : 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            data: { get_param: 'value' },
+            dataType: "json",
+
+            success: function(respuesta) {
+                $(respuesta).each(function() {
+                    var estado = $('<option></option>');
+                    estado.text(this.estado_cer);
+                    
+                    $('select[name=trabajo]').append(estado);
+                });
+            }
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: URL+"certificado/",
+            crossDomain: true,
+            headers : { 'Authorization' : 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            data: { get_param: 'value' },
+            dataType: "json",
+
+            success: function(respuesta) {
+                $(respuesta).each(function() {
+                    var nombre = $('<td></td>');
+                    nombre.text(this.nombre_empresa);
+                    var nrepresentante = $('<td></td>');
+                    nrepresentante.text(this.representante);
+                    var tipo = $('<td></td>');
+
+                    var texto_tipo=this.tipo_certificado;
+                    texto_tipo=texto_tipo.split(":")[1];
+                    tipo.text(texto_tipo);
+
+                    var auditor = $('<td></td>');
+
+                    var texto_auditor=this.cod_Auditor;
+                    texto_auditor=texto_auditor.split(":")[1];
+                    auditor.text(texto_auditor);
+                    
+                    var oobservaciones = $('<td></td>');
+                    oobservaciones.text(this.observaciones);
+                    
+                    var ccosto = $('<td></td>');
+                    ccosto.text(this.costo);
+
+                    var tr = $('<tr></tr>');
+                    tr.append(nombre);
+                    tr.append(nrepresentante);
+                    tr.append(tipo);
+                    tr.append(auditor);
+                    tr.append(oobservaciones);
+                    tr.append(ccosto);
+                    $('tbody').append(tr);
+                });
+            }
+        });
+
+
+        
+
+    });
+    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -77,10 +149,6 @@
                                         <label for="pwd">Estado:</label>
                                         <select class="form-control" name="trabajo">
                                             <option value="" disabled selected>Seleccionar</option>
-                                            <option value="tipo1">Estado 1</option>
-                                            <option value="tipo2">Estado 2</option>
-                                            <option value="tipo3">Estado 3</option>
-                                            <option value="tipo4">Estado 4</option>
                                         </select>
                                     </div>
                                 </div>
@@ -106,38 +174,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Espol</td>
-                                            <td>Espol</td>
-                                            <td>Certificado</td>
-                                            <td>Jose</td>
-                                            <td>certificacion iso</td>
-                                            <td>1000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>TransEspol</td>
-                                            <td>TransEspol</td>
-                                            <td>Auditoria</td>
-                                            <td>John</td>
-                                            <td>ISO </td>
-                                            <td>2000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>TransEspol</td>
-                                            <td>TransEspol</td>
-                                            <td>Auditoria</td>
-                                            <td>John</td>
-                                            <td>ISO </td>
-                                            <td>2000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>TransEspol</td>
-                                            <td>TransEspol</td>
-                                            <td>Auditoria</td>
-                                            <td>John</td>
-                                            <td>ISO </td>
-                                            <td>2000</td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>

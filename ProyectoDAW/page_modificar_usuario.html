@@ -17,6 +17,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleConsultarCertificado.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <style>
+        div.table-container{overflow-x: scroll;}
+    </style>
+    <script type="text/javascript">
+    var URL = "http://127.0.0.1:8000/api/";
+    $(document).ready(function() {
+
+        $.ajax({
+            type: 'GET',
+            url: URL+"ver_usuario/",
+            crossDomain: true,
+            headers : { 'Authorization' : 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            data: { get_param: 'value' },
+            dataType: "json",
+
+            success: function(respuesta) {
+                $(respuesta).each(function() {
+                    var codigo = $('<td></td>');
+                    codigo.text(this.cod_usuario);
+                    var nombre = $('<td></td>');
+                    nombre.text(this.first_name);
+                    var apellido = $('<td></td>');
+                    apellido.text(this.last_name);
+                    var usuario = $('<td></td>');
+                    usuario.text(this.username);
+                    var mail = $('<td></td>');
+                    mail.text(this.email);
+                    var estado = $('<td></td>');
+                    estado.text(this.is_active);
+
+                    var tr = $('<tr></tr>');
+                    tr.append(codigo);
+                    tr.append(nombre);
+                    tr.append(apellido);
+                    tr.append(usuario);
+                    tr.append(mail);
+                    tr.append(estado);
+                    $('tbody').append(tr);
+                });
+            }
+        });
+
+
+        
+
+    });
+    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -107,42 +155,12 @@
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
                                     <th>Nombre de Usuario</th>
-                                    <th>Contraseña</th>
                                     <th>E-Mail</th>
-                                    <th>Rol</th>
                                     <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>001</td>
-                                    <td>Ricardo Emanuel</td>
-                                    <td>Archuleta Pogo</td>
-                                    <td>rarchu</td>
-                                    <td>bandlecity</td>
-                                    <td>rarchuleta@outlook.com</td>
-                                    <td>Digitador</td>
-                                    <td>Inactivo</td>
-                                </tr>
-                                <tr>
-                                    <td>002</td>
-                                    <td>William Javier</td>
-                                    <td>Jacome Tovar</td>
-                                    <td>wjacom</td>
-                                    <td>ggezbotlane</td>
-                                    <td>wjacome@gmail.com</td>
-                                    <td>Administrador</td>
-                                    <td>Activo</td>
-                                </tr>
-                                <td>003</td>
-                                <td>Jonathan Andrés</td>
-                                <td>Vivas Avilés</td>
-                                <td>jvivas</td>
-                                <td>musicisfreedom</td>
-                                <td>jonavivas@gmail.com</td>
-                                <td>Auditor</td>
-                                <td>Activo</td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>

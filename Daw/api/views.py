@@ -1,5 +1,3 @@
-
-
 # Create your views here.
 from rest_framework import generics
 from .models import *
@@ -13,6 +11,18 @@ class CreateUser(generics.CreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
+
+class UsuarioList(generics.ListAPIView):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        obj = get_object_or_404(
+            queryset,
+            pk=self.kwargs['pk'],
+        )
+        return obj
 
 
 class AuditorList(generics.ListAPIView):

@@ -8,10 +8,6 @@ from rest_framework.authtoken.models import Token
 from django.conf import settings
 
 
-
-
-
-
 class Usuario(AbstractUser):
     cod_usuario = models.CharField(max_length=4,primary_key=True,unique=True)
     
@@ -76,7 +72,7 @@ class Cliente(models.Model):
     cod_usuario = models.ForeignKey(Usuario,null=False,blank =False, on_delete=models.CASCADE)
    
     def __str__(self):
-        return "{0}:[{1},{2}]".format(self.cod_cliente,self.ruc,self.nombre_cliente)
+        return "{0}:[{1},{2},{3}]".format(self.cod_cliente,self.ruc,self.nombre_cliente,self.representante)
 
 class Auditor(models.Model):
     cod_auditor = models.CharField(max_length=4,primary_key=True,unique=True)
