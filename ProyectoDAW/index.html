@@ -55,7 +55,30 @@
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                     <form class="bd-search d-flex align-items-center">
-                        <input type="search" class="form-control" id="search-input" placeholder="Buscar..." aria-label="Search for..." autocomplete="off"> 
+                        <input type="search" class="form-control" id="search-input" placeholder="Buscar..." aria-label="Search for..." autocomplete="off">
+                        <div class=content-search>
+                            <div class=content-table>
+                                <table id="table">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="page_home.html">Principal</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="page_administrador.html">Administrador</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="page_consultar_certificado.html">Certificados</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>    
+                        </div> 
                     </form>
                 </div>
             </div>
@@ -236,6 +259,7 @@
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <script src="js/main.js"></script>
     <script src="js/mapa.js"></script>
+    <script src="js/search.js"></script>
 </body>
 
 </html>

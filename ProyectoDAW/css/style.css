@@ -1836,6 +1836,46 @@ input.invalid {
     background-color: #ffdddd;
 }
 
+#search-input {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    text-indent: 10px;
+}
+
+.content-search {
+    width: 150px;
+    height: 50px;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    display: none;
+}
+
+.content-table {
+    width: 100px;
+    max-height: 50px;
+    height: auto;
+    margin-left: 10px;
+    padding: 10px;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+.content-table table {
+    width: 200px;
+}
+
+tbody tr td a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+tbody tr td a:hover{
+    background-color: white;
+}
+
 .tab {
     display: none;
     padding: 15px;
