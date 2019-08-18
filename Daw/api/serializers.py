@@ -41,7 +41,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
         )
         model = Usuario
 
-class ClienteSerializer(serializers.HyperlinkedModelSerializer):
+class ClienteSerializer(serializers.ModelSerializer):
     cod_usuario= serializers.StringRelatedField()
     class Meta:
         model = Cliente
@@ -52,7 +52,7 @@ class ClienteSerializer(serializers.HyperlinkedModelSerializer):
 #        model = Usuario
 #        fields =('cod_usuario','nick_name','nombre_usuario','apellido_usuario','contraseña','rol_us','correo','estado_us')
 
-class CertificadoSerializer(serializers.HyperlinkedModelSerializer):
+class CertificadoSerializer(serializers.ModelSerializer):
     cod_norma = serializers.StringRelatedField()
     tipo_certificado = serializers.StringRelatedField()
     cod_Auditor = serializers.StringRelatedField()
@@ -64,54 +64,56 @@ class CertificadoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Certificado
         fields = ('cod_certificado','cod_norma','tipo_certificado','cod_Auditor','nombre_empresa','representante','fecha_inicio','dias_certificacion','fecha_fin','costo','estado_certificado','observaciones','cod_usuario')
-
-class AuditorSerializer(serializers.HyperlinkedModelSerializer):
-    tipo = serializers.CharField(source="tipo_auditor.tipo_auditor", read_only=True)
+class Tipo_AuditorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tipo_Auditor
+        fields = ('cod_auditor','tipo_auditor','descripcion')
+        
+class AuditorSerializer(serializers.ModelSerializer):
+    #tipo = serializers.CharField(source="tipo_auditor.tipo_auditor", read_only=True)
+    tipo = serializers.ReadOnlyField(source = 'tipo_auditor.cod_auditor')
     class Meta:
         model = Auditor
-        fields = ('cod_auditor','cedula_auditor','nombres_auditor','apellidos_auditor','telefono','correo','tipo','direccion')
+        #fields = ('cod_auditor','cedula_auditor','nombres_auditor','apellidos_auditor','telefono','correo','tipo','direccion')
+        fields = "__all__"
 
-class NormaSerializer(serializers.HyperlinkedModelSerializer):
+class NormaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Norma
         fields = ('cod_norma','nombre_norma','descripcion')
 
-class ProformaSerializer(serializers.HyperlinkedModelSerializer):
+class ProformaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proforma
         fields = ('cod_proforma','cod_cliente','cod_norma','costo','fecha_proforma','estado_proforma','cod_usuario')
 
-class FacturaSerializer(serializers.HyperlinkedModelSerializer):
+class FacturaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Factura
         fields = ('cod_factura','cod_certificado','cod_usuario','fecha_factura','valor_factura','estado_factura')
 
 
 
-class Estado_ProformaSerializer(serializers.HyperlinkedModelSerializer):
+class Estado_ProformaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estado_Proforma
         fields = ('cod_es_pro','estado_pro','descripcion')
 
-class Estado_CertificadoSerializer(serializers.HyperlinkedModelSerializer):
+class Estado_CertificadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estado_Certificado
         fields = ('cod_es_cer','estado_cer','descripcion')
 
 
-class Estado_FacturaSerializer(serializers.HyperlinkedModelSerializer):
+class Estado_FacturaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estado_Factura
         fields = ('cod_es_fac','estado_fac','descripcion')
 
-class Tipo_CertificadoSerializer(serializers.HyperlinkedModelSerializer):
+class Tipo_CertificadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tipo_Certificado
         fields = ('cod_tipo_cer','tipo_certificado','descripcion')
 
 
 
-class Tipo_AuditorSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Tipo_Auditor
-        fields = ('cod_auditor','tipo_auditor','descripcion')

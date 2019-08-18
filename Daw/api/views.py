@@ -161,3 +161,8 @@ class Tipo_AuditorList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    
+class CreateAuditor(generics.CreateAPIView):
+    #permission_classes = (AllowAny,)
+    queryset = Auditor.objects.all()
+    serializer_class = AuditorSerializer
