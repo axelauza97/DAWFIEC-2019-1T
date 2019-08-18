@@ -17,6 +17,7 @@ urlpatterns =[
     path('estado_certificado/', Estado_CertificadoList.as_view(),name='auditor'),
     path('proforma/',ProformaList.as_view(),name='proforma'),
     path('norma/',NormaList.as_view(),name='norma'),
+    path('auditor/creat', CreateAuditor.as_view(),name='auditor crear'),
 
 
  
