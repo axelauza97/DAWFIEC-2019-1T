@@ -95,6 +95,12 @@ DATABASES = {
     }
 }
 
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'patricioxavi@zoho.com'
+EMAIL_HOST_PASSWORD = 'huFres-xyndif-dyrfu6'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

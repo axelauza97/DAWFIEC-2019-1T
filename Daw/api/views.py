@@ -5,8 +5,10 @@ from rest_framework import status
 from .models import *
 from .serializers import *
 from rest_framework.permissions import AllowAny
+from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
-
+from django.core.mail import send_mail
+from django.conf import settings
 
 class CreateUser(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -240,3 +242,20 @@ class CreateAuditor(generics.CreateAPIView):
     #permission_classes = (AllowAny,)
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
+
+
+class SendEmail(APIView):
+    permission_classes =(AllowAny,)
+   
+    
+    def post(self, request,format='json'):
+        if(request.method=='POST'):
+            
+            name = request.data['name']
+            
+            mail = request.data['mail']
+           
+            telefono = request.data['telefono']
+            mensaje= request.data['mensaje']
+            send_mail('Contactenos',"Bienvenido a nuestra página Bureau Veritas.",settings.EMAIL_HOST_USER, [mail], fail_silently=False)
+            return Response(request.data)

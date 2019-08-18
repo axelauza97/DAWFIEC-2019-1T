@@ -19,7 +19,7 @@ urlpatterns =[
     path('proforma/',ProformaList.as_view(),name='proforma'),
     path('norma/',NormaList.as_view(),name='norma'),
 
-
+    path('sendemail', SendEmail.as_view(),name='Send Email'),
 
  
 
