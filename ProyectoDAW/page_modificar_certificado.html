@@ -21,77 +21,7 @@
     <style>
         div.table-container{overflow-x: scroll;}
     </style>
-    <script type="text/javascript">
-    var URL = "http://127.0.0.1:8000/api/";
-    $(document).ready(function() {
 
-        $.ajax({
-            type: 'GET',
-            url: URL+"estado_certificado/",
-            crossDomain: true,
-            headers : { 'Authorization' : 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
-            data: { get_param: 'value' },
-            dataType: "json",
-
-            success: function(respuesta) {
-                $(respuesta).each(function() {
-                    var estado = $('<option></option>');
-                    estado.text(this.estado_cer);
-                    
-                    $('select[name=trabajo]').append(estado);
-                });
-            }
-        });
-
-        $.ajax({
-            type: 'GET',
-            url: URL+"certificado/",
-            crossDomain: true,
-            headers : { 'Authorization' : 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
-            data: { get_param: 'value' },
-            dataType: "json",
-
-            success: function(respuesta) {
-                $(respuesta).each(function() {
-                    var nombre = $('<td></td>');
-                    nombre.text(this.nombre_empresa);
-                    var nrepresentante = $('<td></td>');
-                    nrepresentante.text(this.representante);
-                    var tipo = $('<td></td>');
-
-                    var texto_tipo=this.tipo_certificado;
-                    texto_tipo=texto_tipo.split(":")[1];
-                    tipo.text(texto_tipo);
-
-                    var auditor = $('<td></td>');
-
-                    var texto_auditor=this.cod_Auditor;
-                    texto_auditor=texto_auditor.split(":")[1];
-                    auditor.text(texto_auditor);
-                    
-                    var oobservaciones = $('<td></td>');
-                    oobservaciones.text(this.observaciones);
-                    
-                    var ccosto = $('<td></td>');
-                    ccosto.text(this.costo);
-
-                    var tr = $('<tr></tr>');
-                    tr.append(nombre);
-                    tr.append(nrepresentante);
-                    tr.append(tipo);
-                    tr.append(auditor);
-                    tr.append(oobservaciones);
-                    tr.append(ccosto);
-                    $('tbody').append(tr);
-                });
-            }
-        });
-
-
-        
-
-    });
-    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -141,11 +71,7 @@
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                 </div>
-                <div class="text-center">
-                    <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                        <li><a href="#home-section" class="nav-link">Modificar Certificado</a></li>
-                    </ul>
-                </div>
+                
             </div>
         </header>
         <div class="intro-section" id="home-section">
@@ -154,42 +80,28 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <form action="/action_page.php">
+                                <h1 id= "titulo-tabla-auditor">Tabla de Certificados</h1>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="date">Fecha</label>
-                                        <input class="form-control" type="date" placeholder="Inserte Fecha" name="fecha">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="pwd">Estado:</label>
-                                        <select class="form-control" name="trabajo">
-                                            <option value="" disabled selected>Seleccionar</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="text">Código:</label>
-                                        <input class="form-control" type="text" placeholder="Inserte Código" name="codigo">
-                                    </div>
-                                    <div class="form-group col-md-6 d-flex justify-content-center">
-                                        <button type="submit">Consultar</button>
-                                    </div>
-                                </div>
+                                <div class="form-group col-md-3">                        
+                                    <input id="text" class="form-control" type="text" placeholder="Inserte Cédula" name="cedula">                                   
+                                </div>   
+                                <button type="button" id ="modificar_auditor">Modificar</button>         
+                                <button type="button" id ="eliminar_auditor">Eliminar</button>                        
+                            </div>
                             </form>
                             <div class="table-container">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Nombre de la Empresa</th>
+                                            <th>Empresa</th>
                                             <th>Representante</th>
-                                            <th>Tipo de trabajo</th>
+                                            <th>Tipo de Certificado</th>
                                             <th>Auditor Asignado</th>
-                                            <th>Descripcion</th>
-                                            <th>Valor</th>
+                                            <th>Descripción</th>
+                                            <th>Valor($)</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                       
+                                    <tbody id="contenedor_datos">                                      
                                     </tbody>
                                 </table>
                             </div>
@@ -226,6 +138,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/certificado.js"></script>
 </body>
 
 </html>

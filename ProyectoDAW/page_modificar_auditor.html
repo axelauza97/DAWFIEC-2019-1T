@@ -21,70 +21,7 @@
     <style>
         div.table-container{overflow-x: scroll;}
     </style>
-    <script type="text/javascript">
-    var URL = "http://127.0.0.1:8000/api/";
-    $(document).ready(function() {
 
-
-        $('button').click(function() {
-            search($(this).val());
-            return false;
-        });
-
-        function search(value) {
-
-            $('tbody tr').each(function() {
-                var cedula=$(this).find('cedula');
-                if(cedula.indexOf(value.toLowerCase()>=0)){
-                    $(this).show();
-                }
-                else{
-                    $(this).hide();   
-                }
-                return false;
-            });
-        }
-
-
-        $.ajax({
-            type: 'GET',
-            url: URL + "auditor/",
-            crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
-            data: { get_param: 'value' },
-            dataType: "json",
-
-            success: function(respuesta) {
-                $(respuesta).each(function() {
-                    var nombre = $('<td></td>');
-                    nombre.text(this.nombres_auditor);
-                    var apellido = $('<td></td>');
-                    apellido.text(this.apellidos_auditor);
-                    var cedula = $('<td></td>');
-                    cedula.text(this.cedula_auditor);
-                    cedula.addClass('cedula');
-                    var ttelefono = $('<td></td>');
-                    ttelefono.text(this.telefono);
-                    var ddirección = $('<td></td>');
-                    ddirección.text(this.direccion);
-
-
-                    var tr = $('<tr></tr>');
-                    tr.append(nombre);
-                    tr.append(apellido);
-                    tr.append(cedula);
-                    tr.append(ttelefono);
-                    tr.append(ddirección);
-                    $('tbody').append(tr);
-                });
-            }
-        });
-
-
-
-
-    });
-    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -134,11 +71,6 @@
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                 </div>
-                <div class="text-center">
-                    <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                        <li><a href="#home-section" class="nav-link">Modificar Auditor</a></li>
-                    </ul>
-                </div>
             </div>
         </header>
     </div>
@@ -148,30 +80,16 @@
                 <div class="row align-items-center">
                     <div class="col-12">
                         <form action="/action_page.php">
+                            <h1 id= "titulo-tabla-auditor">Tabla de Auditores</h1>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="text">Cédula/RUC</label>
-                                    <input id="text" class="form-control" type="text" placeholder="Inserte Cédula" name="cedula">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="pwd">Tipo Trabajo:</label>
-                                    <select id="pwd" class="form-control" name="trabajo">
-                                        <option value="" disabled selected>Seleccionar</option>
-                                        <option value="tipo1">Independiente</option>
-                                        <option value="tipo2">Asociado a Buffet</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="text">Nombres</label>
-                                    <input class="form-control" type="text" placeholder="Inserte Nombres" name="nombre">
-                                </div>
-                                <div class="form-group col-md-6 d-flex justify-content-center">
-                                    <button type="submit">Consultar</button>
-                                </div>
+                                <div class="form-group col-md-3">                        
+                                    <input id="text" class="form-control" type="text" placeholder="Inserte Cédula" name="cedula">                                   
+                                </div>   
+                                <button type="button" id ="modificar_auditor">Modificar</button>         
+                                <button type="button" id ="eliminar_auditor">Eliminar</button>                        
                             </div>
                         </form>
+                        
                         <div class="table-container">
                             <table class="table table-striped">
                                 <thead>
@@ -180,10 +98,10 @@
                                         <th>Apellidos</th>
                                         <th>RUC/Cédula</th>
                                         <th>Teléfono</th>
-                                        <th>Domicilio Auditor</th>
+                                        <th>Domicilio </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="contenedor_Datos">
                                 </tbody>
                             </table>
                         </div>
@@ -218,6 +136,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/auditor.js"></script>
 </body>
 
 </html>
