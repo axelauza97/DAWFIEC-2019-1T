@@ -246,15 +246,10 @@ class CreateAuditor(generics.CreateAPIView):
 
 class SendEmail(APIView):
     permission_classes =(AllowAny,)
-   
-    
     def post(self, request,format='json'):
         if(request.method=='POST'):
-            
             name = request.data['name']
-            
             mail = request.data['mail']
-           
             telefono = request.data['telefono']
             mensaje= request.data['mensaje']
             send_mail('Contactenos',"Bienvenido a nuestra página Bureau Veritas.",settings.EMAIL_HOST_USER, [mail], fail_silently=False)
