@@ -10,6 +10,7 @@ urlpatterns =[
     path('cliente/',ClienteList.as_view(),name='cliente'),
    
     path('auditor/', AuditorList.as_view(),name='auditor'),
+    path('auditor_crear', CreateAuditor.as_view(),name='auditor crear'),
 
     path('tipo_auditor/', Tipo_AuditorList.as_view(),name='tipo_auditor'),
     path('factura/', FacturaList.as_view(),name='factura'),
@@ -17,7 +18,7 @@ urlpatterns =[
     path('estado_certificado/', Estado_CertificadoList.as_view(),name='auditor'),
     path('proforma/',ProformaList.as_view(),name='proforma'),
     path('norma/',NormaList.as_view(),name='norma'),
-    path('auditor/creat', CreateAuditor.as_view(),name='auditor crear'),
+
 
 
  
