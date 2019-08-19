@@ -9,7 +9,9 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
+
 from rest_framework.decorators import api_view
+
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 
@@ -28,7 +30,6 @@ class CustomAuthToken(ObtainAuthToken):
             ,
             'nombre': user.first_name
         })
-
 
 class CreateUser(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -54,21 +55,6 @@ class UsuarioList(generics.ListAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['PUT', 'DELETE'])
-def Usuario_detail(request, pk,format=None):
-    try:
-        queryset = Usuario.objects.get(pk=pk)
-    except queryset.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method == 'PUT':
-        serializer = UsuarioSerializer(queryset, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
-        queryset.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class AuditorList(generics.ListAPIView):
     
@@ -89,6 +75,7 @@ class AuditorList(generics.ListAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(['PUT', 'DELETE'])
 def Auditor_detail(request, pk,format=None):
     try:
@@ -106,6 +93,21 @@ def Auditor_detail(request, pk,format=None):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+@api_view(['PUT', 'DELETE'])
+def Usuario_detail(request, pk,format=None):
+    try:
+        queryset = Usuario.objects.get(pk=pk)
+    except queryset.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'PUT':
+        serializer = UsuarioSerializer(queryset, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        queryset.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class CertificadoList(generics.ListAPIView):
@@ -120,12 +122,15 @@ class CertificadoList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    
     def post(self, request, format=None):
         serializer = CertificadoSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 @api_view(['PUT', 'DELETE'])
 def Certificado_detail(request, pk,format=None):
     try:
@@ -195,7 +200,7 @@ def Proforma_detail(request, pk,format=None):
         queryset.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
+        
 class FacturaList(generics.ListAPIView):
   
     queryset = Factura.objects.all()
@@ -208,6 +213,7 @@ class FacturaList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+
     def post(self, request, format=None):
         serializer = FacturaSerializer(data=request.data)
         if serializer.is_valid():
@@ -334,15 +340,10 @@ class CreateAuditor(generics.CreateAPIView):
 
 class SendEmail(APIView):
     permission_classes =(AllowAny,)
-   
-    
     def post(self, request,format='json'):
         if(request.method=='POST'):
-            
             name = request.data['name']
-            
             mail = request.data['mail']
-           
             telefono = request.data['telefono']
             mensaje= request.data['mensaje']
             send_mail('Contactenos',"Bienvenido a nuestra página Bureau Veritas.",settings.EMAIL_HOST_USER, [mail], fail_silently=False)

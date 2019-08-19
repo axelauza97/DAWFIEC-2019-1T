@@ -42,11 +42,12 @@
                 });
             }
         });
+
+
         $("#ingreBtn").click(function() {
             $.ajax({
                 type: 'POST',
-                url: URL + "auditor_crear",
-                crossDomain: true,
+                url: URL + "auditor_crear/",
                 headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
                 data: {
                     cod_auditor: $('.cod').val(),
@@ -57,6 +58,12 @@
                     correo: $('.correo').val(),
                     tipo_auditor: document.getElementsByTagName("option")[document.getElementById("tipo").selectedIndex].className,
                     direccion: $('.direccion').val()
+                },
+                success: function(result) {
+                    console.log("FINISIH");
+                },
+                error: function(result) {
+                    alert('error');
                 }
             });
 
@@ -133,7 +140,7 @@
                                 <div class="infoa">Información General:
                                     <p><input placeholder="Cod Auditor" class="cod"></p>
                                     <p><input placeholder="RUC/Cédula" onblur="(this.type='text')" class="ruc"></p>
-                                    <p><input placeholder="Nombres"  class="nombres"></p>
+                                    <p><input placeholder="Nombres" class="nombres"></p>
                                     <p><input placeholder="Apellidos" onblur="(this.type='text')" class="apellidos"></p>
                                     <p><input placeholder="Telefono" onblur="(this.type='text')" class="telefono"></p>
                                     <p><input placeholder="Correo" onblur="(this.type='text')" class="correo"></p>

@@ -61,6 +61,7 @@ class Tipo_Certificado(models.Model):
 
 
 
+
 class Cliente(models.Model):
     cod_cliente = models.CharField(max_length=4,primary_key=True,unique=True)
     ruc = models.CharField(max_length=10)

@@ -16,6 +16,7 @@ $(document).ready(function() {
                 var ruc = respuesta[j].cedula_auditor;
                 var telefono = respuesta[j].telefono;
                 var domicilio = respuesta[j].direccion; 
+
                 $("#contenedor_Datos").append(
                     '<tr>'
                     +'<td>'
@@ -39,9 +40,29 @@ $(document).ready(function() {
                     +'</tr>'
                 );	
             }
+
             
         }
     });
+
+
+    $('button').click(function() {
+        search($('#cedula').val());
+        return false;
+    });
+
+    function search(value) {
+
+        $('tbody tr').each(function() {
+            var cedula = $(this).find('.cedula');
+            if (cedula.text().indexOf(value.toLowerCase()) >= 0) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
 
     $("#eliminar_auditor").click(function(){
         var id = document.getElementById('id_auditor').value;
@@ -55,4 +76,6 @@ $(document).ready(function() {
         
     });
 
+
 });
+

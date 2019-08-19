@@ -45,6 +45,7 @@ $(document).ready(function() {
             
         }
     });
+
     $("#eliminar_certificado").click(function(){
         var id = document.getElementById('id_certificado').value;
         $.ajax({           
@@ -57,3 +58,4 @@ $(document).ready(function() {
         
     });
 });
+
