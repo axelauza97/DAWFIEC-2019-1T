@@ -1,7 +1,6 @@
 from .views import *
 from django.urls import path
-from rest_framework.authtoken.views import obtain_auth_token
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework.authtoken.views import obtain_auth_token 
 
 
 urlpatterns =[
@@ -9,8 +8,6 @@ urlpatterns =[
     path('ver_usuario/',UsuarioList.as_view(),name='ver_usuario'),
     path('usuario/<int:pk>', Usuario_detail),
     path('rest-auth/', obtain_auth_token, name='api_token_auth'),
-
-    path('rest-auth/', csrf_exempt(CustomAuthToken.as_view()), name='api_token_auth'),
     path('cliente/',ClienteList.as_view(),name='cliente'),
    
     path('auditor/', AuditorList.as_view(),name='auditor'),
