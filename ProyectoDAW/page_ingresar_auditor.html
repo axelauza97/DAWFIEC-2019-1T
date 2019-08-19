@@ -18,6 +18,54 @@
     <link rel="stylesheet" href="css/styleForm.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    var URL = "http://127.0.0.1:8000/api/";
+
+
+
+    $(document).ready(function() {
+        $.ajax({
+            type: 'GET',
+            url: URL + "tipo_auditor/",
+            crossDomain: true,
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            data: { get_param: 'value' },
+            dataType: "json",
+
+            success: function(respuesta) {
+                $(respuesta).each(function() {
+                    var tipo = $('<option></option>');
+                    tipo.text("[" + this.tipo_auditor + "] " + this.descripcion);
+                    tipo.addClass(this.cod_auditor);
+                    $('#tipo').append(tipo);
+                });
+            }
+        });
+        $("#ingreBtn").click(function() {
+            $.ajax({
+                type: 'POST',
+                url: URL + "auditor_crear",
+                crossDomain: true,
+                headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+                data: {
+                    cod_auditor: $('.cod').val(),
+                    cedula_auditor: $('.ruc').val(),
+                    nombres_auditor: $('.nombres').val(),
+                    apellidos_auditor: $('.apellidos').val(),
+                    telefono: $('.telefono').val(),
+                    correo: $('.correo').val(),
+                    tipo_auditor: document.getElementsByTagName("option")[document.getElementById("tipo").selectedIndex].className,
+                    direccion: $('.direccion').val()
+                }
+            });
+
+
+            return false;
+        });
+
+    });
+    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -79,28 +127,27 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">
-                            <form id="regForm" action="/action_page.php">
+                            <form id="regForm" action="">
                                 <h1 id="auditor">Auditor</h1>
                                 <h2 id="detalle">Debe llenar todos los campos para continuar al siguiente paso.</h2>
                                 <div class="infoa">Información General:
-                                    <p><input placeholder="Nombres" oninput="this.className = ''" name="nombres"></p>
-                                    <p><input placeholder="Apellidos" onblur="(this.type='text')" oninput="this.className = ''" name="apellidos"></p>
-                                    <p><input placeholder="RUC/Cédula" onblur="(this.type='text')" oninput="this.className = ''" name="rc"></p>
-                                    <p><select id="ttrabajo" name="ttraba">
-                                            <option value="" disabled selected>Tipo de Trabajo</option>
-                                            <option value="tipo1">Independiente</option>
-                                            <option value="tipo2">Asociado a Buffet</option>
+                                    <p><input placeholder="Cod Auditor" class="cod"></p>
+                                    <p><input placeholder="RUC/Cédula" onblur="(this.type='text')" class="ruc"></p>
+                                    <p><input placeholder="Nombres"  class="nombres"></p>
+                                    <p><input placeholder="Apellidos" onblur="(this.type='text')" class="apellidos"></p>
+                                    <p><input placeholder="Telefono" onblur="(this.type='text')" class="telefono"></p>
+                                    <p><input placeholder="Correo" onblur="(this.type='text')" class="correo"></p>
+                                    <p><select id="tipo" name="tipo">
+                                            <option value="" disabled selected>Tipo de Auditor</option>
                                         </select>
-                                        <p><input placeholder="Nombre del Buffet" oninput="this.className = ''" name="nbff"></p>
-                                        <p><input placeholder="Dirección del Buffet" oninput="this.className = ''" name="dir"></p>
-                                        <p><input placeholder="Teléfono" oninput="this.className = ''" name="tel"></p>
-                                        <p><input placeholder="Domicilio" oninput="this.className = ''" name="dom"></p>
+                                    </p>
+                                    <p><input placeholder="Dirección" class="direccion"></p>
                                 </div>
                                 <div style="overflow:auto;">
                                     <div style="float:right;">
                                         <button type="button" id="salirBtn"><span class="icon-user"> Salir
                                             </span></button>
-                                        <button type="button" id="ingreBtn">Ingresar</button>
+                                        <button type="submit" id="ingreBtn">Ingresar</button>
                                     </div>
                                 </div>
                             </form>

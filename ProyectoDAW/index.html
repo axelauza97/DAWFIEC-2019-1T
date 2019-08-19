@@ -19,6 +19,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <style type="text/css">
+        .search_it {
+        color: blue;
+            }
+    </style>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $('#search-input').keyup(function() {
+            search($(this).val());
+        });
+        function search(value){
+            $('.intro-section,.site-section').each(function() {
+                
+                $(this).each(function(){
+                    console.log("hola"+$(this).text());
+                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()>=0)){
+                        $(this).addClass("search_it");
+                }
+
+                })
+
+
+                
+                
+
+            });
+        }
+
+
+
+    });
+    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -55,10 +90,10 @@
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                     <form class="bd-search d-flex align-items-center">
-                        <input type="search" class="form-control" id="search-input" placeholder="Buscar..." aria-label="Search for..." autocomplete="off">
-                        <div class=content-search>
-                            <div class=content-table>
-                                <table id="table">
+                        <input type="search" class="form-control" id="inputBusqueda" placeholder="Buscar..." aria-label="Search for..." autocomplete="off">
+                        <div class=search id="search">
+                            <div class="content-search">
+                                <table class= "search-table" id="searchTable">
                                     <thead>
                                         <tr>
                                             <td>
@@ -76,7 +111,7 @@
                                             <td><a href="page_consultar_certificado.html">Certificados</a></td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table>  
                             </div>    
                         </div> 
                     </form>
@@ -196,19 +231,19 @@
                         <div class="col-sm ml-auto" data-aos="fade-up" data-aos-delay="500">
                             <form method="post">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nombres">
+                                    <input type="text" id="nombres"  class="form-control" placeholder="Nombres">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Teléfono">
+                                    <input type="text" id="telefono"  class="form-control" placeholder="Teléfono">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="E-mail">
+                                    <input type="text" id="email"  class="form-control" placeholder="E-mail">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Mensaje">
+                                    <input type="text" id="mensaje" class="form-control" placeholder="Mensaje">
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" id="ingresar" class="btn btn-danger btn-pill" value="Enviar">
+                                    <input type="button" id="ig_correo" class="btn btn-danger btn-pill" value="Enviar">
                                 </div>
                             </form>
                         </div>
@@ -257,7 +292,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/correo.js"></script>
     <script src="js/mapa.js"></script>
     <script src="js/search.js"></script>
 </body>

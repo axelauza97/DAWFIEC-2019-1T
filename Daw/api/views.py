@@ -1,10 +1,14 @@
 # Create your views here.
 from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework import status
 from .models import *
 from .serializers import *
 from rest_framework.permissions import AllowAny
+from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
-
+from django.core.mail import send_mail
+from django.conf import settings
 
 class CreateUser(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -23,6 +27,12 @@ class UsuarioList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = UsuarioSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class AuditorList(generics.ListAPIView):
@@ -37,6 +47,12 @@ class AuditorList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = AuditorSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class CertificadoList(generics.ListAPIView):
     
     queryset = Certificado.objects.all()
@@ -49,6 +65,12 @@ class CertificadoList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = CertificadoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class NormaList(generics.ListAPIView):
  
@@ -62,6 +84,12 @@ class NormaList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = NormaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class ProformaList(generics.ListAPIView):
     
     queryset = Proforma.objects.all()
@@ -74,6 +102,12 @@ class ProformaList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = ProformaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class FacturaList(generics.ListAPIView):
   
     queryset = Factura.objects.all()
@@ -86,6 +120,12 @@ class FacturaList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = FacturaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ClienteList(generics.ListAPIView):
     
@@ -99,6 +139,12 @@ class ClienteList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = ClienteSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class Estado_ProformaList(generics.ListAPIView):
    
@@ -112,6 +158,12 @@ class Estado_ProformaList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = ProformaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class Estado_CertificadoList(generics.ListAPIView):
     
     queryset = Estado_Certificado.objects.all()
@@ -124,6 +176,12 @@ class Estado_CertificadoList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = Estado_CertificadoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class Estado_FacturaList(generics.ListAPIView):
    
@@ -137,6 +195,12 @@ class Estado_FacturaList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = Estado_FacturaList(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class Tipo_CertificadoList(generics.ListAPIView):
     
     queryset = Tipo_Certificado.objects.all()
@@ -149,6 +213,12 @@ class Tipo_CertificadoList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = Tipo_CertificadoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class Tipo_AuditorList(generics.ListAPIView):
     queryset = Tipo_Auditor.objects.all()
@@ -161,8 +231,31 @@ class Tipo_AuditorList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def post(self, request, format=None):
+        serializer = Tipo_AuditorSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class CreateAuditor(generics.CreateAPIView):
     #permission_classes = (AllowAny,)
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
+
+
+class SendEmail(APIView):
+    permission_classes =(AllowAny,)
+   
+    
+    def post(self, request,format='json'):
+        if(request.method=='POST'):
+            
+            name = request.data['name']
+            
+            mail = request.data['mail']
+           
+            telefono = request.data['telefono']
+            mensaje= request.data['mensaje']
+            send_mail('Contactenos',"Bienvenido a nuestra página Bureau Veritas.",settings.EMAIL_HOST_USER, [mail], fail_silently=False)
+            return Response(request.data)
