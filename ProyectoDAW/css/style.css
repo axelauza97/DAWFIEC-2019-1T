@@ -1987,3 +1987,11 @@ img.responsive{
 #certad{
     height: 20px;
 }
+
+#titulo-tabla-auditor{
+    color: black;
+    text-align: center;
+}
+#contenedor_datos{
+    text-align: center;
+}

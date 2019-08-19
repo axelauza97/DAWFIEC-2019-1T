@@ -21,50 +21,7 @@
     <style>
         div.table-container{overflow-x: scroll;}
     </style>
-    <script type="text/javascript">
-    var URL = "http://127.0.0.1:8000/api/";
-    $(document).ready(function() {
 
-        $.ajax({
-            type: 'GET',
-            url: URL+"ver_usuario/",
-            crossDomain: true,
-            headers : { 'Authorization' : 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
-            data: { get_param: 'value' },
-            dataType: "json",
-
-            success: function(respuesta) {
-                $(respuesta).each(function() {
-                    var codigo = $('<td></td>');
-                    codigo.text(this.cod_usuario);
-                    var nombre = $('<td></td>');
-                    nombre.text(this.first_name);
-                    var apellido = $('<td></td>');
-                    apellido.text(this.last_name);
-                    var usuario = $('<td></td>');
-                    usuario.text(this.username);
-                    var mail = $('<td></td>');
-                    mail.text(this.email);
-                    var estado = $('<td></td>');
-                    estado.text(this.is_active);
-
-                    var tr = $('<tr></tr>');
-                    tr.append(codigo);
-                    tr.append(nombre);
-                    tr.append(apellido);
-                    tr.append(usuario);
-                    tr.append(mail);
-                    tr.append(estado);
-                    $('tbody').append(tr);
-                });
-            }
-        });
-
-
-        
-
-    });
-    </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -114,11 +71,6 @@
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                 </div>
-                <div class="text-center">
-                    <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                        <li><a href="#home-section" class="nav-link">Modificar Usuario</a></li>
-                    </ul>
-                </div>
             </div>
         </header>
     </div>
@@ -128,30 +80,19 @@
                 <div class="row align-items-center">
                     <div class="col-12">
                         <form action="/action_page.php">
+                            <h1 id= "titulo-tabla-auditor">Tabla de Usuarios</h1>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="text">E-Mail</label>
-                                    <input id="text" class="form-control" type="email" placeholder="Inserte Cédula" name="emailUserm">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="text">Contraseña</label>
-                                    <input id="text" class="form-control" type="password" placeholder="Inserte Cédula" name="passUserm">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="text">Nombre de Usuario</label>
-                                    <input class="form-control" type="text" placeholder="Inserte Nombre" name="Usernamem">
-                                </div>
-                                <div class="form-group col-md-6 d-flex justify-content-center">
-                                    <button type="submit">Consultar</button>
-                                </div>
+                                <div class="form-group col-md-3">                        
+                                    <input id="id_usuario" class="form-control" type="text" placeholder="Ingrese el id" name="cedula">                                   
+                                </div>   
+                                <button type="button" id ="modificar_usuario">Modificar</button>         
+                                <button type="button" id ="eliminar_usuario">Eliminar</button>                        
                             </div>
                         </form>
                         <table class=" table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Código Usuario</th>
+                                    <th>ID</th>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
                                     <th>Nombre de Usuario</th>
@@ -159,7 +100,7 @@
                                     <th>Estado</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="contenedor_Datos">
                                 
                             </tbody>
                         </table>
@@ -194,6 +135,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/usuario.js"></script>
 </body>
 
 </html>
