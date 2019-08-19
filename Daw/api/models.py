@@ -57,7 +57,7 @@ class Tipo_Certificado(models.Model):
     tipo_certificado = models.CharField(max_length=10)
     descripcion = models.CharField(max_length=50)
     def __str__(self):
-        return "{0}:[{1},{2}]".format(self.cod_tipo_cer,self.tipo_certificado,self.descripcion)
+        return "{1}".format(self.cod_tipo_cer,self.tipo_certificado,self.descripcion)
 
 
 
@@ -85,7 +85,7 @@ class Auditor(models.Model):
     direccion = models.CharField(max_length=50)
     
     def __str__(self):
-        return "{0}:[{1},{2}]".format(self.cod_auditor,self.cedula_auditor,self.nombres_auditor)
+        return "{0} {1}".format(self.nombres_auditor,self.apellidos_auditor)
 
 class Norma(models.Model):
     cod_norma = models.CharField(max_length=1,primary_key=True,unique=True)
