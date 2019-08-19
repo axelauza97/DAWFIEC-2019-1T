@@ -69,9 +69,9 @@
         <header class="site-navbar py-4 js-sticky-header site-navbar-target">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <div class="site-logo mr-auto w-15"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="site-logo mr-auto w-15"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html" data-step="1" data-intro="Bienvenidos a la página oficial de Bureau Veritas">Bureau Veritas</a></div>
                     <div class="mx-auto text-center">
-                        <nav class="site-navigation position-relative text-right">
+                        <nav class="site-navigation position-relative text-right" data-step="2" data-intro="Estas opciones nos llevan a algunas secciones de nuestra página principal">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                                 <li><a href="#home-section" class="nav-link">Inicio</a></li>
                                 <li><a href="#news-section" class="nav-link">Noticias</a></li>
@@ -118,11 +118,15 @@
                 </div>
             </div>
         </header>
-        <div class="intro-section" id="home-section">
+        <div class="intro-section" id="home-section" data-step="3" data-intro="Aquí nos lleva la opción Inicio">
             <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">
+                            <div class="row align-items-center">
+                                <div>
+                                    <a class="btn btn-danger btn-pill" href="javascript:introJs().setOption('showProgress',true).start();">Un tour de demostración</a>
+                                </div>
                             <div class="row align-items-center">
                                 <div class="col-lg-6 mb-4">
                                     <h1 data-aos="fade-up" data-aos-delay="100">LÍDER MUNDIAL EN SERVICIOS DE
@@ -153,11 +157,12 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="site-section" id="news-section">
+        <div class="site-section" id="news-section" data-step="4" data-intro="Aquí nos lleva la opción Noticias">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
@@ -205,7 +210,7 @@
                 </div>
             </div> <!-- .site-wrap -->
         </div>
-        <div class="site-section" id="about-section">
+        <div class="site-section" id="about-section" data-step="5" data-intro="Aquí nos lleva la opción Nosotros">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
@@ -223,7 +228,7 @@
                 </div>
             </div> <!-- .site-wrap -->
         </div>
-        <div class="site-section" id="contact-section">
+        <div class="site-section" id="contact-section" data-step="6" data-intro="Aquí nos lleva la opción Contáctenos">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
@@ -297,6 +302,7 @@
     <script src="js/correo.js"></script>
     <script src="js/mapa.js"></script>
     <script src="js/search.js"></script>
+    <script type="text/javascript" src="js/intro.js"></script>
 </body>
 
 </html>
