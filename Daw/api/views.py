@@ -9,6 +9,26 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
+from rest_framework.decorators import api_view
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+
+
+class CustomAuthToken(ObtainAuthToken):
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'isAdmin': user.is_superuser
+            ,
+            'nombre': user.first_name
+        })
+
 
 class CreateUser(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -34,6 +54,21 @@ class UsuarioList(generics.ListAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['PUT', 'DELETE'])
+def Usuario_detail(request, pk,format=None):
+    try:
+        queryset = Usuario.objects.get(pk=pk)
+    except queryset.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'PUT':
+        serializer = UsuarioSerializer(queryset, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        queryset.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class AuditorList(generics.ListAPIView):
     
@@ -53,6 +88,26 @@ class AuditorList(generics.ListAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PUT', 'DELETE'])
+def Auditor_detail(request, pk,format=None):
+    try:
+        queryset = Auditor.objects.get(pk=pk)
+    except queryset.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'PUT':
+        serializer = AuditorSerializer(queryset, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        queryset.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
 class CertificadoList(generics.ListAPIView):
     
     queryset = Certificado.objects.all()
@@ -71,6 +126,21 @@ class CertificadoList(generics.ListAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@api_view(['PUT', 'DELETE'])
+def Certificado_detail(request, pk,format=None):
+    try:
+        queryset = Certificado.objects.get(pk=pk)
+    except queryset.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'PUT':
+        serializer = CertificadoSerializer(queryset, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        queryset.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class NormaList(generics.ListAPIView):
  
@@ -108,6 +178,24 @@ class ProformaList(generics.ListAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PUT', 'DELETE'])
+def Proforma_detail(request, pk,format=None):
+    try:
+        queryset = Proforma.objects.get(pk=pk)
+    except queryset.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'PUT':
+        serializer = ProformaSerializer(queryset, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        queryset.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 class FacturaList(generics.ListAPIView):
   
     queryset = Factura.objects.all()
