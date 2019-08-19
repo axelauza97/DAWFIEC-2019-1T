@@ -9,6 +9,24 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+
+
+class CustomAuthToken(ObtainAuthToken):
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'isAdmin': user.is_superuser
+            ,
+            'nombre': user.first_name
+        })
 
 class CreateUser(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -47,6 +65,20 @@ class AuditorList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    def delete(self):
+        queryset = self.get_queryset()
+        obj = get_object_or_404(
+            queryset,
+            pk=self.kwargs['pk'],
+        )
+        obj.delete()
+        return  Response(status=status.HTTP_204_NO_CONTENT)
+    def put(self, request, format=None):
+        serializer = AuditorSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def post(self, request, format=None):
         serializer = AuditorSerializer(data=request.data)
         if serializer.is_valid():
@@ -65,6 +97,7 @@ class CertificadoList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+    
     def post(self, request, format=None):
         serializer = CertificadoSerializer(data=request.data)
         if serializer.is_valid():
@@ -120,6 +153,7 @@ class FacturaList(generics.ListAPIView):
             pk=self.kwargs['pk'],
         )
         return obj
+
     def post(self, request, format=None):
         serializer = FacturaSerializer(data=request.data)
         if serializer.is_valid():
