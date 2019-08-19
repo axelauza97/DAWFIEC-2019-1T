@@ -83,19 +83,20 @@
                                 <h1 id= "titulo-tabla-auditor">Tabla de Certificados</h1>
                                 <div class="form-row">
                                 <div class="form-group col-md-3">                        
-                                    <input id="text" class="form-control" type="text" placeholder="Inserte Cédula" name="cedula">                                   
+                                    <input id="id_certificado" class="form-control" type="text" placeholder="Inserte el id" name="cedula">                                   
                                 </div>   
-                                <button type="button" id ="modificar_auditor">Modificar</button>         
-                                <button type="button" id ="eliminar_auditor">Eliminar</button>                        
+                                <button type="button" id ="modificar_certificado">Modificar</button>         
+                                <button type="button" id ="eliminar_certificado">Eliminar</button>                        
                             </div>
                             </form>
-                            <div class="table-container">
-                                <table class="table table-striped">
+                            <div class="table-container text-center">
+                                <table id="tabla_certificado" class="table table-striped">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Empresa</th>
                                             <th>Representante</th>
-                                            <th>Tipo de Certificado</th>
+                                            <th>Certificado</th>
                                             <th>Auditor Asignado</th>
                                             <th>Descripción</th>
                                             <th>Valor($)</th>
