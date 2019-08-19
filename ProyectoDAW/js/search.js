@@ -1,12 +1,22 @@
-var buscador = $("#table").DataTable();
+var consulta = $("#searchTable").DataTable();
 
-$("#search-input").keyup(function(){
-    
-    buscador.search($(this).val()).draw();
-    
-    if ($("#search-input").val() == ""){
-        $(".content-search").fadeOut(300);
-    }else{
-        $(".content-search").fadeIn(300);
-    }
+$("#inputBusqueda").keyup(function(){
+	consulta.search($(this).val()).draw();
+
+	$("header").css({
+		"height": "100vh",
+		"background": "rgba(0,0,0,0.5)"
+	})
+
+	if ($("#inputBusqueda").val() == ""){
+		$("header").css({
+			"height": "auto",
+			"background": "none"
+		})
+
+		$("#search").hide()
+
+	} else {
+		$("#search").fadeIn("fast");
+	}
 })
