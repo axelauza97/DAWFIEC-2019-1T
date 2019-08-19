@@ -8,31 +8,35 @@ $(document).ready(function() {
         dataType: "json",
 
         success: function(respuesta) {
-            for (var j = 0; j < respuesta.length; j++) {
+            for (var j = 0 ; j< respuesta.length;j++){
+                var codigo = respuesta[j].cod_auditor ; 
                 var nombres = respuesta[j].nombres_auditor;
                 var apellidos = respuesta[j].apellidos_auditor;
                 var ruc = respuesta[j].cedula_auditor;
                 var telefono = respuesta[j].telefono;
                 var domicilio = respuesta[j].direccion;
                 $("#contenedor_Datos").append(
-                    '<tr>' +
-                    '<td>' +
-                    nombres +
-                    '</td>' +
-                    '<td>' +
-                    apellidos +
-                    '</td>' +
-                    '<td class="cedula">' +
-                    ruc +
-                    '</td>' +
-                    '<td>' +
-                    telefono +
-                    '</td>' +
-                    '<td>' +
-                    domicilio +
-                    '</td>' +
-                    '</tr>'
-                );
+                    '<tr>'
+                    +'<td>'
+                    + codigo
+                    +'</td>'
+                    +'<td>'
+                    + nombres
+                    +'</td>'
+                    +'<td>'
+                    + apellidos
+                    +'</td>'
+                    +'<td>'
+                    + ruc
+                    +'</td>'
+                    +'<td>'
+                    + telefono
+                    +'</td>'
+                    +'<td>'
+                    + domicilio
+                    +'</td>'
+                    +'</tr>'
+                );	
             }
 
         }
@@ -54,5 +58,16 @@ $(document).ready(function() {
         });
     }
 
+    $("#eliminar_auditor").click(function(){
+        var id = document.getElementById('id_auditor').value;
+        $.ajax({           
+            url: 'http://127.0.0.1:8000/api/auditor/'+id,
+            type: 'DELETE',
+            crossDomain: true,
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            
+        })
+        
+    });
 
 });

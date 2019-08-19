@@ -91,7 +91,8 @@
                             <h1 id= "titulo-tabla-auditor">Tabla de Auditores</h1>
                             <div class="form-row">
                                 <div class="form-group col-md-3">                        
-                                    <input id="cedula" class="form-control" type="text" placeholder="Inserte Cédula" name="cedula">                                   
+
+                                    <input id="id_auditor" class="form-control" type="text" placeholder="Inserte el id " name="cedula">   
                                 </div>   
                                 <button type="button" id ="modificar_auditor">Modificar</button>         
                                 <button type="button" id ="eliminar_auditor">Eliminar</button>        
@@ -99,14 +100,16 @@
                         </form>
                         
                         <div class="table-container">
-                            <table class="table table-striped">
+                            <table id ="tabla_auditor" class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>RUC/Cédula</th>
                                         <th>Teléfono</th>
                                         <th>Domicilio </th>
+                                    
                                     </tr>
                                 </thead>
                                 <tbody id="contenedor_Datos">

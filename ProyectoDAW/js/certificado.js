@@ -9,14 +9,18 @@ $(document).ready(function() {
 
         success: function(respuesta) {
             for (var j = 0 ; j< respuesta.length;j++){
+                var cc = respuesta[j].cod_certificado;
                 var ne = respuesta[j].nombre_empresa;
                 var re = respuesta[j].representante;
-                var tc= respuesta[j].tipo_certificado;
-                var ca = respuesta[j].cod_Auditor;
+                var tc= respuesta[j].tipo_certificado;                              
+                var ca = respuesta[j].cod_Auditor;               
                 var ob = respuesta[j].observaciones; 
                 var ct = respuesta[j].costo; 
                 $("#contenedor_datos").append(
                     '<tr>'
+                    +'<td>'
+                    + cc
+                    +'</td>'
                     +'<td>'
                     + ne
                     +'</td>'

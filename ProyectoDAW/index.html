@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link href="js/intro.js-2.9.3/introjs.css" rel="stylesheet"></link>
     <style type="text/css">
         .search_it {
         color: blue;
@@ -69,28 +70,51 @@
         <header class="site-navbar py-4 js-sticky-header site-navbar-target">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <div class="site-logo mr-auto w-15"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="site-logo mr-auto w-15"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html" data-step="1" data-intro="Bienvenidos a la página oficial de Bureau Veritas">Bureau Veritas</a></div>
                     <div class="mx-auto text-center">
-                        <nav class="site-navigation position-relative text-right">
+                        <nav class="site-navigation position-relative text-right" data-step="2" data-intro="Estas opciones nos llevan a algunas secciones de nuestra página principal">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="#home-section" class="nav-link">Inicio</a></li>
-                                <li><a href="#news-section" class="nav-link">Noticias</a></li>
-                                <li><a href="#about-section" class="nav-link">Nosotros</a></li>
-                                <li><a href="#contact-section" class="nav-link">Contáctenos</a></li>
+                                <li><a href="#home-section" class="nav-link" data-step="3" data-intro="Esta opción nos lleva al Inicio de esta página">Inicio</a></li>
+                                <li><a href="#news-section" class="nav-link" data-step="4" data-intro="Esta opción nos lleva a la sección de Noticias">Noticias</a></li>
+                                <li><a href="#about-section" class="nav-link" data-step="5" data-intro="Esta opción les dirá quiénes somos nosotros">Nosotros</a></li>
+                                <li><a href="#contact-section" class="nav-link" data-step="6" data-intro="Esta opción los llevará a un formulario para responder sus inquietudes">Contáctenos</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="ml-auto w-15">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                <li class="cta"><a href="page_desarrolladores.html"><span>Desarrolladores</span></a>
+                                <li class="cta"><a href="page_desarrolladores.html" data-step="7" data-intro="Si desea saber sobre nuestro personal, entre aquí"><span>Desarrolladores</span></a>
                                 </li>
                             </ul>
                         </nav>
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                     <form class="bd-search d-flex align-items-center">
-                        <input type="search" class="form-control" id="search-input" placeholder="Buscar..." aria-label="Search for..." autocomplete="off">
+                        <input type="search" class="form-control" id="inputBusqueda" placeholder="Buscar..." aria-label="Search for..." autocomplete="off" data-step="8" data-intro="Este es nuestro buscador">
+                        <div class=search id="search">
+                            <div class="content-search">
+                                <table class= "search-table" id="searchTable">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="page_home.html">Principal</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="page_administrador.html">Administrador</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="page_consultar_certificado.html">Certificados</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>  
+                            </div>    
+                        </div> 
                     </form>
                 </div>
             </div>
@@ -101,6 +125,10 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="row align-items-center">
+                                <div>
+                                    <a class="btn btn-danger btn-pill" href="javascript:introJs().setOption('showProgress',true).start();">Un tour de demostración</a>
+                                </div>
+                            <div class="row align-items-center">
                                 <div class="col-lg-6 mb-4">
                                     <h1 data-aos="fade-up" data-aos-delay="100">LÍDER MUNDIAL EN SERVICIOS DE
                                         VERIFICACIÓN, INSPECCIÓN, CERTIFICACIÓN Y FORMACIÓN.</h1>
@@ -109,7 +137,7 @@
                                         salud y seguridad, protección medioambiental (QHSE) y responsabilidad social.
                                     </p>
                                 </div>
-                                <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
+                                <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500" data-step="9" data-intro="Si usted ya es uno de nuestros clientes, por favor, inicie su sesión" data-position="bottom">
                                     <form method="post" class="form-box">
                                         <h3 class="h4 text-black mb-4">Inicio de Sesión</h3>
                                         <div class="form-group">
@@ -129,6 +157,7 @@
                                     </form>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -269,9 +298,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/correo.js"></script>
     <script src="js/mapa.js"></script>
+    <script src="js/search.js"></script>
+    <script type="text/javascript" src="js/intro.js-2.9.3/intro.js"></script>
     <script src="js/login.js"></script>
 </body>
 
