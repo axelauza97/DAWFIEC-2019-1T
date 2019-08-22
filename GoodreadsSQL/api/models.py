@@ -21,10 +21,12 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 class Autor(models.Model):
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=25)
+    def __str__(self):
+        return "[{0}:{1}]".format(self.nombres, self.apellidos)
 
 class Libro(models.Model):
     titulo = models.CharField(max_length=50)
-    autores = models.ForeignKey(Autor,null=False,blank =False, on_delete=models.CASCADE)
+    autores = models.ManyToManyField(Autor)
     isbn = models.CharField(max_length=25)
 
 class UsuarioLibro(models.Model):
