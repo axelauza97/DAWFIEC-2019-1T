@@ -42,10 +42,13 @@ class UsuarioSerializer(serializers.ModelSerializer):
         model = Usuario
 
 class ClienteSerializer(serializers.ModelSerializer):
-    cod_usuario= serializers.StringRelatedField()
+    #cod_usuario= serializers.StringRelatedField()
+    tipo = serializers.ReadOnlyField(source = 'cod_usuario .cod_cliente')
     class Meta:
         model = Cliente
-        fields = ('cod_cliente','ruc','nombre_cliente','representante','correo','telefono','direccion','cod_usuario')
+        #fields = ('cod_cliente','ruc','nombre_cliente','representante','correo','telefono','direccion','cod_usuario')
+        fields = "__all__"
+
 
 #class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
 #    class Meta:
@@ -64,11 +67,14 @@ class CertificadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Certificado
         fields = ('cod_certificado','cod_norma','tipo_certificado','cod_Auditor','nombre_empresa','representante','fecha_inicio','dias_certificacion','fecha_fin','costo','estado_certificado','observaciones','cod_usuario')
+
+'''
 class Tipo_AuditorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tipo_Auditor
         fields = ('cod_auditor','tipo_auditor','descripcion')
-        
+'''
+
 class AuditorSerializer(serializers.ModelSerializer):
     #tipo = serializers.CharField(source="tipo_auditor.tipo_auditor", read_only=True)
     tipo = serializers.ReadOnlyField(source = 'tipo_auditor.cod_auditor')
@@ -87,6 +93,9 @@ class ProformaSerializer(serializers.ModelSerializer):
         model = Proforma
         fields = ('cod_proforma','cod_cliente','cod_norma','costo','fecha_proforma','estado_proforma','cod_usuario')
 
+
+
+'''
 class FacturaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Factura
@@ -116,4 +125,4 @@ class Tipo_CertificadoSerializer(serializers.ModelSerializer):
         fields = ('cod_tipo_cer','tipo_certificado','descripcion')
 
 
-
+'''

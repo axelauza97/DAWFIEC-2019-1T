@@ -3,8 +3,11 @@ showTab(currentTab); // Display the current tab
 
 function showTab(n) {
   // This function will display the specified tab of the form...
+  console.log('valor de n',n);
   var x = document.getElementsByClassName("tab");
+  console.log('lo que hay en x',x);
   x[n].style.display = "block";
+  console.log('lo que hay en x',x);
   //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";

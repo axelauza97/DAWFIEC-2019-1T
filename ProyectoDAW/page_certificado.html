@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <!--<link rel="stylesheet" href="css/styleForm.css">--> 
-   <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleForm.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.css">
@@ -75,32 +75,74 @@
                             <form id="regForm" action="/action_page.php">
                                 <h1 id="proforma">PROFORMA</h1>
                                 <h2 id="detalle">Debe llenar todos los campos para continuar al siguiente paso.</h2>
-                                <div >Datos Generales:
-                                    <p><input placeholder="RUC del Cliente" type="text"
+                                <div class="tab">Datos Generales:
+                                    <p><input placeholder="RUC del Cliente" oninput="this.className = ''"
                                             name="rucliente"></p>
-                                    <p><input placeholder="Nombre del Cliente" type="text"
-                                            name="namecliente"></p>
-                                    <p><input placeholder="Representante" type="text"
-                                            name="rpres"></p>
-                                    <p><input placeholder="Correo" type="text"
-                                            name="email"></p>
-                                    <p><input placeholder="Teléfono" type="text"
-                                            name="tel"></p>
-                                    <p><input placeholder="Dirección" type="text"
-                                            name="dir"></p>
-                                    <p><input placeholder="Código de Norma" type="text"
-                                            name="codnorma"></p>
-                                    <p><input placeholder="Costo" type="text"
-                                            name="costo"></p>
-                                    <p><input placeholder="Fecha" class="textbox-n" type="date"
-                                            name="fcot">
+                                    <p><input placeholder="Nombre del Cliente" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="namecliente"></p>
+                                    <p><input placeholder="Representante" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="rpres"></p>
+                                    <p><input placeholder="Correo" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="email"></p>
+                                    <p><input placeholder="Teléfono" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="tel"></p>
+                                    <p><input placeholder="Dirección" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="dir"></p>
+                                    <p><input placeholder="Código de Norma" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="codnorma"></p>
+                                    <p><input placeholder="Costo" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="costo"></p>
+                                    <p><input placeholder="Fecha" class="textbox-n" type="text"
+                                            onfocus="(this.type='date')" onblur="(this.type='text')" name="fcot">
                                     </p>
+                                </div>
+                                <div class="tab">Asignación del Auditor:
+                                    <p><input placeholder="RUC del Cliente" oninput="this.className = ''"
+                                            name="rucliente"></p>
+                                    <p><input placeholder="Nombre del Cliente" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="namecliente"></p>
+                                    <p><input placeholder="Representante" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="rpres"></p>
+                                    <p><input placeholder="Tipo de Certificado" oninput="this.className = ''"
+                                            name="tipcert"></p>
+                                    <p><input placeholder="Código de Auditor" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="codauditor"></p>
+                                    <p><input placeholder="Código de Norma" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="codnorma"></p>
+                                    <p><input placeholder="Fecha Inicio Auditoría" class="textbox-n" type="text"
+                                            onfocus="(this.type='date')" onblur="(this.type='text')" name="fiaud"></p>
+                                    <p><input placeholder="Días de certificación" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="costo"></p>
+                                    <p><input placeholder="Costo" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="costo"></p>
+                                    <p><input placeholder="Estado" onblur="(this.type='text')"
+                                            oninput="this.className = ''" name="estado"></p>
+                                </div>
+                                <div class="tab">Finalización:
+                                    <p><input placeholder="Código de certificado" oninput="this.className = ''"
+                                            name="codcert"></p>
+                                    <p><input placeholder="Fecha Fin Auditoría" class="textbox-n" type="text"
+                                            onfocus="(this.type='date')" onblur="(this.type='text')" name="ffaud"></p>
+                                    <p><textarea rows="4" cols="50" placeholder="Observaciónes" oninput="this.className = ''" name="obser">
+                                    </textarea></p>
                                 </div>
                                 <div style="overflow:auto;">
                                     <div style="float:right;">
-                                        <button id= "cancelar" type="button">Cancelar</button>
-                                        <button id= "guardar" href="./page_home.html" type="button">Guardar</button>
+                                        <button type="button" href="javascript:void(0);"
+                                            onclick="javascript:introJs().start();">Ayuda</button>
+                                        <button type="button" onclick="location.href='./page_home.html'">Cancelar</button>
+                                         <button type="button" onclick="location.href='./page_home.html'">Guardar</button>
+                                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
                                     </div>
+                                </div>
+                                <div style="text-align:center;margin-top:40px;">
+                                    <span class="step" data-step="1"
+                                        data-intro="Llene la informacion general de la empresa">1</span>
+                                    <span class="step" data-step="2"
+                                        data-intro="Escoja el auditor apropiado que certificará la empresa">2</span>
+                                    <span class="step" data-step="3"
+                                        data-intro="LLene el Nombre de la empresa junto con el certificado que se desee">3</span>
                                 </div>
                             </form>
                         </div>
@@ -142,8 +184,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
-    <!--<script src="js/script2.js"></script>-->
-    <script src="js/proforma.js"></script>
+    <script src="js/script2.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.js"></script>
 </body>
