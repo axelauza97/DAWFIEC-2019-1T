@@ -190,3 +190,10 @@ class CantidadCP(APIView):
         cantidad = Cliente.objects.count()
         proforma = Proforma.objects.count()
         return Response({'Clientes':cantidad,'Proforma':proforma})
+
+## Tipo AUDITOR
+
+class GetTipoAuditor(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Tipo_Auditor.objects.all()
+    serializer_class = Tipo_AuditorSerializer

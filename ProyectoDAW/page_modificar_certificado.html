@@ -17,11 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleConsultarCertificado.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="css/popup.css">
     <style>
         div.table-container{overflow-x: scroll;}
     </style>
-
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -71,7 +72,6 @@
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
                     </div>
                 </div>
-                
             </div>
         </header>
         <div class="intro-section" id="home-section">
@@ -80,14 +80,14 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <form action="/action_page.php">
-                                <h1 id= "titulo-tabla-auditor">Tabla de Certificados</h1>
+                                <h1 id="titulo-tabla-auditor">Tabla de Certificados</h1>
                                 <div class="form-row">
-                                <div class="form-group col-md-3">                        
-                                    <input id="id_certificado" class="form-control" type="text" placeholder="Inserte el id" name="cedula">                                   
-                                </div>   
-                                <button type="button" id ="modificar_certificado">Modificar</button>         
-                                <button type="button" id ="eliminar_certificado">Eliminar</button>                        
-                            </div>
+                                    <div class="form-group col-md-3">
+                                        <input id="id_certificado" class="form-control" type="text" placeholder="Inserte el id" name="cedula">
+                                    </div>
+                                    <button type="button" id="btn-abrir-popup">Modificar</button>
+                                    <button type="button" id="eliminar_certificado">Eliminar</button>
+                                </div>
                             </form>
                             <div class="table-container text-center">
                                 <table id="tabla_certificado" class="table table-striped">
@@ -102,12 +102,78 @@
                                             <th>Valor($)</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="contenedor_datos">                                      
+                                    <tbody id="contenedor_datos">
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay">
+            <div class="popup" id="popup">
+                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <h3>Certificado</h3>
+                <h6 id="Nombre_libro"></h6>
+                <form>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Norma</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Tipo Certificado</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Auditor</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Cliente</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Fecha Inicio</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Días Certificacion</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Fecha Fin</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Estado Certificado</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Observaciones</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+                <div>
+                    <input type="button" class="btn btn-primary btn-submit" id="Calificar" value="Actualizar">
                 </div>
             </div>
         </div>

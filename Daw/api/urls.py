@@ -52,6 +52,9 @@ urlpatterns =[
     #cantidad cliente proforma
     path('cantidadcp/',CantidadCP.as_view()),
 
+    #tipo auditor
+    path('tipo_auditor/',GetTipoAuditor.as_view()),
+
     #correo
     path('sendemail', SendEmail.as_view(),name='Send Email'),
     #end correo
