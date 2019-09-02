@@ -49,7 +49,7 @@ $(document).ready(function() {
     $("#eliminar_certificado").click(function(){
         var id = document.getElementById('id_certificado').value;
         $.ajax({           
-            url: 'http://127.0.0.1:8000/api/certificado/'+id,
+            url: 'http://127.0.0.1:8000/api/certificado/delete/'+id,
             type: 'DELETE',
             crossDomain: true,
             headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
