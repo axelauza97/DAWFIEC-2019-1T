@@ -127,3 +127,7 @@ class Tipo_CertificadoSerializer(serializers.ModelSerializer):
 
 
 '''
+class Tipo_AuditorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tipo_Auditor
+        fields = "__all__"
