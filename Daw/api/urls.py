@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns =[
 
-    path('rest-auth/', obtain_auth_token, name='api_token_auth'),
+    #path('rest-auth/', obtain_auth_token, name='api_token_auth'),
     path('rest-auth/', csrf_exempt(CustomAuthToken.as_view()), name='api_token_auth'),
 
     #usuario

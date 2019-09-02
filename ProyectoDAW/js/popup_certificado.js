@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    /*$.ajax({
+    $.ajax({
         type: 'GET',
         url: "http://127.0.0.1:8000/api/libro/",
         crossDomain: true,
@@ -37,18 +37,12 @@ $(document).ready(function() {
 
 
         }
-    });*/
-
-    $('.ec-stars-wrapper>a').each(function() {
-        $(this).click(function() {
-            console.log($(this).attr('data-value'));
-            return false;
-        });
-
     });
+
+    /*
     $('.popup [type=button]').click(function() {
         var id = document.getElementById('id_libro').value;
-     /*   $.ajax({
+        $.ajax({
             type: 'POST',
             url: "http://127.0.0.1:8000/api/usuario_libro2/",
             crossDomain: true,
@@ -58,9 +52,9 @@ $(document).ready(function() {
             success: function(respuesta) {
                 console.log(respuesta);
             }
-        });*/
+        });
         return false;
-    });
+    });*/
 
 
     var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
@@ -70,9 +64,9 @@ $(document).ready(function() {
 
     btnAbrirPopup.addEventListener('click', function() {
         overlay.classList.add('active');
-        popup.classList.add('active');
+        popup.classList.add('active');/*
         var id = document.getElementById('id_libro').value;
-        /*
+
         $.ajax({
             type: 'GET',
             url: "http://127.0.0.1:8000/api/libro/" + id,

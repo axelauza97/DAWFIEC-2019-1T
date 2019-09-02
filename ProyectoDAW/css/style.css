@@ -1934,3 +1934,7 @@ img.responsive{
 #contenedor_datos{
     text-align: center;
 }
+
+#mcorrecto{
+    display: none;
+}

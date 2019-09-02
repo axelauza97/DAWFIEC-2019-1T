@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    //cliente-datos
+    
     $('#guardar').click(function() {
         $.ajax({
             url: 'http://localhost:8000/api/cantidadcp/',
@@ -38,8 +38,6 @@ $(document).ready(function() {
                     headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
                     data: { "cod_cliente": codigoc,"ruc": rucc,"nombre_cliente": nombres,"representante": repre,"correo": correos,"telefono": telefonos,"direccion": direc
                     ,"cod_usuario": usuario },
-                    /*data : {"cod_cliente":"11","ruc":"12323","nombre_cliente":"asd","representante":"asd","correo":"asd@gmail.com",
-                    "telefono":"123","direccion":"alborasa","cod_usuario":"rios"},*/
                     dataType: "json",
                 })
                 
@@ -55,8 +53,16 @@ $(document).ready(function() {
                 })  
             }    
         })
-
-    
+           // $("#mcorrecto").css("display", "block");
+            $("#mcorrecto").slideDown(500).delay(900).fadeIn(500);
+            $("#rucliente").val("");
+            $("#namecliente").val("");
+            $("#rpres").val("");
+            $("#email").val();
+            $("#tel").val();
+            $("#dir").val();
+            $("#codnorma").val();
+            $("#costo").val();
+            $("#fcot").val();
     })
-
 });
