@@ -49,7 +49,8 @@ urlpatterns =[
     path('certificado/delete/<int:pk>',DeleteCertificado.as_view()),
     #end certificado
 
-
+    #cantidad cliente proforma
+    path('cantidadcp/',CantidadCP.as_view()),
 
     #correo
     path('sendemail', SendEmail.as_view(),name='Send Email'),
