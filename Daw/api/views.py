@@ -31,12 +31,12 @@ class CustomAuthToken(ObtainAuthToken):
 #--------------------------------------------------------------
 class CreateUsuario(generics.CreateAPIView):
     permission_classes = (AllowAny,)
-    queryset = Usuario.objects.all()
+    queryset = Usuario.objects.filter(is_superuser=False)
     serializer_class = UsuarioSerializer
 
 class GetUsuario(generics.RetrieveAPIView):
     permission_classes = (AllowAny,)
-    queryset = Usuario.objects.all()
+    queryset = Usuario.objects.filter(is_superuser=False)
     serializer_class = UsuarioSerializer
 
 class UsuarioList(generics.ListAPIView):
@@ -129,12 +129,12 @@ class GetProforma (generics.RetrieveAPIView):
     serializer_class = ProformaSerializer
 
 class UpdateProforma (generics.UpdateAPIView):
-    permission_classes = (AllowAny,)
+    #permission_classes = (AllowAny,)
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer
 
 class DeleteProforma (generics.DestroyAPIView):
-    permission_classes = (AllowAny,)
+    #permission_classes = (AllowAny,)
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer           
 #--------------------------------------------------------------
@@ -180,3 +180,13 @@ class SendEmail(APIView):
             send_mail('Contactenos',"Bienvenido a nuestra página Bureau Veritas.",settings.EMAIL_HOST_USER, [mail], fail_silently=False)
             return Response(request.data)
 #--------------------------------------------------------------
+
+
+#APIVIEW
+#--------------------------------------------------------------
+class CantidadCP(APIView):
+    permission_classes =(AllowAny,)
+    def get(self,request,format= 'none'):
+        cantidad = Cliente.objects.count()
+        proforma = Proforma.objects.count()
+        return Response({'Clientes':cantidad,'Proforma':proforma})

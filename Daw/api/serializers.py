@@ -89,10 +89,11 @@ class NormaSerializer(serializers.ModelSerializer):
         fields = ('cod_norma','nombre_norma','descripcion')
 
 class ProformaSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Proforma
-        fields = ('cod_proforma','cod_cliente','cod_norma','costo','fecha_proforma','estado_proforma','cod_usuario')
-
+        #fields = ('cod_proforma','cod_cliente','cod_norma','costo','fecha_proforma','estado_proforma','cod_usuario')
+        fields = "__all__"
 
 
 '''
