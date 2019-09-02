@@ -1,17 +1,12 @@
 # Create your views here.
 from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework import status
 from .models import *
 from .serializers import *
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
-
-from rest_framework.decorators import api_view
-
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 
@@ -31,313 +26,149 @@ class CustomAuthToken(ObtainAuthToken):
             'nombre': user.first_name
         })
 
-class CreateUser(generics.CreateAPIView):
+
+#USUARIO
+#--------------------------------------------------------------
+class CreateUsuario(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
+class GetUsuario(generics.RetrieveAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
 
 class UsuarioList(generics.ListAPIView):
+    permission_classes = (AllowAny,)
     queryset = Usuario.objects.filter(is_superuser=False)
     serializer_class = UsuarioSerializer
 
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = UsuarioSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class DeleteUsuario(generics.DestroyAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Usuario.objects.filter(is_superuser=False)
+    serializer_class = UsuarioSerializer
 
+class UpdateUsuario(generics.UpdateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Usuario.objects.filter(is_superuser=False)
+    serializer_class = UsuarioSerializer
+#--------------------------------------------------------------
 
-class AuditorList(generics.ListAPIView):
-    
-    queryset = Auditor.objects.all()
-    serializer_class = AuditorSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = AuditorSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['PUT', 'DELETE'])
-def Auditor_detail(request, pk,format=None):
-    try:
-        queryset = Auditor.objects.get(pk=pk)
-    except queryset.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method == 'PUT':
-        serializer = AuditorSerializer(queryset, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
-        queryset.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-@api_view(['PUT', 'DELETE'])
-def Usuario_detail(request, pk,format=None):
-    try:
-        queryset = Usuario.objects.get(pk=pk)
-    except queryset.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method == 'PUT':
-        serializer = UsuarioSerializer(queryset, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
-        queryset.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class CertificadoList(generics.ListAPIView):
-    
-    queryset = Certificado.objects.all()
-    serializer_class = CertificadoSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    
-    def post(self, request, format=None):
-        serializer = CertificadoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['PUT', 'DELETE'])
-def Certificado_detail(request, pk,format=None):
-    try:
-        queryset = Certificado.objects.get(pk=pk)
-    except queryset.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method == 'PUT':
-        serializer = CertificadoSerializer(queryset, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
-        queryset.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-class NormaList(generics.ListAPIView):
- 
-    queryset = Norma.objects.all()
-    serializer_class = NormaSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = NormaSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-class ProformaList(generics.ListAPIView):
-    
-    queryset = Proforma.objects.all()
-    serializer_class = ProformaSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = ProformaSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['PUT', 'DELETE'])
-def Proforma_detail(request, pk,format=None):
-    try:
-        queryset = Proforma.objects.get(pk=pk)
-    except queryset.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method == 'PUT':
-        serializer = ProformaSerializer(queryset, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
-        queryset.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-        
-class FacturaList(generics.ListAPIView):
-  
-    queryset = Factura.objects.all()
-    serializer_class = FacturaSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-
-    def post(self, request, format=None):
-        serializer = FacturaSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+#CLIENTE
+#--------------------------------------------------------------
 class ClienteList(generics.ListAPIView):
-    
+    permission_classes = (AllowAny,)
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
 
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = ClienteSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class GetCliente(generics.RetrieveAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
 
-class Estado_ProformaList(generics.ListAPIView):
-   
-    queryset = Estado_Proforma.objects.all()
-    serializer_class = Estado_ProformaSerializer
+class CreateCliente(generics.CreateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
 
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = ProformaSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-class Estado_CertificadoList(generics.ListAPIView):
-    
-    queryset = Estado_Certificado.objects.all()
-    serializer_class = Estado_CertificadoSerializer
+class UpdateCliente(generics.UpdateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer   
 
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = Estado_CertificadoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class DeleteCliente(generics.DestroyAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
+#--------------------------------------------------------------
 
-class Estado_FacturaList(generics.ListAPIView):
-   
-    queryset = Estado_Factura.objects.all()
-    serializer_class = Estado_FacturaSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = Estado_FacturaList(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-class Tipo_CertificadoList(generics.ListAPIView):
-    
-    queryset = Tipo_Certificado.objects.all()
-    serializer_class = Tipo_CertificadoSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = Tipo_CertificadoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class Tipo_AuditorList(generics.ListAPIView):
-    queryset = Tipo_Auditor.objects.all()
-    serializer_class = Tipo_AuditorSerializer
-
-    def get_object(self):
-        queryset = self.get_queryset()
-        obj = get_object_or_404(
-            queryset,
-            pk=self.kwargs['pk'],
-        )
-        return obj
-    def post(self, request, format=None):
-        serializer = Tipo_AuditorSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-class CreateAuditor(generics.CreateAPIView):
-    #permission_classes = (AllowAny,)
+#AUDITOR
+#--------------------------------------------------------------
+class AuditorList (generics.ListAPIView):
+    permission_classes = (AllowAny,)
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
 
+class CreateAuditor(generics.CreateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Auditor.objects.all()
+    serializer_class = AuditorSerializer
 
+class GetAuditor(generics.RetrieveAPIView):   
+    permission_classes = (AllowAny,)
+    queryset = Auditor.objects.all()
+    serializer_class = AuditorSerializer
+
+class UpdateAuditor(generics.UpdateAPIView):   
+    permission_classes = (AllowAny,)
+    queryset = Auditor.objects.all()
+    serializer_class = AuditorSerializer 
+
+class DeleteAuditor(generics.DestroyAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Auditor.objects.all()
+    serializer_class = AuditorSerializer
+#--------------------------------------------------------------
+
+#PROFORMA
+#--------------------------------------------------------------
+class ProformaList (generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Proforma.objects.all()
+    serializer_class = ProformaSerializer
+
+class CreateProforma (generics.CreateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Proforma.objects.all()
+    serializer_class = ProformaSerializer
+
+class GetProforma (generics.RetrieveAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Proforma.objects.all()
+    serializer_class = ProformaSerializer
+
+class UpdateProforma (generics.UpdateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Proforma.objects.all()
+    serializer_class = ProformaSerializer
+
+class DeleteProforma (generics.DestroyAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Proforma.objects.all()
+    serializer_class = ProformaSerializer           
+#--------------------------------------------------------------
+
+#CERTIFICADO
+#--------------------------------------------------------------
+class CertificadoList (generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Certificado.objects.all()
+    serializer_class = CertificadoSerializer 
+
+class GetCertificado (generics.RetrieveAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Certificado.objects.all()
+    serializer_class = CertificadoSerializer 
+
+class CreateCertificado (generics.CreateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Certificado.objects.all()
+    serializer_class = CertificadoSerializer 
+
+class UpdateCertificado (generics.UpdateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Certificado.objects.all()
+    serializer_class = CertificadoSerializer 
+
+class DeleteCertificado (generics.DestroyAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Certificado.objects.all()
+    serializer_class = CertificadoSerializer 
+#--------------------------------------------------------------
+
+#CORREO
+#--------------------------------------------------------------
 class SendEmail(APIView):
     permission_classes =(AllowAny,)
     def post(self, request,format='json'):
@@ -348,3 +179,4 @@ class SendEmail(APIView):
             mensaje= request.data['mensaje']
             send_mail('Contactenos',"Bienvenido a nuestra página Bureau Veritas.",settings.EMAIL_HOST_USER, [mail], fail_silently=False)
             return Response(request.data)
+#--------------------------------------------------------------

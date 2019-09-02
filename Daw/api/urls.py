@@ -5,35 +5,53 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 urlpatterns =[
-    path('usuario/',CreateUser.as_view(),name='Usuario'),
-    path('ver_usuario/',UsuarioList.as_view(),name='ver_usuario'),
-    path('usuario/<int:pk>', Usuario_detail),
+
     path('rest-auth/', obtain_auth_token, name='api_token_auth'),
-
     path('rest-auth/', csrf_exempt(CustomAuthToken.as_view()), name='api_token_auth'),
+
+    #usuario
+    path('usuario/create',CreateUsuario.as_view()),
+    path('usuario/',UsuarioList.as_view(),name='usuario'),
+    path('usuario/update/<int:pk>', UpdateUsuario.as_view()),
+    path('usuario/<int:pk>', GetUsuario.as_view()),
+    path('usuario/delete/<int:pk>', DeleteUsuario.as_view()),
+    #end usuario 
+
+    #cliente
     path('cliente/',ClienteList.as_view(),name='cliente'),
-   
+    path('cliente/<int:pk>',GetCliente.as_view()),
+    path('cliente/create',CreateCliente.as_view()),
+    path('cliente/update/<int:pk>',UpdateCliente.as_view()),
+    path('cliente/delete/<int:pk>',DeleteCliente.as_view()),
+    #end cliente
+
+    #auditor
     path('auditor/', AuditorList.as_view(),name='auditor'),
+    path('auditor/<int:pk>', GetAuditor.as_view(),),
+    path('auditor/create', CreateAuditor.as_view(),),
+    path('auditor/update/<int:pk>', UpdateAuditor.as_view(),),
+    path('auditor/delete/<int:pk>', DeleteAuditor.as_view(),),
+    #end auditor
 
-    path('auditor/<int:pk>', Auditor_detail),
-    path('auditor_crear', CreateAuditor.as_view(),name='auditor crear'),
-    path('tipo_auditor/', Tipo_AuditorList.as_view(),name='tipo_auditor'),
-
-    path('factura/', FacturaList.as_view(),name='factura'),
-
-    path('certificado/', CertificadoList.as_view(),name='certificado'),
-    path('estado_certificado/', Estado_CertificadoList.as_view(),name='auditor'),
-    path('certificado/<int:pk>',Certificado_detail),
-
+    #proforma
     path('proforma/',ProformaList.as_view(),name='proforma'),
-    path('proforma/<int:pk>',Proforma_detail),
+    path('proforma/<int:pk>',GetProforma.as_view()),
+    path('proforma/create',CreateProforma.as_view()),
+    path('proforma/update/<int:pk>',UpdateProforma.as_view()),
+    path('proforma/delete/<int:pk>',DeleteProforma.as_view()),
+    #end proforma
 
-    path('norma/',NormaList.as_view(),name='norma'),
+    #certificado
+    path('certificado/',CertificadoList.as_view(),name='certificado'),
+    path('certificado/<int:pk>',GetCertificado.as_view()),
+    path('certificado/create',GetCertificado.as_view()),
+    path('certificado/update/<int:pk>',UpdateCertificado.as_view()),
+    path('certificado/delete/<int:pk>',DeleteCertificado.as_view()),
+    #end certificado
 
+
+
+    #correo
     path('sendemail', SendEmail.as_view(),name='Send Email'),
-
- 
-
-
-
+    #end correo
 ]
