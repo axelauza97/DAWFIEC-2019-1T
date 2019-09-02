@@ -10,16 +10,25 @@ $(document).ready(function() {
             dataType: "json",   
             success: function(respuesta) {
                 console.log(respuesta.Clientes);
-                var rucc = document.getElementsByName("rucliente").value;
-                var nombres = document.getElementsByName('namecliente').value;
-                var repre = document.getElementsByName("rpres").value;
-                var correos = document.getElementsByName("email").value;
-                var telefonos = document.getElementsByName("tel").value;
-                var direc = document.getElementsByName("Dirección").value;
-                var codigoc = (respuesta.Clientes);
-                var norma = document.getElementsByName("codnorma").value;
-                var costo = parseFloat(document.getElementsByName("costo").value);
-                var fecha = document.getElementsByName("fcot").value;
+                var rucc = document.getElementById("rucliente").value;
+                console.log("rucc",rucc);
+                var nombres = document.getElementById('namecliente').value;
+                console.log("nombres",nombres);
+                var repre = document.getElementById("rpres").value;
+                console.log("repre",repre);
+                var correos = document.getElementById("email").value;
+                console.log("correo",correos);
+                var telefonos = document.getElementById("tel").value;
+                console.log("telefono",telefonos);
+                var direc = document.getElementById("dir").value;
+                console.log("direc",direc);
+                var codigoc = (respuesta.Clientes +1).toString();
+                var codigop = (respuesta.Clientes).toString();
+                console.log("codigoc",codigoc);
+                var norma = document.getElementById("codnorma").value;
+                var costo = parseFloat(document.getElementById("costo").value);
+                console.log("costp",costo);
+                var fecha = document.getElementById("fcot").value;
                 var estado = "1";
                 var usuario = "rios";
                 $.ajax({
@@ -29,8 +38,11 @@ $(document).ready(function() {
                     headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
                     data: { "cod_cliente": codigoc,"ruc": rucc,"nombre_cliente": nombres,"representante": repre,"correo": correos,"telefono": telefonos,"direccion": direc
                     ,"cod_usuario": usuario },
+                    /*data : {"cod_cliente":"11","ruc":"12323","nombre_cliente":"asd","representante":"asd","correo":"asd@gmail.com",
+                    "telefono":"123","direccion":"alborasa","cod_usuario":"rios"},*/
                     dataType: "json",
-                })/*
+                })
+                
                 $.ajax({
                     url: 'http://127.0.0.1:8000/api/proforma/create',
                     type:'POST',
@@ -40,7 +52,7 @@ $(document).ready(function() {
                             "fecha_proforma":fecha,"estado_proforma":estado,"cod_usuario":usuario},
                     dataType: "json",
     
-                })*/
+                })  
             }    
         })
 
