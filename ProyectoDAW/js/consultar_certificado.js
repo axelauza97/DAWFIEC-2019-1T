@@ -156,8 +156,31 @@ $(document).ready(function() {
         }
     });
 
+    $('.modificar').click(function() {
+        $.ajax({
+            type: 'GET',
+            url: URL + "certificado/" + $("#id_certificado").val(),
+            crossDomain: true,
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            data: { get_param: 'value' },
+            dataType: "json",
+            success: function(respuesta) {
+                $(respuesta).each(function() {
+                    $(".f_inicio").val(this.fecha_inicio);
+                    $(".d_certificacion").val(this.dias_certificacion);
+                    $(".f_fin").val(this.fecha_fin);
+                    $(".costo").val(this.costo);
+                    $(".obs").val(this.observaciones);
+                    var norma = this.cod_norma.nombre_norma;
+                    $(".option").removeClass("selected");
+                    $("option."+norma).prop('selected', true);
+                    $("option."+norma).addClass("selected");
+                })
+            }
+        })
 
 
+    })
 
 
     var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
