@@ -221,3 +221,14 @@ class GetEstadoCertificado(generics.ListAPIView):
     permission_classes = (AllowAny,)
     queryset = Estado_Certificado.objects.all()
     serializer_class = Estado_CertificadoSerializer
+   
+class GraficosApi(APIView):
+
+    permission_classes =(AllowAny,)
+
+
+    def get(self, request, format=None):
+
+        datos= Certificado.objects.count()
+        datos2 = Proforma.objects.count()
+        return Response({"certificados":datos,"proformas":datos2})
