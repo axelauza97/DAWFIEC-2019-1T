@@ -23,7 +23,7 @@ class CustomAuthToken(ObtainAuthToken):
             'token': token.key,
             'isAdmin': user.is_superuser
             ,
-            'nombre': user.first_name
+            'cod': user.cod_usuario
         })
 
 
