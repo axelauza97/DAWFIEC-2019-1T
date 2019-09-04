@@ -13,7 +13,7 @@ urlpatterns =[
     path('usuario/create',CreateUsuario.as_view()),
     path('usuario/',UsuarioList.as_view(),name='usuario'),
     path('usuario/update/<int:pk>', UpdateUsuario.as_view()),
-    path('usuario/<int:pk>', GetUsuario.as_view()),
+    path('usuario/<str:pk>', GetUsuario.as_view()),
     path('usuario/delete/<int:pk>', DeleteUsuario.as_view()),
     #end usuario 
 
