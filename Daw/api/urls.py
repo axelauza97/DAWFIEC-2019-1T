@@ -64,4 +64,8 @@ urlpatterns =[
     #correo
     path('sendemail', SendEmail.as_view(),name='Send Email'),
     #end correo
+    
+    #GRAFICOS
+     path('graficoPie/',GraficosApiTwo.as_view(),name='grafico'),
+    path('graficoBar/',GraficosApi.as_view(),name='grafico'),
 ]
