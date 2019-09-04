@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <link href="js/intro.js-2.9.3/introjs.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <style type="text/css">
         .search_it {
         color: blue;
@@ -92,7 +93,6 @@
                     </div>
                     <form class="bd-search d-flex align-items-center">
                         <input type="search" class="form-control" id="inputBusqueda" placeholder="Buscar..." aria-label="Search for..." autocomplete="off" data-step="8" data-intro="Este es nuestro buscador">
-                    
                     </form>
                 </div>
             </div>
@@ -103,9 +103,6 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="row align-items-center">
-                                <div>
-                                    <a class="btn btn-danger btn-pill" href="javascript:introJs().setOption('showProgress',true).start();">Un tour de demostración</a>
-                                </div>
                             <div class="row align-items-center">
                                 <div class="col-lg-6 mb-4">
                                     <h1 data-aos="fade-up" data-aos-delay="100">LÍDER MUNDIAL EN SERVICIOS DE
@@ -114,6 +111,7 @@
                                         para nuestros clientes, ya que les ayudamos a alcanzar sus objetivos de calidad,
                                         salud y seguridad, protección medioambiental (QHSE) y responsabilidad social.
                                     </p>
+                                    <a class="btn btn-danger btn-pill" href="javascript:introJs().setOption('showProgress', true).start();"><i class="fas fa-question"></i></a>
                                 </div>
                                 <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500" data-step="9" data-intro="Si usted ya es uno de nuestros clientes, por favor, inicie su sesión" data-position="bottom">
                                     <form method="post" class="form-box">
@@ -257,6 +255,9 @@
                     <a href="./page_administrador.html">Promind</a>
                 </p>
             </div>
+            <div>
+            <a class="btn btn-danger btn-pill" href="javascript:introJs().setOption('showProgress', true).start();"><i class="fas fa-question"></i></a>
+                            </div>
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -279,6 +280,7 @@
     <script src="js/correo.js"></script>
     <script src="js/mapa.js"></script>
      <script src="js/login.js"></script>
+    <script src="js/intro.js-2.9.3/intro.js"></script>
 </body>
 
 </html>
