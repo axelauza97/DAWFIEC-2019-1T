@@ -232,3 +232,14 @@ class GraficosApi(APIView):
         datos= Certificado.objects.count()
         datos2 = Proforma.objects.count()
         return Response({"certificados":datos,"proformas":datos2})
+    
+class GraficosApiTwo(APIView):
+
+    permission_classes =(AllowAny,)
+
+
+    def get(self, request, format=None):
+
+        datos= Certificado.objects.values('cod_usuario').annotate(dcount=Count('cod_usuario'))
+        return Response(datos)
+    
