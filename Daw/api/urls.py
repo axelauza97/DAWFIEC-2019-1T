@@ -27,6 +27,7 @@ urlpatterns =[
 
     #auditor
     path('auditor/', AuditorList.as_view(),name='auditor'),
+
     path('auditor/<int:pk>', GetAuditor.as_view(),),
     path('auditor/create', CreateAuditor.as_view(),),
     path('auditor/update/<int:pk>', UpdateAuditor.as_view(),),

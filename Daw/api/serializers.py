@@ -1,5 +1,7 @@
 from tkinter.tix import _dummyExFileSelectBox
 
+from scipy.sparse.csgraph._traversal import depth_first_order
+
 from .models import *
 
 
@@ -69,7 +71,7 @@ class AuditorSerializer(serializers.ModelSerializer):
         model = Auditor
         #fields = ('cod_auditor','cedula_auditor','nombres_auditor','apellidos_auditor','telefono','correo','tipo','direccion')
         fields = "__all__"
-
+        depth=1
 class NormaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Norma

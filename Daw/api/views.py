@@ -90,6 +90,7 @@ class AuditorList (generics.ListAPIView):
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
 
+
 class CreateAuditor(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Auditor.objects.all()
