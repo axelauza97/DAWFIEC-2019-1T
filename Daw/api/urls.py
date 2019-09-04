@@ -55,6 +55,12 @@ urlpatterns =[
     #tipo auditor
     path('tipo_auditor/',GetTipoAuditor.as_view()),
 
+    #norma
+    path('norma/',GetNorma.as_view()),
+    
+    #Tipo certificado GetTipoCertificado
+    path('tcertificado/',GetTipoCertificado.as_view()),
+    path('certificado_estado/',GetEstadoCertificado.as_view()),
     #correo
     path('sendemail', SendEmail.as_view(),name='Send Email'),
     #end correo

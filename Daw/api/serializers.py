@@ -56,24 +56,11 @@ class ClienteSerializer(serializers.ModelSerializer):
 #        fields =('cod_usuario','nick_name','nombre_usuario','apellido_usuario','contraseña','rol_us','correo','estado_us')
 
 class CertificadoSerializer(serializers.ModelSerializer):
-    cod_norma = serializers.StringRelatedField()
-    tipo_certificado = serializers.StringRelatedField()
-    cod_Auditor = serializers.StringRelatedField()
-    #cod_cliente = serializers.StringRelatedField()
-    estado_certificado = serializers.StringRelatedField()
-    cod_usuario = serializers.StringRelatedField()
-    nombre_empresa = serializers.CharField(source="cod_cliente.nombre_cliente",read_only=True)
-    representante = serializers.CharField(source="cod_cliente.representante", read_only=True)
     class Meta:
         model = Certificado
-        fields = ('cod_certificado','cod_norma','tipo_certificado','cod_Auditor','nombre_empresa','representante','fecha_inicio','dias_certificacion','fecha_fin','costo','estado_certificado','observaciones','cod_usuario')
+        fields = '__all__'
+        depth = 1
 
-'''
-class Tipo_AuditorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tipo_Auditor
-        fields = ('cod_auditor','tipo_auditor','descripcion')
-'''
 
 class AuditorSerializer(serializers.ModelSerializer):
     #tipo = serializers.CharField(source="tipo_auditor.tipo_auditor", read_only=True)
@@ -86,7 +73,7 @@ class AuditorSerializer(serializers.ModelSerializer):
 class NormaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Norma
-        fields = ('cod_norma','nombre_norma','descripcion')
+        fields = "__all__"
 
 class ProformaSerializer(serializers.ModelSerializer):
     
@@ -130,4 +117,14 @@ class Tipo_CertificadoSerializer(serializers.ModelSerializer):
 class Tipo_AuditorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tipo_Auditor
+        fields = "__all__"
+
+class Tipo_CertificadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tipo_Certificado
+        fields = "__all__"
+
+class Estado_CertificadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Estado_Certificado
         fields = "__all__"

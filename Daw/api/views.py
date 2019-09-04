@@ -190,10 +190,34 @@ class CantidadCP(APIView):
         cantidad = Cliente.objects.count()
         proforma = Proforma.objects.count()
         return Response({'Clientes':cantidad,'Proforma':proforma})
+#--------------------------------------------------------------
 
-## Tipo AUDITOR
-
+# Tipo AUDITOR
+#--------------------------------------------------------------
 class GetTipoAuditor(generics.ListAPIView):
     permission_classes = (AllowAny,)
     queryset = Tipo_Auditor.objects.all()
     serializer_class = Tipo_AuditorSerializer
+#--------------------------------------------------------------
+
+#Norma
+#--------------------------------------------------------------
+class GetNorma(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Norma.objects.all()
+    serializer_class = NormaSerializer
+#--------------------------------------------------------------
+
+#Tipo Certificado
+#--------------------------------------------------------------
+class GetTipoCertificado(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Tipo_Certificado.objects.all()
+    serializer_class = Tipo_CertificadoSerializer
+#--------------------------------------------------------------
+
+#Estado Certificado
+class GetEstadoCertificado(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Estado_Certificado.objects.all()
+    serializer_class = Estado_CertificadoSerializer
