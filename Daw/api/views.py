@@ -180,11 +180,15 @@ class SendEmail(APIView):
     permission_classes =(AllowAny,)
     def post(self, request,format='json'):
         if(request.method=='POST'):
-            name = request.data['name']
-            mail = request.data['mail']
-            telefono = request.data['telefono']
-            mensaje= request.data['mensaje']
-            send_mail('Contactenos',"Bienvenido a nuestra página Bureau Veritas.",settings.EMAIL_HOST_USER, [mail], fail_silently=False)
+            name = "Nombre :"+request.data['name']
+            mail = "Email :"+request.data['mail']
+            telefono = "Telefono :"+request.data['telefono']
+            mensaje= "Mensaje :"+request.data['mensaje']
+            user = Usuario.objects.get(is_superuser=True)
+            emailAdmin = user.email
+             
+            
+            send_mail('Contactenos Bureau Veritas',mensaje,settings.EMAIL_HOST_USER, [emailAdmin], fail_silently=False)
             return Response(request.data)
 #--------------------------------------------------------------
 
