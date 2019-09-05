@@ -110,6 +110,23 @@ $(document).ready(function() {
             });
         }
     });
+    $.ajax({
+        type: 'GET',
+        url: URL + "proforma/estado",
+        crossDomain: true,
+        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        data: { get_param: 'value' },
+        dataType: "json",
+
+        success: function(respuesta) {
+            $(respuesta).each(function() {
+                var estado = $('<option></option>');
+                estado.text('[' + this.estado_pro + ']' + this.descripcion);
+                estado.addClass(this.cod_es_pro);
+                $('#estado').append(estado);
+            });
+        }
+    });
 
     $('#actualizar').click(function() {
         var id = document.getElementById('id_proforma').value;
@@ -202,6 +219,24 @@ $(document).ready(function() {
         }
         window.location.href="./page_certificado.html";
     });
+    $("#myInput").on("keyup", function() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tabla_pro");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      });
 
 
 
