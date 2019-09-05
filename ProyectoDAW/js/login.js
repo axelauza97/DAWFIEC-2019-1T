@@ -14,11 +14,11 @@ $("#ingresar").click(function(){
             if(data.isAdmin){
                 alert("esAdmin") 
                 window.location.replace("./page_administrador.html");
-                document.cookie = "token"+"="+data.token + "; expires=Thu, 01 Jan 2020 00:00:00 GMT"
+                Cookies.set('token', data.token, { expires: 7 });
             }else{
                 alert("no es admin")
                 window.location.replace("./page_home.html");
-                document.cookie = "token"+"="+data.token + "; expires=Thu, 01 Jan 2020 00:00:00 GMT"
+                Cookies.set('token', data.token, { expires: 7 });
             }
           }
         
