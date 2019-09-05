@@ -99,7 +99,6 @@ $(document).ready(function() {
     $("#actualizar").click(function() {
         var id = document.getElementById('id_auditor').value;
         var tipo=$("option:selected").attr('class');
-        console.log(tipo.split(" ")[1])
         $.ajax({
             url: URL+'auditor/update/' + id,
             type: 'PUT',
