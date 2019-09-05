@@ -1,6 +1,8 @@
 $(document).ready(function() {
     var URL = 'http://localhost:8000/api/'
     var codusuario="";
+    
+    var jsons=[];
     function initateTable() {
         $.ajax({
             url: URL+'proforma/',
@@ -23,9 +25,14 @@ $(document).ready(function() {
                     var telefono = respuesta[j].cod_cliente.telefono;
                     var direccion = respuesta[j].cod_cliente.direccion;
                     var ruc = respuesta[j].cod_cliente.ruc;
+                    var jsonData={"id":id,"fecha":fecha,"cliente":cliente,
+                    "representante":representante,"costo":costo,"norma":norma,
+                    "estado":estado,"correo":correo,"telefono":telefono,
+                    "direccion":direccion,"ruc":ruc};
+                    jsons.push(jsonData);
                     $('#contenedor_datos').append(
                         '<tr>' +
-                        '<td>' +
+                        '<td class="id">' +
                         id +
                         '</td>' +
                         '<td>' +
@@ -126,6 +133,7 @@ $(document).ready(function() {
             dataType: "json",
 
             success: function(respuesta) {
+                
                 initateTable();
                 btnCerrarPopup.click();
             }
@@ -177,10 +185,22 @@ $(document).ready(function() {
                     $("#estado option." + estado).prop('selected', true);
                     $("#estado option." + estado).addClass("selected");
                     codusuario=this.cod_usuario.cod_usuario;
+
                 });
             }
         })
         return false;
+    });
+    $('body').on('click', '.id', function() {
+        localStorage.removeItem("proforma");
+        for (var j = 0; j < jsons.length; j++) {
+            console.log(jsons[j].id);
+            if(jsons[j].id==this.innerHTML){
+                localStorage.setItem("proforma",JSON.stringify(jsons[j]));
+                break;
+            }
+        }
+        window.location.href="./page_certificado.html";
     });
 
 
