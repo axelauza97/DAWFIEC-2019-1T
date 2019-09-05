@@ -64,22 +64,22 @@ class ClienteList(generics.ListAPIView):
     serializer_class = ClienteSerializer
 
 class GetCliente(generics.RetrieveAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
 
 class CreateCliente(generics.CreateAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
 
 class UpdateCliente(generics.UpdateAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer   
 
 class DeleteCliente(generics.DestroyAPIView):
-    permission_classes = (AllowAny,)
+   
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
 #--------------------------------------------------------------
@@ -87,28 +87,28 @@ class DeleteCliente(generics.DestroyAPIView):
 #AUDITOR
 #--------------------------------------------------------------
 class AuditorList (generics.ListAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
 
 
 class CreateAuditor(generics.CreateAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
 
 class GetAuditor(generics.RetrieveAPIView):   
-    permission_classes = (AllowAny,)
+    
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
 
 class UpdateAuditor(generics.UpdateAPIView):   
-    permission_classes = (AllowAny,)
+    
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer 
 
 class DeleteAuditor(generics.DestroyAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
 #--------------------------------------------------------------
@@ -116,32 +116,32 @@ class DeleteAuditor(generics.DestroyAPIView):
 #PROFORMA
 #--------------------------------------------------------------
 class ProformaList (generics.ListAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer
 
 class CreateProforma (generics.CreateAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer
 
 class GetProforma (generics.RetrieveAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer
 
 class GetProforma2 (generics.RetrieveAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer2
 
 class UpdateProforma (generics.UpdateAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer2
 
 class DeleteProforma (generics.DestroyAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer           
 #--------------------------------------------------------------
@@ -149,27 +149,27 @@ class DeleteProforma (generics.DestroyAPIView):
 #CERTIFICADO
 #--------------------------------------------------------------
 class CertificadoList (generics.ListAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Certificado.objects.all()
     serializer_class = CertificadoSerializer 
 
 class GetCertificado (generics.RetrieveAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Certificado.objects.all()
     serializer_class = CertificadoSerializer 
 
 class CreateCertificado (generics.CreateAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Certificado.objects.all()
     serializer_class = CertificadoSerializer 
 
 class UpdateCertificado (generics.UpdateAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Certificado.objects.all()
     serializer_class = Certificado2Serializer
 
 class DeleteCertificado (generics.DestroyAPIView):
-    permission_classes = (AllowAny,)
+    
     queryset = Certificado.objects.all()
     serializer_class = CertificadoSerializer 
 #--------------------------------------------------------------
