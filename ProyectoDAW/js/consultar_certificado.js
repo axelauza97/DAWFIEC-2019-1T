@@ -4,7 +4,7 @@ $(document).ready(function() {
         url: URL+'certificado/',
         type:'GET',
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",   
         success: function(respuesta) {
@@ -71,7 +71,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "norma/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -88,7 +88,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "tcertificado/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -106,7 +106,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "auditor/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -124,7 +124,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "cliente/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -142,7 +142,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "certificado_estado/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -161,7 +161,7 @@ $(document).ready(function() {
             type: 'GET',
             url: URL + "certificado/" + $("#id_certificado").val(),
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
             data: { get_param: 'value' },
             dataType: "json",
             success: function(respuesta) {
