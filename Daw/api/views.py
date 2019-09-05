@@ -166,7 +166,7 @@ class CreateCertificado (generics.CreateAPIView):
 class UpdateCertificado (generics.UpdateAPIView):
     permission_classes = (AllowAny,)
     queryset = Certificado.objects.all()
-    serializer_class = CertificadoSerializer 
+    serializer_class = Certificado2Serializer
 
 class DeleteCertificado (generics.DestroyAPIView):
     permission_classes = (AllowAny,)

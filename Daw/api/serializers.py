@@ -62,7 +62,10 @@ class CertificadoSerializer(serializers.ModelSerializer):
         model = Certificado
         fields = '__all__'
         depth = 1
-
+class Certificado2Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Certificado
+        fields = '__all__'
 
 class AuditorSerializer(serializers.ModelSerializer):
     #tipo = serializers.CharField(source="tipo_auditor.tipo_auditor", read_only=True)
