@@ -15,10 +15,12 @@ $("#ingresar").click(function(){
                 alert("esAdmin") 
                 window.location.replace("./page_administrador.html");
                 Cookies.set('token', data.token, { expires: 7 });
+                Cookies.set('idus', data.cod, { expires: 7 });
             }else{
                 alert("no es admin")
                 window.location.replace("./page_home.html");
                 Cookies.set('token', data.token, { expires: 7 });
+                Cookies.set('idus', data.cod, { expires: 7 });
             }
           }
         
