@@ -129,13 +129,18 @@ class GetProforma (generics.RetrieveAPIView):
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer
 
-class UpdateProforma (generics.UpdateAPIView):
-    #permission_classes = (AllowAny,)
+class GetProforma2 (generics.RetrieveAPIView):
+    permission_classes = (AllowAny,)
     queryset = Proforma.objects.all()
-    serializer_class = ProformaSerializer
+    serializer_class = ProformaSerializer2
+
+class UpdateProforma (generics.UpdateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Proforma.objects.all()
+    serializer_class = ProformaSerializer2
 
 class DeleteProforma (generics.DestroyAPIView):
-    #permission_classes = (AllowAny,)
+    permission_classes = (AllowAny,)
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer           
 #--------------------------------------------------------------
@@ -222,6 +227,28 @@ class GetEstadoCertificado(generics.ListAPIView):
     permission_classes = (AllowAny,)
     queryset = Estado_Certificado.objects.all()
     serializer_class = Estado_CertificadoSerializer
+
+#Estado Proforma
+class GetEstadoProforma(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Estado_Proforma.objects.all()
+    serializer_class = Estado_ProformaSerializer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
 class GraficosApi(APIView):
 

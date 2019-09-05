@@ -37,6 +37,7 @@ urlpatterns =[
     #proforma
     path('proforma/',ProformaList.as_view(),name='proforma'),
     path('proforma/<int:pk>',GetProforma.as_view()),
+    path('proforma2/<int:pk>',GetProforma2.as_view()),
     path('proforma/create',CreateProforma.as_view()),
     path('proforma/update/<int:pk>',UpdateProforma.as_view()),
     path('proforma/delete/<int:pk>',DeleteProforma.as_view()),
@@ -67,6 +68,9 @@ urlpatterns =[
     #end correo
     
     #GRAFICOS
-     path('graficoPie/',GraficosApiTwo.as_view(),name='grafico'),
+    path('graficoPie/',GraficosApiTwo.as_view(),name='grafico'),
     path('graficoBar/',GraficosApi.as_view(),name='grafico'),
+    
+    
+    path('proforma/estado',GetEstadoProforma.as_view()),
 ]
