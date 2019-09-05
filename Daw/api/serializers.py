@@ -1,5 +1,7 @@
 from tkinter.tix import _dummyExFileSelectBox
 
+from scipy.sparse.csgraph._traversal import depth_first_order
+
 from .models import *
 
 
@@ -69,7 +71,7 @@ class AuditorSerializer(serializers.ModelSerializer):
         model = Auditor
         #fields = ('cod_auditor','cedula_auditor','nombres_auditor','apellidos_auditor','telefono','correo','tipo','direccion')
         fields = "__all__"
-
+        depth=1
 class NormaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Norma
@@ -81,39 +83,16 @@ class ProformaSerializer(serializers.ModelSerializer):
         model = Proforma
         #fields = ('cod_proforma','cod_cliente','cod_norma','costo','fecha_proforma','estado_proforma','cod_usuario')
         fields = "__all__"
+        depth = 1
 
 
-'''
-class FacturaSerializer(serializers.ModelSerializer):
+class ProformaSerializer2(serializers.ModelSerializer):
+    
     class Meta:
-        model = Factura
-        fields = ('cod_factura','cod_certificado','cod_usuario','fecha_factura','valor_factura','estado_factura')
+        model = Proforma
+        #fields = ('cod_proforma','cod_cliente','cod_norma','costo','fecha_proforma','estado_proforma','cod_usuario')
+        fields = "__all__"
 
-
-
-class Estado_ProformaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Estado_Proforma
-        fields = ('cod_es_pro','estado_pro','descripcion')
-
-class Estado_CertificadoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Estado_Certificado
-        fields = ('cod_es_cer','estado_cer','descripcion')
-
-
-class Estado_FacturaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Estado_Factura
-        fields = ('cod_es_fac','estado_fac','descripcion')
-
-class Tipo_CertificadoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tipo_Certificado
-        fields = ('cod_tipo_cer','tipo_certificado','descripcion')
-
-
-'''
 class Tipo_AuditorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tipo_Auditor
@@ -127,4 +106,12 @@ class Tipo_CertificadoSerializer(serializers.ModelSerializer):
 class Estado_CertificadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estado_Certificado
+        fields = "__all__"
+
+
+
+
+class Estado_ProformaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Estado_Proforma
         fields = "__all__"

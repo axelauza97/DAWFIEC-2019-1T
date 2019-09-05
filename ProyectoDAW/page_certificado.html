@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Ingreso Proforma</title>
+    <title>Ingreso Certificado</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
@@ -39,18 +39,25 @@
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png"
                             alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
-                    <div class="mx-auto text-center">
-                        <nav class="site-navigation position-relative text-right">
-                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="./page_home.html" class="nav-link">Inicio</a></li>
-                                <li><a href="#home-section" class="nav-link">Ingresar Proforma</a></li>
-                                <li><a href="./page_proformas.html" class="nav-link">Ver
-                                        Proformas</a></li>
-                                <li><a href="./page_consultar_certificado.html" class="nav-link">Ver
-                                        Certificados</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                            <div class="mx-auto text-center">
+                                <nav class="site-navigation position-relative text-right">
+                                    <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                                        <li><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Proforma</a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="./page_proformas.html">Consultar Proforma</a>
+                                                <a class="dropdown-item" href="./page_ingresar_proforma.html">Ingresar Proforma</a>
+                                            </div>
+                                        </li>
+                                        <li><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Certificado</a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="./page_consultar_certificado.html">Consultar Certificado</a>
+                                                <a class="dropdown-item" href="./page_certificado.html">Ingresar Certificado</a>
+                                                
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
                     <div class="ml-auto w-25">
                         <nav class="site-navigation position-relative text-right">
                             <ul
@@ -73,7 +80,7 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <form id="regForm" action="/action_page.php">
-                                <h1 id="proforma">PROFORMA</h1>
+                                <h1 id="proforma">Certificado</h1>
                                 <h2 id="detalle">Debe llenar todos los campos para continuar al siguiente paso.</h2>
                                 <div class="tab">Datos Generales:
                                     <p><input placeholder="RUC del Cliente" oninput="this.className = ''"

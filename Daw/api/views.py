@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
+from django.db.models import Count
 
 
 class CustomAuthToken(ObtainAuthToken):
@@ -23,7 +24,7 @@ class CustomAuthToken(ObtainAuthToken):
             'token': token.key,
             'isAdmin': user.is_superuser
             ,
-            'nombre': user.first_name
+            'cod': user.cod_usuario
         })
 
 
@@ -90,6 +91,7 @@ class AuditorList (generics.ListAPIView):
     queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
 
+
 class CreateAuditor(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Auditor.objects.all()
@@ -128,13 +130,18 @@ class GetProforma (generics.RetrieveAPIView):
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer
 
-class UpdateProforma (generics.UpdateAPIView):
-    #permission_classes = (AllowAny,)
+class GetProforma2 (generics.RetrieveAPIView):
+    permission_classes = (AllowAny,)
     queryset = Proforma.objects.all()
-    serializer_class = ProformaSerializer
+    serializer_class = ProformaSerializer2
+
+class UpdateProforma (generics.UpdateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Proforma.objects.all()
+    serializer_class = ProformaSerializer2
 
 class DeleteProforma (generics.DestroyAPIView):
-    #permission_classes = (AllowAny,)
+    permission_classes = (AllowAny,)
     queryset = Proforma.objects.all()
     serializer_class = ProformaSerializer           
 #--------------------------------------------------------------
@@ -221,3 +228,47 @@ class GetEstadoCertificado(generics.ListAPIView):
     permission_classes = (AllowAny,)
     queryset = Estado_Certificado.objects.all()
     serializer_class = Estado_CertificadoSerializer
+
+#Estado Proforma
+class GetEstadoProforma(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Estado_Proforma.objects.all()
+    serializer_class = Estado_ProformaSerializer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+class GraficosApi(APIView):
+
+    permission_classes =(AllowAny,)
+
+
+    def get(self, request, format=None):
+
+        datos= Certificado.objects.count()
+        datos2 = Proforma.objects.count()
+        return Response({"certificados":datos,"proformas":datos2})
+    
+class GraficosApiTwo(APIView):
+
+    permission_classes =(AllowAny,)
+
+
+    def get(self, request, format=None):
+
+        datos= Certificado.objects.values('cod_usuario').annotate(dcount=Count('cod_usuario'))
+        return Response(datos)
+    

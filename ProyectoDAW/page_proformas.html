@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Pagina de Consulta Certificado</title>
+    <title>Pagina de Consultas Proformas</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
@@ -17,13 +17,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleConsultarCertificado.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="css/popup_cer.css">
     <style>
-        @media screen and (max-width: 700px) {
-            .container .col-12 {
-                margin-top: 200px;
-            }
-        }
+        div.table-container{height: 75vh;}
+        div.table-container{overflow-x: scroll;overflow-y: scroll;}
+        .col-12{margin-top: 20vh!important;}
     </style>
 </head>
 
@@ -44,10 +44,19 @@
                     <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="./page_home.html" class="nav-link">Inicio</a></li>
-                                <li><a href="./page_ingresar_proforma.html" class="nav-link">Ingresar Proforma</a>
+                                <li><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Proforma</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="./page_proformas.html">Consultar Proforma</a>
+                                        <a class="dropdown-item" href="./page_ingresar_proforma.html">Ingresar Proforma</a>
+                                    </div>
                                 </li>
-                                <li><a href="#home-section" class="nav-link">Consultar Certificado</a></li>
+                                <li><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Certificado</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="./page_consultar_certificado.html">Consultar Certificado</a>
+                                        <a class="dropdown-item" href="./page_certificado.html">Ingresar Certificado</a>
+                                       
+                                    </div>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -63,55 +72,107 @@
                 </div>
             </div>
         </header>
-       <div class="intro-section" id="home-section">
-            <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-12">
-                            <form action="/action_page.php">
-                                <h1 id= "titulo-tabla-auditor">Tabla de Certificados</h1>
-                                <div class="form-row">
+    </div>
+    <div class="intro-section" id="home-section">
+        <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <form action="/action_page.php">
+                            <h1 id="titulo-tabla-auditor">Tabla de Proformas</h1>
+                            <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <input id="id_certificado" class="form-control" type="text" placeholder="Inserte el id" name="cedula">
+                                    <input id="Id_proforma" class="form-control" type="text" placeholder="Inserte el id " name="cedula">
                                 </div>
-                                <button type="button" id ="modificar_certificado">Modificar</button>
-                                <button type="button" id ="eliminar_certificado">Eliminar</button>
+                                <button type="button" id="btn-abrir-popup" class="modificar">Modificar</button>
                             </div>
-                            </form>
-                            <div class="table-container text-center">
-                                <table id="tabla_certificado" class="table table-striped">
+                        </form>
+                        <div class="table-container text-center">
+                            <table id="tabla_certificado" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Empresa</th>
+                                            <th>Fecha Proforma</th>
+                                            <th>Cliente</th>
+                                            <th>RUC Cliente</th>
                                             <th>Representante</th>
-                                            <th>Certificado</th>
-                                            <th>Auditor Asignado</th>
-                                            <th>Descripción</th>
-                                            <th>Valor($)</th>
+                                            <th>Correo</th>
+                                            <th>Teléfono</th>
+                                            <th>Dirección</th>
+                                            <th>Costo($)</th>
+                                            <th>Norma</th>
+                                            <th>Estado Proforma</th>
                                         </tr>
                                     </thead>
                                     <tbody id="contenedor_datos">
                                     </tbody>
-                                </table>
-                            </div>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="footer-section bg-gray">
-            <div class="container">
-                <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
-                    document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                </p>
-            </div>
-        </footer>
     </div>
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Proforma</h3>
+            <h6 id="Nombre_libro"></h6>
+            <form>
+                <div id = "conte_fecha" class="input-group mb-3 input-group-sm">
+                    <span class="input-group-text ">Fecha Proforma</span>
+                    <input type="date" class="form-control f_proforma"> 
+                    <span class="input-group-text ">RUC Cliente</span>
+                    <input type="text" class="form-control ruc">       
+                </div>
+                <div id = "cliente" class="input-group mb-3 input-group-sm">  
+                    <span class="input-group-text ">Cliente</span>
+                    <input type="text" class="form-control cliente">
+                    <span class="input-group-text">Representante </span>
+                    <input type="text" class="form-control repres">               
+                </div>
+                <div id = "correo" class="input-group mb-3 input-group-sm">  
+                    <span class="input-group-text ">Correo</span>
+                    <input type="text" class="form-control correo"> 
+                    <span class="input-group-text ">Teléfono</span>
+                    <input type="text" class="form-control telefono">            
+                </div>
+                <div id = "direccion" class="input-group mb-3 input-group-sm">  
+                    <span class="input-group-text ">Dirección</span>
+                    <input type="text" class="form-control direccion">     
+                    <span class="input-group-text">Costo($) </span>
+                    <input type="text" class="form-control costo">       
+                </div>
+                <div class="input-group mb-4 input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Norma</span>
+                    </div>
+                    <select id="tipo2" name="tipo">
+                    </select>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Estado Proforma</span>
+                    </div>
+                    <select id="tipo" name="tipo">
+    
+                    </select>   
+                </div>
+            </form>
+            <div>
+                <input type="button" class="btn btn-primary btn-submit" id="actualizar" value="Actualizar">
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section bg-gray">
+        <div class="container">
+            <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>
+                document.write(new Date().getFullYear());
+                </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
@@ -127,6 +188,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/consulta_proforma.js"></script>
 </body>
 
 </html>

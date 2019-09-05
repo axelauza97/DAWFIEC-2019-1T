@@ -21,7 +21,9 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="css/popup.css">
     <style>
-        div.table-container{overflow-x: scroll;}
+        div.table-container{height: 75vh;}
+        div.table-container{overflow-x: scroll;overflow-y: scroll;}
+        .col-12{margin-top: 20vh!important;}
     </style>
 </head>
 
@@ -85,7 +87,7 @@
                                     <div class="form-group col-md-3">
                                         <input id="id_certificado" class="form-control" type="text" placeholder="Inserte el id" name="cedula">
                                     </div>
-                                    <button type="button" id="btn-abrir-popup">Modificar</button>
+                                    <button type="button" id="btn-abrir-popup" class="modificar">Modificar</button>
                                     <button type="button" id="eliminar_certificado">Eliminar</button>
                                 </div>
                             </form>
@@ -121,59 +123,72 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Norma</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <select id="norma">
+                        </select>
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Tipo Certificado</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <select id="tcertificado">
+                        </select>
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Auditor</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <select id="auditor">
+                        </select>
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Cliente</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <select id="cliente">
+                        </select>
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fecha Inicio</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control inicio">
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Días Certificacion</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control dias">
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fecha Fin</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control fin">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Costo</span>
+                        </div>
+                        <input type="text" class="form-control costo">
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Estado Certificado</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <select id="estado">
+                            <option class="1">Vigente</option>
+                            <option class="2">Expirado</option>
+                        </select>
                     </div>
                     <div class="input-group mb-3 input-group-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Observaciones</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control observacion">
                     </div>
                 </form>
                 <div>
-                    <input type="button" class="btn btn-primary btn-submit" id="Calificar" value="Actualizar">
+                    <input type="button" class="btn btn-primary btn-submit" id="actualizar" value="Actualizar">
                 </div>
             </div>
         </div>

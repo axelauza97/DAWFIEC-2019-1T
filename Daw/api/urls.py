@@ -13,7 +13,7 @@ urlpatterns =[
     path('usuario/create',CreateUsuario.as_view()),
     path('usuario/',UsuarioList.as_view(),name='usuario'),
     path('usuario/update/<int:pk>', UpdateUsuario.as_view()),
-    path('usuario/<int:pk>', GetUsuario.as_view()),
+    path('usuario/<str:pk>', GetUsuario.as_view()),
     path('usuario/delete/<int:pk>', DeleteUsuario.as_view()),
     #end usuario 
 
@@ -27,6 +27,7 @@ urlpatterns =[
 
     #auditor
     path('auditor/', AuditorList.as_view(),name='auditor'),
+
     path('auditor/<int:pk>', GetAuditor.as_view(),),
     path('auditor/create', CreateAuditor.as_view(),),
     path('auditor/update/<int:pk>', UpdateAuditor.as_view(),),
@@ -36,6 +37,7 @@ urlpatterns =[
     #proforma
     path('proforma/',ProformaList.as_view(),name='proforma'),
     path('proforma/<int:pk>',GetProforma.as_view()),
+    path('proforma2/<int:pk>',GetProforma2.as_view()),
     path('proforma/create',CreateProforma.as_view()),
     path('proforma/update/<int:pk>',UpdateProforma.as_view()),
     path('proforma/delete/<int:pk>',DeleteProforma.as_view()),
@@ -64,4 +66,11 @@ urlpatterns =[
     #correo
     path('sendemail', SendEmail.as_view(),name='Send Email'),
     #end correo
+    
+    #GRAFICOS
+    path('graficoPie/',GraficosApiTwo.as_view(),name='grafico'),
+    path('graficoBar/',GraficosApi.as_view(),name='grafico'),
+    
+    
+    path('proforma/estado',GetEstadoProforma.as_view()),
 ]
