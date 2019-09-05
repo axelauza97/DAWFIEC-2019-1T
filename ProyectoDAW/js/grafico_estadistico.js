@@ -75,21 +75,37 @@ $(document).ready(function () {
     
 
 
-var options = {
-    chart: {
-      type: 'bar'
-    },
-    series: [{
-      name: 'sales',
-      data: [30,50]
-    }],
-    xaxis: {
-      categories: ["certificados","proformas"]
-    }
-  }
-  
-  var chart = new ApexCharts(document.querySelector("#chart4"), options);
-  
-  chart.render();
+    $.ajax({
+        url: 'http://127.0.0.1:8000/api/graficoBar/',
+        method:'GET',
+   success: function(data) {
+         
+
+            var options = {
+                chart: {
+                  type: 'bar'
+                },
+                series: [{
+                  name: 'Data',
+                  data: [data.certificados,data.proformas]
+                }],
+                xaxis: {
+                  categories: ["certificados","proformas"]
+                }
+              }
+              
+              var chart = new ApexCharts(document.querySelector("#chart4"), options);
+              
+              chart.render();
+        
+
+
+          }
+
+ 
+    
+
+        
+    })
 
 });
