@@ -44,7 +44,7 @@
                     <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Proforma</a>
+                                <li><a href="#home-section" class="nav-link dropdown-toggle" data-toggle="dropdown">Proforma</a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="./page_proformas.html">Consultar Proforma</a>
                                         <a class="dropdown-item" href="./page_ingresar_proforma.html">Ingresar Proforma</a>
@@ -82,7 +82,7 @@
                             <h1 id="titulo-tabla-auditor">Tabla de Proformas</h1>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <input id="Id_proforma" class="form-control" type="text" placeholder="Inserte el id " name="cedula">
+                                    <input id="id_proforma" class="form-control" type="text" placeholder="Inserte el id " name="cedula">
                                 </div>
                                 <button type="button" id="btn-abrir-popup" class="modificar">Modificar</button>
                             </div>
@@ -117,46 +117,46 @@
         <div class="popup" id="popup">
             <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Proforma</h3>
-            <h6 id="Nombre_libro"></h6>
             <form>
-                <div id = "conte_fecha" class="input-group mb-3 input-group-sm">
-                    <span class="input-group-text ">Fecha Proforma</span>
-                    <input type="date" class="form-control f_proforma"> 
-                    <span class="input-group-text ">RUC Cliente</span>
-                    <input type="text" class="form-control ruc">       
-                </div>
-                <div id = "cliente" class="input-group mb-3 input-group-sm">  
-                    <span class="input-group-text ">Cliente</span>
-                    <input type="text" class="form-control cliente">
-                    <span class="input-group-text">Representante </span>
-                    <input type="text" class="form-control repres">               
-                </div>
-                <div id = "correo" class="input-group mb-3 input-group-sm">  
-                    <span class="input-group-text ">Correo</span>
-                    <input type="text" class="form-control correo"> 
-                    <span class="input-group-text ">Teléfono</span>
-                    <input type="text" class="form-control telefono">            
-                </div>
-                <div id = "direccion" class="input-group mb-3 input-group-sm">  
-                    <span class="input-group-text ">Dirección</span>
-                    <input type="text" class="form-control direccion">     
-                    <span class="input-group-text">Costo($) </span>
-                    <input type="text" class="form-control costo">       
-                </div>
-                <div class="input-group mb-4 input-group-sm">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Norma</span>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Norma</span>
+                        </div>
+                        <select id="norma">
+                        </select>
                     </div>
-                    <select id="tipo2" name="tipo">
-                    </select>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Estado Proforma</span>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Cliente</span>
+                        </div>
+                        <select id="cliente">
+                        </select>
                     </div>
-                    <select id="tipo" name="tipo">
-    
-                    </select>   
-                </div>
-            </form>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Costo</span>
+                        </div>
+                        <input type="text" class="form-control costo">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Fecha Proforma</span>
+                        </div>
+                        <input type="text" class="form-control fecha">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Estado Proforma</span>
+                        </div>
+                        <select id="estado">
+                            <option class="1">Activa</option>
+                            <option class="2">Inactivo</option>
+                            <option class="3">Abierta</option>
+                            <option class="4">Cerrada</option>
+                            <option class="5">Suspendida</option>
+                        </select>
+                    </div>
+                </form>
             <div>
                 <input type="button" class="btn btn-primary btn-submit" id="actualizar" value="Actualizar">
             </div>
