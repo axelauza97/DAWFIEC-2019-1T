@@ -72,6 +72,57 @@ $(document).ready(function () {
 
         
     })
+        $.ajax({
+        url: 'http://127.0.0.1:8000/api/graficoPie2/',
+        method:'GET',
+   success: function(data) {
+    var labels2 = []
+    var datas2 = []
+            for(let i = 0;i<data.length;i++){
+
+                    
+                    datas2.push(data[i].dcount)
+                    labels2.push(data[i].cod_usuario)
+                  
+            }
+
+
+
+
+            var options = {
+                chart: {
+                    width: 380,
+                    type: 'pie',
+                },
+                labels: labels2,
+                series: datas2,
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            }
+            
+            var chart = new ApexCharts(
+                document.getElementById('chart5'),
+                options
+            );
+            
+            chart.render();
+
+          }
+
+ 
+    
+
+        
+    })
     
 
 
