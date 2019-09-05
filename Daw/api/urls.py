@@ -70,6 +70,7 @@ urlpatterns =[
     #GRAFICOS
     path('graficoPie/',GraficosApiTwo.as_view(),name='grafico'),
     path('graficoBar/',GraficosApi.as_view(),name='grafico'),
+    path('graficoPie2/',GraficosApiThree.as_view(),name='grafico'),
     
     
     path('proforma/estado',GetEstadoProforma.as_view()),

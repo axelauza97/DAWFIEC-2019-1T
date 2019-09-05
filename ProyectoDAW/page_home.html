@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
     <link rel="icon" type="img/png" href="./images/logo.png">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -20,35 +22,41 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <style>
-div {
-    margin-bottom: 20px;
-}
+    div {
+        margin-bottom: 20px;
+    }
 
-.card-st li:hover {
-    font-weight: bold;
-    text-shadow: 3px 2px black;
+    .card-st li:hover {
+        font-weight: bold;
+        text-shadow: 3px 2px black;
 
-}
-
-.card-st {
-    width: 30vw!important;
-}
-.card-body > ul{
-    padding-left: 0%!important;
-}
-
-@media screen and (max-width: 991px) {
-    .intro-section,.slide-1{
-        display: block;
-        height: auto!important;
     }
 
     .card-st {
-        display: block;
-        width: auto!important;
+        width: 30vw !important;
     }
-    .card{margin-top:20vh; }
-}
+
+    .card-body>ul {
+        padding-left: 0% !important;
+    }
+
+    @media screen and (max-width: 991px) {
+
+        .intro-section,
+        .slide-1 {
+            display: block;
+            height: auto !important;
+        }
+
+        .card-st {
+            display: block;
+            width: auto !important;
+        }
+
+        .card {
+            margin-top: 20vh;
+        }
+    }
 </style>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -64,28 +72,33 @@ div {
         <header class="site-navbar py-4 js-sticky-header site-navbar-target">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png" alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
+                    <div class="site-logo mr-auto w-25"><img id="imgencabezado" src="./images/Bureau_Veritas.png"
+                            alt="Bureau_Veritas" width="70" height="70"> <a href="index.html">Bureau Veritas</a></div>
                     <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                <li><a href="#"><span class="icon-user"> BIENVENIDA CARMEN </span></a></li>
+                                <li><a href="page_usuario.html"><span class="icon-user"></span></a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="ml-auto w-25">
                         <nav class="site-navigation position-relative text-right">
-                            <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                <li class="cta"><a href="./index.html"><span> Salir</span></a>
+                            <ul
+                                class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                                <li class="cta"><a href="./index.html"><span>Salir</span></a>
                                 </li>
                             </ul>
                         </nav>
-                        <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
+                        <a href="#"
+                            class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
                     </div>
                 </div>
             </div>
         </header>
         <div class="intro-section" id="home-section">
-            <div class="slide-1" style="background-image: url('images/fondo1.jpg');" data-stellar-background-ratio="0.5">
+            <div class="slide-1" style="background-image: url('images/fondo1.jpg');"
+                data-stellar-background-ratio="0.5">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">
@@ -144,15 +157,14 @@ div {
                         <h2 class="section-title">Gráficos Estadísticos</h2>
                     </div>
                     <div id="canvas-container" style="width:50%;">
-                        <canvas id="chart" width="500" height="320"></canvas>
+                        <canvas id="chart" width="500" height="250"></canvas>
                     </div>
-                       <div id="chart2"  style="width:50%;">
-                        
+                    <div id="chart2" style="width:50%;">
+
                     </div>
-                                           <div id="chart4"  style="width:50%;">
-                        
+                    <div id="chart4" style="width:50%;">
+                    <p class="text-center">Gráfica comparativa entre Certificados y Proformas</p>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -162,19 +174,24 @@ div {
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;
                     <script>
-                    document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved | This template is made with <i class="icon-heart"
+                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
         </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdn.bootcss.com/stellar.js/0.6.2/jquery.stellar.min.js"></script>
