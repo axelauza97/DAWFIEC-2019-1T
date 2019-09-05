@@ -8,7 +8,7 @@ $(document).ready(function() {
             url: URL+'proforma/',
             type: 'GET',
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
             data: { get_param: 'value' },
             dataType: "json",
             success: function(respuesta) {
@@ -80,7 +80,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "norma/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -97,7 +97,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "cliente/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "proforma/estado",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -137,7 +137,7 @@ $(document).ready(function() {
             url: URL + 'proforma/update/' + id,
             type: 'PUT',
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
             data: {
                 "cod_proforma": id,
                 "costo": $(".costo").val(),
@@ -179,7 +179,7 @@ $(document).ready(function() {
             url: URL +'proforma/'+ $("#id_proforma").val(),
             type: 'GET',
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
             data: { get_param: 'value' },
             dataType: "json",
             success: function(respuesta) {
