@@ -6,7 +6,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "auditor/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "tipo_auditor/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
             type: 'GET',
             url: URL + "auditor/" + $("#id_auditor").val(),
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
             data: { get_param: 'value' },
             dataType: "json",
 
@@ -103,7 +103,7 @@ $(document).ready(function() {
             url: URL+'auditor/update/' + id,
             type: 'PUT',
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
             data: { "cod_auditor": id, "cedula_auditor":$(".cedula_a").val(),
             "nombres_auditor":$(".nombres").val(), "apellidos_auditor":$(".apellidos").val(),
             "telefono":$(".telefono").val(), "correo":$(".correo").val(), "tipo_auditor":tipo.split(" ")[0],
@@ -125,7 +125,7 @@ $(document).ready(function() {
             url: 'http://127.0.0.1:8000/api/auditor/' + id,
             type: 'DELETE',
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
 
         })
 
