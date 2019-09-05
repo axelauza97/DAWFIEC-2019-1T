@@ -3,7 +3,7 @@ $(document).ready(function() {
         type: 'GET',
         url: "http://127.0.0.1:8000/api/ver_usuario/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -47,7 +47,7 @@ $(document).ready(function() {
             url: 'http://127.0.0.1:8000/api/usuario/'+id,
             type: 'DELETE',
             crossDomain: true,
-            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
             
         })
         
