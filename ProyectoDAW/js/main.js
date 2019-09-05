@@ -5,6 +5,16 @@
  });
 
 jQuery(document).ready(function($) {
+		let user = Cookies.get('idus')
+	$.ajax({
+        url: 'http://127.0.0.1:8000/api/usuario/'+user,
+        method:'GET',
+  success: function(data) {
+         
+			$('.icon-user').text(data.first_name)
+          }
+        
+    })
 
 	"use strict";
 
