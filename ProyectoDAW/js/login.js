@@ -12,15 +12,17 @@ $("#ingresar").click(function(){
         },  success: function(data) {
             
             if(data.isAdmin){
-                alert("esAdmin") 
+                
                 window.location.replace("./page_administrador.html");
                 Cookies.set('token', data.token, { expires: 7 });
                 Cookies.set('idus', data.cod, { expires: 7 });
+                Cookies.set('st', 1, { expires: 7 });
             }else{
-                alert("no es admin")
+                
                 window.location.replace("./page_home.html");
                 Cookies.set('token', data.token, { expires: 7 });
                 Cookies.set('idus', data.cod, { expires: 7 });
+                Cookies.set('st', 0, { expires: 7 });
             }
           }
         
