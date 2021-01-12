@@ -11,6 +11,8 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from django.db.models import Count
 
+from django.core.cache import cache
+
 
 class CustomAuthToken(ObtainAuthToken):
 
@@ -87,14 +89,22 @@ class DeleteCliente(generics.DestroyAPIView):
 #AUDITOR
 #--------------------------------------------------------------
 class AuditorList (generics.ListAPIView):
-    
-    queryset = Auditor.objects.all()
+    permission_classes = (AllowAny,)
+    data=cache.get("auditores")
+    if data==None:
+        data=Auditor.objects.all()
+        cache.set("auditores",data , timeout=None)
+        print("no none ",data)
+    queryset = data
+    print("data ",data)
     serializer_class = AuditorSerializer
 
-
-class CreateAuditor(generics.CreateAPIView):
     
+
+class CreateAuditor(generics.CreateAPIView):    
+    permission_classes = (AllowAny,)
     queryset = Auditor.objects.all()
+    cache.set("auditores",queryset, timeout=None)
     serializer_class = AuditorSerializer
 
 class GetAuditor(generics.RetrieveAPIView):   
@@ -149,18 +159,27 @@ class DeleteProforma (generics.DestroyAPIView):
 #CERTIFICADO
 #--------------------------------------------------------------
 class CertificadoList (generics.ListAPIView):
+    permission_classes = (AllowAny,)
     
-    queryset = Certificado.objects.all()
+    data=cache.get("certificados")
+    if data==None:
+        data=Certificado.objects.all()
+        cache.set("certificados",data , timeout=None)
+        print("no none ",data)
+    queryset = data
+    print("data ",data)
     serializer_class = CertificadoSerializer 
 
 class GetCertificado (generics.RetrieveAPIView):
-    
+    permission_classes = (AllowAny,)
     queryset = Certificado.objects.all()
+    
     serializer_class = CertificadoSerializer 
 
 class CreateCertificado (generics.CreateAPIView):
-    
+    permission_classes = (AllowAny,)
     queryset = Certificado.objects.all()
+    cache.set("certificados",queryset, timeout=None)
     serializer_class = CertificadoSerializer 
 
 class UpdateCertificado (generics.UpdateAPIView):

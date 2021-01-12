@@ -6,11 +6,13 @@ $(document).ready(function() {
             type: 'GET',
             url: URL + "certificado/",
             crossDomain: true,
-            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            //            headers: { 'Authorization': 'Token ' + Cookies.get('token') },
             data: { get_param: 'value' },
             dataType: "json",
 
             success: function(respuesta) {
+                console.log(respuesta);
                 $("#contenedor_datos").empty();
                 for (var j = 0; j < respuesta.length; j++) {
                     var cc = respuesta[j].cod_certificado;
@@ -24,7 +26,7 @@ $(document).ready(function() {
                     var ct = respuesta[j].costo;
                     $("#contenedor_datos").append(
                         '<tr>' +
-                        '<td>'+
+                        '<td>' +
                         cc +
                         '</td>' +
                         '<td>' +
@@ -57,7 +59,8 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "norma/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -74,7 +77,7 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "tcertificado/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+        headers: { 'Authorization': 'Token ' + Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -91,7 +94,8 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "auditor/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -108,7 +112,8 @@ $(document).ready(function() {
         type: 'GET',
         url: URL + "cliente/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -121,13 +126,14 @@ $(document).ready(function() {
             });
         }
     });
-    var codusuario="";
+    var codusuario = "";
     $('.modificar').click(function() {
         $.ajax({
             type: 'GET',
             url: URL + "certificado/" + $("#id_certificado").val(),
             crossDomain: true,
-            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
             data: { get_param: 'value' },
             dataType: "json",
 
@@ -163,7 +169,7 @@ $(document).ready(function() {
                     $("#estado option").removeClass("selected");
                     $("#estado option." + estado).prop('selected', true);
                     $("#estado option." + estado).addClass("selected");
-                    codusuario=this.cod_usuario.cod_usuario;
+                    codusuario = this.cod_usuario.cod_usuario;
 
                 });
             }
@@ -181,7 +187,8 @@ $(document).ready(function() {
             url: URL + 'certificado/update/' + id,
             type: 'PUT',
             crossDomain: true,
-            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
             data: {
                 "cod_certificado": id,
                 "cod_norma": norma.split(" ")[0],
@@ -193,7 +200,7 @@ $(document).ready(function() {
                 "fecha_fin": $(".fin").val(),
                 "costo": $(".costo").val(),
                 "estado_certificado": estado.split(" ")[0],
-                "cod_usuario":codusuario,
+                "cod_usuario": codusuario,
                 "observaciones": $(".observacion").val()
             },
             dataType: "json",
@@ -212,8 +219,8 @@ $(document).ready(function() {
             url: 'http://127.0.0.1:8000/api/certificado/delete/' + id,
             type: 'DELETE',
             crossDomain: true,
-            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
-
+            //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
         })
 
     });

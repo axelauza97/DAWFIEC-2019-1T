@@ -3,57 +3,59 @@ $(document).ready(function() {
 
     function initateTable() {
         $.ajax({
-        type: 'GET',
-        url: URL + "auditor/",
-        crossDomain: true,
-        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
-        data: { get_param: 'value' },
-        dataType: "json",
+            type: 'GET',
+            url: URL + "auditor/",
+            crossDomain: true,
+            //headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            data: { get_param: 'value' },
+            dataType: "json",
 
-        success: function(respuesta) {
-            $("#contenedor_Datos").empty();
-            for (var j = 0; j < respuesta.length; j++) {
-                var codigo = respuesta[j].cod_auditor;
-                var nombres = respuesta[j].nombres_auditor;
-                var apellidos = respuesta[j].apellidos_auditor;
-                var ruc = respuesta[j].cedula_auditor;
-                var telefono = respuesta[j].telefono;
-                var domicilio = respuesta[j].direccion;
-                $("#contenedor_Datos").append(
-                    '<tr>' +
-                    '<td>' +
-                    codigo +
-                    '</td>' +
-                    '<td>' +
-                    nombres +
-                    '</td>' +
-                    '<td>' +
-                    apellidos +
-                    '</td>' +
-                    '<td class"cedula">' +
-                    ruc +
-                    '</td>' +
-                    '<td>' +
-                    telefono +
-                    '</td>' +
-                    '<td>' +
-                    domicilio +
-                    '</td>' +
-                    '</tr>'
-                );
+            success: function(respuesta) {
+                $("#contenedor_Datos").empty();
+                for (var j = 0; j < respuesta.length; j++) {
+                    var codigo = respuesta[j].cod_auditor;
+                    var nombres = respuesta[j].nombres_auditor;
+                    var apellidos = respuesta[j].apellidos_auditor;
+                    var ruc = respuesta[j].cedula_auditor;
+                    var telefono = respuesta[j].telefono;
+                    var domicilio = respuesta[j].direccion;
+                    $("#contenedor_Datos").append(
+                        '<tr>' +
+                        '<td>' +
+                        codigo +
+                        '</td>' +
+                        '<td>' +
+                        nombres +
+                        '</td>' +
+                        '<td>' +
+                        apellidos +
+                        '</td>' +
+                        '<td class"cedula">' +
+                        ruc +
+                        '</td>' +
+                        '<td>' +
+                        telefono +
+                        '</td>' +
+                        '<td>' +
+                        domicilio +
+                        '</td>' +
+                        '</tr>'
+                    );
+                }
+
+
             }
-
-
-        }
-    });
+        });
     }
     initateTable();
-    
+
     $.ajax({
         type: 'GET',
         url: URL + "tipo_auditor/",
         crossDomain: true,
-        headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+        headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+        //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
         data: { get_param: 'value' },
         dataType: "json",
 
@@ -73,7 +75,8 @@ $(document).ready(function() {
             type: 'GET',
             url: URL + "auditor/" + $("#id_auditor").val(),
             crossDomain: true,
-            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
             data: { get_param: 'value' },
             dataType: "json",
 
@@ -85,10 +88,10 @@ $(document).ready(function() {
                     $(".telefono").val(this.telefono);
                     $(".correo").val(this.correo);
                     $(".direccion").val(this.direccion);
-                    var tipo=this.tipo_auditor;
+                    var tipo = this.tipo_auditor;
                     $("option").removeClass("selected");
-                    $("option."+tipo).prop('selected', true);
-                    $("option."+tipo).addClass("selected");
+                    $("option." + tipo).prop('selected', true);
+                    $("option." + tipo).addClass("selected");
 
                 });
             }
@@ -98,16 +101,23 @@ $(document).ready(function() {
 
     $("#actualizar").click(function() {
         var id = document.getElementById('id_auditor').value;
-        var tipo=$("option:selected").attr('class');
+        var tipo = $("option:selected").attr('class');
         $.ajax({
-            url: URL+'auditor/update/' + id,
+            url: URL + 'auditor/update/' + id,
             type: 'PUT',
             crossDomain: true,
-            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
-            data: { "cod_auditor": id, "cedula_auditor":$(".cedula_a").val(),
-            "nombres_auditor":$(".nombres").val(), "apellidos_auditor":$(".apellidos").val(),
-            "telefono":$(".telefono").val(), "correo":$(".correo").val(), "tipo_auditor":tipo.split(" ")[0],
-            "direccion":$(".direccion").val() },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
+            data: {
+                "cod_auditor": id,
+                "cedula_auditor": $(".cedula_a").val(),
+                "nombres_auditor": $(".nombres").val(),
+                "apellidos_auditor": $(".apellidos").val(),
+                "telefono": $(".telefono").val(),
+                "correo": $(".correo").val(),
+                "tipo_auditor": tipo.split(" ")[0],
+                "direccion": $(".direccion").val()
+            },
             dataType: "json",
 
             success: function(respuesta) {
@@ -125,7 +135,8 @@ $(document).ready(function() {
             url: 'http://127.0.0.1:8000/api/auditor/' + id,
             type: 'DELETE',
             crossDomain: true,
-            headers: { 'Authorization': 'Token '+ Cookies.get('token') },
+            headers: { 'Authorization': 'Token ad1f14ec4c59bae7d44504110841a59575ef32be' },
+            //headers: { 'Authorization': 'Token ' + Cookies.get('token') },
 
         })
 
@@ -161,24 +172,24 @@ $(document).ready(function() {
         overlay.classList.remove('active');
         popup.classList.remove('active');
     });
-        $("#myInput").on("keyup", function() {
+    $("#myInput").on("keyup", function() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("tabla_auditor");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
-          }       
         }
-      });
+    });
 
 
 });

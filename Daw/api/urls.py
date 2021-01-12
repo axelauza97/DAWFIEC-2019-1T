@@ -46,7 +46,7 @@ urlpatterns =[
     #certificado
     path('certificado/',CertificadoList.as_view(),name='certificado'),
     path('certificado/<int:pk>',GetCertificado.as_view()),
-    path('certificado/create',GetCertificado.as_view()),
+    path('certificado/create',CreateCertificado.as_view()),
     path('certificado/update/<int:pk>',UpdateCertificado.as_view()),
     path('certificado/delete/<int:pk>',DeleteCertificado.as_view()),
     #end certificado
